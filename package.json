@@ -45,6 +45,7 @@
     "express-validator": "^4.3.0",
     "jest": "^22.1.4",
     "lusca": "^1.5.2",
+    "merge": "^1.2.1",
     "migrate-mongoose": "^3.2.2",
     "mongoose": "^4.13.11",
     "nodemailer": "^4.4.1",

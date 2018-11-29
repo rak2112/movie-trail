@@ -9,3 +9,4 @@ sendgrid.env
 env.variables
 client
 coverage
+debug.log

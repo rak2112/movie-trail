@@ -5294,3 +5294,5 @@
 {"level":"debug","message":"Using .env.variables file to supply config environment variables","timestamp":"2018-11-29T13:53:32.191Z"}
 {"level":"debug","message":"Logging initialized at debug level","timestamp":"2018-11-29T15:53:56.871Z"}
 {"level":"debug","message":"Using .env.variables file to supply config environment variables","timestamp":"2018-11-29T15:53:56.873Z"}
+{"level":"debug","message":"Logging initialized at debug level","timestamp":"2018-11-29T18:38:17.250Z"}
+{"level":"debug","message":"Using .env.variables file to supply config environment variables","timestamp":"2018-11-29T18:38:17.251Z"}
