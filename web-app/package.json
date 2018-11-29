@@ -1,0 +1,53 @@
+{
+  "name": "web-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/base-64": "^0.1.2",
+    "@types/react-bootstrap": "^0.32.14",
+    "@types/react-js-pagination": "^3.0.1",
+    "base-64": "^0.1.0",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "react-scripts-ts": "3.1.0"
+  },
+  "proxy": "http://localhost:5000",
+  "scripts": {
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.9",
+    "@types/node": "^10.12.1",
+    "@types/passport-http": "^0.3.6",
+    "@types/react": "^16.4.18",
+    "@types/react-dom": "^16.0.9",
+    "@types/react-redux": "^6.0.9",
+    "@types/react-router-dom": "^4.3.1",
+    "@types/react-router-redux": "^5.0.16",
+    "@types/redux-form": "^7.4.12",
+    "emotion": "^9.2.12",
+    "enzyme": "^3.7.0",
+    "node-sass": "^4.9.4",
+    "passport-http": "^0.3.0",
+    "react-addons-test-utils": "^15.6.2",
+    "react-bootstrap": "^0.32.4",
+    "react-emotion": "^9.2.12",
+    "react-js-pagination": "^3.0.2",
+    "react-redux": "^5.1.0",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-router-redux": "^4.0.8",
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-form": "^7.4.2",
+    "redux-immutable-state-invariant": "^2.1.0",
+    "redux-mock-store": "^1.5.3",
+    "redux-observable": "^1.0.0",
+    "reselect": "^4.0.0",
+    "rxjs": "^6.3.3",
+    "typescript": "^3.1.5"
+  }
+}
