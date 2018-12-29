@@ -3,8 +3,11 @@ import React from 'react';
 import { connect, MapStateToProps } from 'react-redux';
 import { HomeComponent } from '../components/home.component';
 
-import { loadMovies } from '../../core/actions';
+import { loadGenres, loadMovies } from '../../core/actions';
 import { Movies } from '../../core/interfaces';
+import { getMovieGenres } from '../../core/selectors/movies';
+
+
 
 interface Props {
   api: {};
@@ -15,14 +18,15 @@ interface Props {
 const Home = (props: Props) => <HomeComponent {...props}/>
 
 const mapStateToProps: MapStateToProps <any, any, any> = (state) => {
-  // console.log('state', state);
   const { movies, api } = state;
   return {
     api,
-    movies
+    movies,
+    genres: getMovieGenres(state)
   }
 };
 
 export default connect( mapStateToProps, {
+  loadGenres,
   loadMovies
 })(Home);

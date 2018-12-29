@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 // import { Pager, Pagination } from 'react-bootstrap';
 import Pagination from "react-js-pagination";
 
@@ -33,12 +33,12 @@ const Footer = styled('footer')`
   }
 `;
 
-export class MoviesPagination extends Component <any, any>{
+export class MoviesPagination extends PureComponent <any, any>{
   render() {
     return (
       <Footer>
         <Pagination
-          activePage={this.props.pageNo}
+          activePage={+this.props.pageNo}
           itemsCountPerPage={20}
           totalItemsCount={this.props.totalPages}
           pageRangeDisplayed={5}

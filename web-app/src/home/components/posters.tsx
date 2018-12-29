@@ -34,7 +34,6 @@ const Container = styled('div')`
 export const Posters: React.SFC<Poster> = ({movies}) => {
   return (
     <Container>
-      <h3>React Movie Base</h3>
       {
         movies.results.map( (movie, index): ReactNode | void => {
           if(index < 9) {

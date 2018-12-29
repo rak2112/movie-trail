@@ -3,7 +3,7 @@ import { User } from '../interfaces';
 
 export type UserState = User | null;
 
-export const userReducer = ( state: UserState = null, action: actions.UserAction): UserState => {
+export const user = ( state: UserState = null, action: actions.UserAction): UserState => {
 
   if(action.type === actions.LOG_IN_SUCCESS) {
     return action.res;
@@ -12,6 +12,9 @@ export const userReducer = ( state: UserState = null, action: actions.UserAction
   if(action.type === actions.LOG_OUT_SUCESS) {
     return state = null;
   }
+
+  if(action.type === actions.PASSWORD_RESET_REQUEST_SUCCESS) {
+    return action.res;
+  }
   return state;
 };
-

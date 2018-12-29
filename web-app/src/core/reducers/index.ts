@@ -4,23 +4,27 @@ import { reducer as formReducer } from 'redux-form'
 
 import { api, ApiState } from './api';
 import { genres, GenresState } from './genres';
-import { moviesReducer, MoviesState } from './movies';
-import { userReducer } from './user';
+import { movieDetails, MovieDetailState } from './movie-details';
+import { movies, MoviesState } from './movies';
+import { user, UserState } from './user';
 
 
 export interface State {
   readonly api: ApiState;
   readonly genres: GenresState
-  readonly moviesReducer: MoviesState;
+  readonly movieDetails: MovieDetailState;
+  readonly movies: MoviesState;
+  readonly user: UserState;
 }
 
 const rootReducer = combineReducers({
   api,
   form: formReducer,
   genres,
-  movies: moviesReducer,
+  movieDetails,
+  movies,
   routing: routerReducer,
-  user: userReducer
+  user
 });
 
 export default rootReducer;

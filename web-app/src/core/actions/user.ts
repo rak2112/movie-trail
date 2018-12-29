@@ -14,6 +14,9 @@ export const SIGN_UP_REQUEST_SUCCESS = `${SIGN_UP_REQUEST} success`;
 export const PASSWORD_RESET_REQUEST = `${app} user password reset request`;
 export const PASSWORD_RESET_REQUEST_SUCCESS = `${PASSWORD_RESET_REQUEST} success`;
 
+export const RESET_PASSWORD = `${app} reset user passsword`;
+export const RESET_PASSWORD_SUCCESS = `${RESET_PASSWORD} success`;
+
 export class LoginRequest implements Action {
   readonly type = LOG_IN_REQUEST
   constructor(public readonly formValues: FormValues){}
@@ -47,6 +50,16 @@ export class RestPasswordRequest implements Action {
   constructor(public readonly formValues: FormValues){}
 }
 
+export class RestPasswordRequestSuccess implements Action {
+  readonly type = PASSWORD_RESET_REQUEST
+  constructor(public readonly res: User){}
+}
+
+export class RestPassword implements Action {
+  readonly type = RESET_PASSWORD
+  constructor(public readonly formValues: FormValues){}
+}
+
 export const loginRequest = (formValues: FormValues): LoginRequest => ({ type: LOG_IN_REQUEST, formValues });
 export const logoutRequest = (): LogoutRequest => ({ type: LOG_OUT_REQUEST });
 export const loginRequestSuccess = (res: User): LoginRequestSuccess => ({ type: LOG_IN_SUCCESS, res});
@@ -56,6 +69,10 @@ export const signUpRequest = (formValues: FormValues): SignUpRequest => ({ type:
 export const signUpRequestSuccess = (res: User): SignUpRequestSuccess => ({ type: SIGN_UP_REQUEST_SUCCESS, res });
 
 export const resetPasswordRequest = (formValues: FormValues): RestPasswordRequest => ({ type: PASSWORD_RESET_REQUEST, formValues });
+export const resetPasswordRequestSuccess = (res: User): RestPasswordRequestSuccess => ({ type: PASSWORD_RESET_REQUEST_SUCCESS, res });
+
+export const resetPassword = (formValues: FormValues): RestPassword => ({ type: RESET_PASSWORD, formValues });
 
 export type UserAction = 
-  | LoginRequestSuccess;
+  | LoginRequestSuccess
+  | RestPasswordRequestSuccess;

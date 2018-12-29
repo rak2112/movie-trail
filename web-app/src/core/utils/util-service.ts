@@ -35,7 +35,8 @@ export const appErrors = {
   loginError: `Your login credentials are not correct. Please try again using correct details.`,
   userExist: `A user with this email has already exisisted. Please provide a different email address!`,
   passwordMatch: `Your password does not match, Please type again!`,
-  tokenExpired: `Your token has been expired please request a new token`
+  tokenExpired: `Your token has been expired please request a new token`,
+  emailNotFound: `Account with this email address does not exist.`
 };
 
 

@@ -24,12 +24,6 @@ const Header = styled('header')`
     .nav-bar {
       border-radius: 0;
     }
-    /* a.active {
-      background: rgb(0, 0, 0);
-      color: rgb(255, 92, 0);
-      border-bottom: 4px solid;
-      padding-bottom: 8px;
-    } */
   }
 `;
 
@@ -54,9 +48,13 @@ export const MenuItemsComponent = ({user, logoutRequest}: Props) => {
           <li><NavLink to='/latest'>Latest</NavLink></li>
           <li><NavLink to='/popular'>Hits</NavLink></li>
           <li><NavLink to='/up-coming'>Coming Soon</NavLink></li>
-          { !user && <li className="float-right"><NavLink to='/login'>Sign in</NavLink></li>}
-          { user && <li className="float-right" ><a href="#" onClick={ logoutRequest }>Log out</a></li>}
-          {/* <li><NavLink to='/up-coming'>User</NavLink></li> */}
+          { !user && <li className="float-right"><NavLink to='/login'>Sign in</NavLink></li> }
+          { user && user.loggedIn &&
+            <>
+              <li className="float-right" ><a href="#" onClick={ logoutRequest }>Log out</a></li>
+              <li className="float-right"><NavLink to='/profile'>Profile</NavLink></li>
+            </>
+          }
         </ul>
       </nav>
     </Header>

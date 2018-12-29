@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component, PureComponent } from 'react';
 import styled from 'react-emotion';
 
 const Container = styled('div')`
@@ -14,23 +14,10 @@ const Container = styled('div')`
   }
 `;
 
-// export const MovieList:React.SFC<any> = ({children}) => {
-//   return (
-//     <Container>
-//       {children()}
-//     </Container>
-//   )
-// };
-
-
-export class MovieList extends PureComponent <any, any> {
-  render() {
-    const { children }: any = this.props;
-    return (
-      <Container>
-        <h3>All Movies</h3>
-        {children()}
-      </Container>
-    )
-  }
+export const MovieList:React.SFC<any> = ({children}) => {
+  return (
+    <Container>
+      {children()}
+    </Container>
+  )
 };

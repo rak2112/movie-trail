@@ -5,18 +5,33 @@ import { Loader } from './loader';
 interface Props {
   api: Api;
   movies: Movies;
-  genres: Genre[]
+  genres: Genre[];
+  loadGenres: () => void;
+  loadUserMovies: () => void;
+  loadMovies: (pageNo: number) => void;
 }
 
 export const LoadingCompWrapper = (WrappedComponent: ComponentType<any>) : ComponentType <any> =>{
-  return class extends PureComponent <Props> {
+  return class extends PureComponent <any> {
+    componentDidMount() { 
+      // console.log('getttin in the mount??????????', this.props)
+      this.props.loadMovies(this.props.match.params.pageNo || 1);
+      this.props.loadGenres();
+    }
     public render() { 
-      // console.log('wrrappperrr compponetn --->', this.props);
-      const { api: {isFetching}, ...movieProps } = this.props;
+      const { api: {isFetching}, movies, ...movieProps } = this.props;
+      const props = {...movieProps, movies};
+      
       if(isFetching) {
         return <Loader/>
       }
-      return <WrappedComponent {...movieProps}/>
+      
+      if(movies) {
+        return <WrappedComponent {...props}/>
+      }
+
+      return null;
+      
     }
   }
 };

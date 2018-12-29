@@ -25,20 +25,32 @@ export interface Api {
   isFetching?: boolean;
   hasError?: boolean;
   errorMessage?: string;
-  
 }; 
 
 export interface FormValues {
-  username: string;
+  name?: string;
+  email: string;
   password: string;
   confirmPassword?: string;
   token?: string;
+}
+
+export interface Language {
+  id: string;
+  name: string;
 }
 
 export interface Movie {
   id: number;
   backdrop_path: string;
   genre_ids: number[];
+  genres: Genre[];
+  homepage: string;
+  overview: string;
+  runtime: string;
+  release_date: string;
+  spoken_languages: Language[];
+  status: string;
   title: string;
   vote_average: string;
 };
@@ -66,21 +78,66 @@ export interface Genre {
   name: MovieType;
 };
 
-export interface StateProps {
-  api? : Api;
-  genres: Genre[];
-  movies: Movies;
-  user: User;
-  loadGenres: () => void;
-  loadMovies: (pageNo: number) => void;
-}
-
 export interface UserMovie extends Movie {
-  type: UserMovieType;
+  _id: string;
+  movieType: UserMovieType;
 }
 
 export interface User {
+  email?: string;
   displayName?: string;
-  movies?: UserMovie[]
+  loggedIn?: boolean;
+  movies?: UserMovie[];
+  resetMessage?: string;
   token?: string;
+}
+
+export interface UserMovieMap {
+  [id: string]: UserMovie
+}
+
+export interface Cast {
+  character: string;
+  id: string;
+  name: string;
+  profile_path?: string;
+}
+
+export interface Crew extends Cast {
+  department: string;
+  job: string;
+}
+
+export interface Poster {
+  file_path: string;
+}
+
+export interface Persons {
+  id?: string;
+  cast: Cast[];
+  crew: Crew[];
+}
+
+export interface Posters {
+  id?: string;
+  backdrops: Poster[];
+  posters: Poster[];
+}
+
+export interface Video {
+  id: string;
+  key: string;
+  name: string;
+}
+
+export interface Videos {
+  id: string;
+  results: Video[]
+}
+
+export interface MovieDetail {
+  details: Movie;
+  images: Posters;
+  persons: Persons;
+  videos: Videos
 }

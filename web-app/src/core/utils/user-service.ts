@@ -5,7 +5,7 @@ import { http } from '../../index';
 import { FormValues, User, UserMovie } from '../interfaces';
 
 export const getUser = (formValues: FormValues): Observable<User> => {
-  const { username: email, password } = formValues;
+  const { email, password } = formValues;
   const auth = 'Basic ' + base64.encode(`${email}:${password}`);
   const headers = {
     'Authorization': auth
@@ -22,19 +22,26 @@ export const logOutUser = (): Observable<{}> => {
 };
 
 export const signUpUser = (formValues: FormValues): Observable<{}> => {
-  const { username: email, password } = formValues;
+  const { name: displayName, ...props } = formValues;
   return  http.post( `/api/user/signup`, {
-    email, password
+    ...props, displayName
   }).pipe(
     map(({ response }) => response)
   )
 };
 
 export const resetUserPassword = (formValues: FormValues): Observable<{}> => {
-  console.log('passssss', formValues);
   const { token, ...reset } = formValues;
   return  http.post( `/api/user/account/reset/${token}`, {
     ...reset
+  }).pipe(
+    map(({ response }) => response)
+  )
+};
+
+export const sendResetRequest = ({ email }: FormValues): Observable<{}> => {
+  return  http.post( `/api/user/account/reset/token`, {
+    email
   }).pipe(
     map(({ response }) => response)
   )
@@ -45,3 +52,4 @@ export const getUserMovies = (): Observable<UserMovie[]> => {
     map((res: UserMovie[]) => res)
   )
 };
+

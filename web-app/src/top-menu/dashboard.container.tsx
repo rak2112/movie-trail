@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect, MapStateToProps } from 'react-redux';
 
 import { logoutRequest } from '../core/actions/';
-import { StateProps, User, UserMovie } from '../core/interfaces';
+import { User, UserMovie } from '../core/interfaces';
 import { MenuBar } from './menu-bar.component';
 
 
@@ -57,7 +57,7 @@ const TopMenu = (props: MenuBarProps) => <MenuBar {...props}/>
 //   };
 // }
 
-const mapStateProps:MapStateToProps <any, any, any> = (state: MenuBarProps) =>{
+const mapStateProps: MapStateToProps <any, any, any> = (state: MenuBarProps) =>{
   const { user } = state;
   return {
     user

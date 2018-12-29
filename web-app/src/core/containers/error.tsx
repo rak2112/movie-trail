@@ -11,7 +11,6 @@ interface Props {
 const Error = ({ api }: Props) => <LoadError {...api}/>
 
 const mapStateToProps: MapStateToProps <any, any, any> = (state) => {
-  // console.log('state in errrrror', state);
   const { api } = state;
   return {
     api

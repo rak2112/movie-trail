@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import {login, logOut, requestResetToken, resetPassword, signUp} from './';
 
-export let userRouter = Router();
+export const userRouter = Router();
 
 userRouter.post('/signup', signUp);
 userRouter.get('/login', login);

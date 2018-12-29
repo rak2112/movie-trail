@@ -4,7 +4,7 @@ import { Field } from 'redux-form'
 import { formInput, required } from '../../core/components';
 import { StyledComponent } from '../index';
 
-export const SignUpComponent = (props: any) => { console.log(' propsss of signup', props);
+export const SignUpComponent = (props: any) => {
   const { handleSubmit, pristine, reset, submitting, location } = props
   const signingUp = (/^\/register/gi).test(location.pathname);
   return (
@@ -17,10 +17,20 @@ export const SignUpComponent = (props: any) => { console.log(' propsss of signup
           }
           {
             signingUp && <Field 
-              name="username" 
+              name="email" 
               type="text"
               component={formInput} 
-              placeholder="User name / email"
+              placeholder="email"
+              validate={[ required ]}
+            />
+          }
+
+          {
+            signingUp && <Field 
+              name="name" 
+              type="text"
+              component={formInput} 
+              placeholder="name"
               validate={[ required ]}
             />
           }
@@ -40,11 +50,12 @@ export const SignUpComponent = (props: any) => { console.log(' propsss of signup
             component={formInput}
             validate={[ required ]}
           />
+
         </div>
-        <button type="submit" className="btn btn-primary" disabled={submitting}>{
-          (signingUp) ? `Sign up` : `Change password`
-        }</button>
-        <Link className="btn btn-warning" to={{pathname: '/movies' }}>Cancel</Link>
+        <button type="submit" className="btn btn-primary" disabled={submitting}>
+          { (signingUp) ? `Sign up` : `Change password`}
+        </button>
+        <Link className="btn btn-warning" to={{ pathname: '/movies' }}>Cancel</Link>
       </form>
     </StyledComponent>
   )

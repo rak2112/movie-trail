@@ -1,33 +1,43 @@
 import { ofType } from "redux-observable";
 import { forkJoin } from 'rxjs';
-import { catchError, map, switchMap, tap, withLatestFrom } from 'rxjs/operators';
+import { catchError, map, mapTo, switchMap, tap, withLatestFrom } from 'rxjs/operators';
 
 import { of } from 'rxjs';
+
+import { State } from '../reducers';
 
 import * as actions from '../actions';
 import { User, UserMovie } from '../interfaces';
 import { history } from '../routes';
 import * as service from '../utils';
 
+import { push } from 'react-router-redux';
+
 export const userLogin = (action$: any, state$: any) => action$.pipe (
   ofType(actions.LOG_IN_REQUEST),
   withLatestFrom(state$),
   switchMap(([{formValues}, state]) =>
-    service.getUser(formValues) ),
-    switchMap((res: User) => {
-      return service.getUserMovies().pipe(
-        switchMap((movies: UserMovie[]) => {
-          const newState = { ...res, movies };
-          service.saveState('user', newState);
-          return [actions.loginRequestSuccess(newState)];
-        })
-      )
-    // saveState('user', res);
-    // return  [
-    //   actions.loginRequestSuccess(res)
-    // ]
+    service.getUser(formValues).pipe(
+      // map((res) => { console.log('map here resss', res);
+      //   service.saveState('user', {...res, loggedIn: true});
+      //   return actions.loginRequestSuccess({...res, loggedIn: true});
+      // })
+    )),
+  switchMap(res => {
+    console.log('second ', res);
+    // return of(true);
+    return service.getUserMovies().pipe(
+      map(userMovies => {
+        const userState = {...res, loggedIn: true, movies: userMovies};
+        service.saveState('user', userState);
+        return actions.loginRequestSuccess(userState)
+      })
+    )
   }),
-  tap(()=> history.push('/movies')),
+    // switchMap(() => [history.push('/movies')]),
+
+  // mapTo( push({url: '/movies'}) ),
+  tap(()=>  history.push('/movies')),
   catchError(err => of(actions.apiError(service.appErrors.loginError))
   )
 );
@@ -73,13 +83,13 @@ export const userSignUp = (action$: any) => action$.pipe (
       switchMap((res: any) => { console.log('ress from server', res);
         return service.getUserMovies().pipe(
           switchMap((movies: UserMovie[]) => { console.log('usserrrr movies if loging', movies)
-            const newState = { ...res, movies };
+            const newState = { ...res, movies, loggedIn: true };
             service.saveState('user', newState);
             return [actions.loginRequestSuccess(newState)];
           })
         )
       }),
-      tap(()=> history.push('/movies')),
+      tap(() => history.push('/movies')),
       catchError(err => { console.log('errr', err);
         if(err.status === 409) {
           return of(actions.apiError(service.appErrors.userExist));
@@ -90,21 +100,21 @@ export const userSignUp = (action$: any) => action$.pipe (
     )
 );
 
-export const resetPassword = (action$: any) => action$.pipe (
-  ofType(actions.PASSWORD_RESET_REQUEST),
-  switchMap(({formValues}) =>
-  service.resetUserPassword(formValues).pipe(
+export const resetPassword = (action$: any, state$: any) => action$.pipe (
+  ofType(actions.RESET_PASSWORD),
+  withLatestFrom(state$),
+  switchMap(([{formValues}, state ]) =>
+    service.resetUserPassword(formValues).pipe(
       switchMap((res: any) => { console.log('ress from server', res);
-        // return getUserMovies().pipe(
-        //   switchMap((movies: UserMovie[]) => { console.log('usserrrr movies if loging', movies)
-        //     const newState = { ...res, movies };
-        //     saveState('user', newState);
-        //     return [actions.loginRequestSuccess(newState)];
-        //   })
-        // )
-        return [];
+        return service.getUserMovies().pipe(
+          switchMap((movies: UserMovie[]) => { console.log('usserrrr movies if loging', movies)
+          const newState = { ...res, movies, loggedIn: true };
+            service.saveState('user', newState);
+            return [actions.loginRequestSuccess(newState)];
+          })
+        )
       }),
-      // tap(()=> history.push('/movies')),
+      tap(()=> history.push('/movies')),
       catchError(err => { console.log('errr', err);
         if(err.status === 401) {
           return of(actions.apiError(service.appErrors.tokenExpired));
@@ -113,4 +123,21 @@ export const resetPassword = (action$: any) => action$.pipe (
       })
       )
     )
+);
+
+export const sendPasswordRequest = (action$: any) => action$.pipe (
+  ofType(actions.PASSWORD_RESET_REQUEST),
+  switchMap(({ formValues }) =>
+  service.sendResetRequest(formValues).pipe(
+    switchMap(({ message }: {message: string}) => { console.log('ress from server', message);
+      // :TODO, gett the user state and pass the user in the action.
+      return [actions.resetPasswordRequestSuccess({ resetMessage: message })];
+    }),
+    catchError(err => { console.log('errr', err);
+      if(err.status === 401) {
+        return of(actions.apiError(service.appErrors.emailNotFound));
+      }
+      return of(actions.apiError(service.appErrors.apiError));
+    }))
+  )
 );

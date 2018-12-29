@@ -21,7 +21,7 @@ export const controllers = {
   },
 
   getAll(model, id) {
-    return model.find({userId: id}, {users: 0}).cache({key: id});
+    return model.find({userId: id}, {userId: 0}).cache({key: id});
   },
 
   findByParam(model, id) {
@@ -29,10 +29,12 @@ export const controllers = {
   }
 }
 
-export const createOne = (model) => (req, res, next) => {
-  return controllers.createOne(model, req.body)
-    .then(doc => res.status(201).json(doc))
-    .catch(error => next(error))
+export const createOne = (model) => async (req, res, next) => { 
+  const { user: { _id: userId }, body } = req; console.log('req boddyy in crreate', body.data);
+  const data = JSON.parse(body.data);
+  const doc = await controllers.createOne(model, {...data, userId})
+    .catch(error => next(error));
+  res.status(201).json({id: doc._id});
 }
 
 export const updateOne = (model) => async (req, res, next) => {

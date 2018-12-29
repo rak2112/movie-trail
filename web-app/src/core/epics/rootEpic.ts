@@ -1,12 +1,18 @@
 import { combineEpics } from 'redux-observable';
-import { loadMoviesEpic, loadMoviesPostersEpic } from './movies';
-import { resetPassword, userLogin, userLogOut, userSignUp } from './user';
+import { loadMovieDetails } from './movie-details';
+import { addMovie, deleteMovie, loadGenres, loadMovies, loadUserMovies } from './movies';
+import { resetPassword, sendPasswordRequest, userLogin, userLogOut, userSignUp } from './user';
 // import { fetchMoviesEpic, fetchExploreEpic, fetchNextPageEpic, fetchMovieDetailsEpic, searchForMoviesEpic } from './movieList_Epic.js';
 
 export const rootEpic = combineEpics(
-  loadMoviesEpic,
-  loadMoviesPostersEpic,
+  addMovie,
+  deleteMovie,
+  loadGenres,
+  loadMovieDetails,
+  loadMovies,
+  loadUserMovies,
   resetPassword,
+  sendPasswordRequest,
   userLogin,
   userLogOut,
   userSignUp

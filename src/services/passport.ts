@@ -31,7 +31,7 @@ passport.deserializeUser((id, done) => { console.log('Deserializing userrrr', id
 });
 
 passport.use(new BasicStrategy(
-  function(email: string, password:string, done) {
+  function(email: string, password: string, done) {
     User.findOne({ email }, function (err, user) {
       if (err) { return done(err); }
       if (!user) { return done(null, false); }
@@ -42,7 +42,6 @@ passport.use(new BasicStrategy(
         if (isMatch) {
           return done(undefined, user);
         }
-        console.log('hereee in the message matchess password');
         return done(true, false);
       });
     });
@@ -51,8 +50,8 @@ passport.use(new BasicStrategy(
 
 passport.use('local', new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
   console.log('in passport service', email);
+  
   User.findOne({ email: email.toLowerCase() }, (err, user: any) => {
-    console.log('in passport service2', user);
     if (err) { return done(err); }
     if (!user) {
       return done(undefined, false, { message: `Email ${email} not found.` });
@@ -62,7 +61,7 @@ passport.use('local', new LocalStrategy({ usernameField: 'email' }, (email, pass
       if (isMatch) {
         return done(undefined, user);
       }
-      console.log('hereee in the message');
+
       return done(true, false);
     });
   });

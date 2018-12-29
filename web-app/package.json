@@ -6,10 +6,15 @@
     "@types/base-64": "^0.1.2",
     "@types/react-bootstrap": "^0.32.14",
     "@types/react-js-pagination": "^3.0.1",
+    "@types/uuid": "^3.4.4",
+    "add": "^2.0.6",
     "base-64": "^0.1.0",
+    "izitoast": "^1.4.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
-    "react-scripts-ts": "3.1.0"
+    "react-scripts-ts": "3.1.0",
+    "react-toastify": "^4.4.3",
+    "yarn": "^1.12.3"
   },
   "proxy": "http://localhost:5000",
   "scripts": {
