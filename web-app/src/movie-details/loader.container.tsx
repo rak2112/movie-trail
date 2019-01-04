@@ -21,6 +21,7 @@ export const LoadingComponent = (WrappedComponent: ComponentType<any>) : Compone
       const { match: { params: { id }}} = this.props;
       this.props.loadMovieDetail(id);
     }
+
     public render() { 
       const { api: {isFetching}, ...movieProps } = this.props;
       

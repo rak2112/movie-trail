@@ -1,11 +1,16 @@
 import React from 'react';
 import styled from 'react-emotion';
 
+import { Movie, UserMovieMap, UserView } from '../interfaces';
+
 const Container = styled('div')`
   background: #000;
   font-size: 22px;
   opacity: 0.9;
   text-align: right !important;
+  .user-actions {
+    text-align: end;
+  }
   a {
     color: #cc3300;
     margin-right: 14px;
@@ -29,32 +34,44 @@ const Container = styled('div')`
   }
 `;
 
-export const UserActions = ({addMovie, deleteMovie, movie, userMovies}: any) => {
+export interface UserAction {
+  movie: Movie;
+  userMovies: UserMovieMap
+  userView?: UserView;
+  addMovie: (movie: Movie) => void;
+  deleteMovie: (movie: Movie) => void;
+}
+
+export const UserActions = ({addMovie, deleteMovie, movie, userView, userMovies}: UserAction) => {
   return (
     <Container>
+     <div className="user-actions">
       <span className='rating'>{movie.vote_average}<span className="glyphicon glyphicon-star"/></span>
-      { (userMovies.favorites[movie.id] && userMovies.favorites[movie.id].movieType === 'FAVORITE') ?
-        <a title="Remove From Favorites"
-          onClick={deleteMovie.bind(UserActions, {...movie, id: userMovies.favorites[movie.id]._id})}>
-          <span className="glyphicon glyphicon-heart"/>
-        </a>
-        :
-        <a title="Add to Favorites"
-          onClick={addMovie.bind(UserActions, {...movie, movieType: 'FAVORITE'})}>
-          <span className="glyphicon glyphicon-heart add-to-list"/>
-        </a>
-      }
+        { userMovies.favorites[movie.id] &&
+          <a title="Remove From Favorites"
+            onClick={deleteMovie.bind(UserActions, {...movie, id: userMovies.favorites[movie.id]._id})}>
+            <span className="glyphicon glyphicon-heart"/>
+          </a>
+        }  
+        { (!userMovies.favorites[movie.id] && userView !== 'Watchlist') &&
+          <a title="Add to Favorites"
+            onClick={addMovie.bind(UserActions, {...movie, movieType: 'FAVORITE'})}>
+            <span className="glyphicon glyphicon-heart add-to-list"/>
+          </a>
+        }
 
-      {
-        (userMovies.watchlist[movie.id] && userMovies.watchlist[movie.id].movieType === 'WATCHLIST') ? 
-        <a title="Remove From List" onClick={deleteMovie.bind(UserActions, {...movie, id: userMovies.watchlist[movie.id]._id})}>
-          <span className="glyphicon glyphicon-bookmark"/>
-        </a>
-        :
-        <a title="Add to List" onClick={addMovie.bind(UserActions, {...movie, movieType: 'WATCHLIST'})}>
-          <span className="glyphicon glyphicon-bookmark add-to-list"/>
-        </a>
-      }
+        {
+          userMovies.watchlist[movie.id] &&
+          <a title="Remove From List" onClick={deleteMovie.bind(UserActions, {...movie, id: userMovies.watchlist[movie.id]._id})}>
+            <span className="glyphicon glyphicon-bookmark"/>
+          </a>
+        }
+        { (!userMovies.watchlist[movie.id] && userView !== 'Favorites') &&
+          <a title="Add to List" onClick={addMovie.bind(UserActions, {...movie, movieType: 'WATCHLIST'})}>
+            <span className="glyphicon glyphicon-bookmark add-to-list"/>
+          </a>
+        }
+     </div>
     </Container>
   )
 };

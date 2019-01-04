@@ -14,7 +14,7 @@ const Toast = styled('div')`
 `;
 
 
-export const Toaster = ({duration}: any) => {
+export const Toaster = ({duration}: { duration: number }) => {
   return (
     <Toast>
        <ToastContainer autoClose={duration}/>

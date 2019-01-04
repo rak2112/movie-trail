@@ -5,7 +5,7 @@ import { paths } from '../../core/utils/util-service';
 
 export interface Poster {
   movies: Movies,
-  loadMovies: (pageNo: number) => void;
+  loadPosters: (pageNo: number) => void;
 };
 
 const Container = styled('div')`
@@ -31,14 +31,12 @@ const Container = styled('div')`
   }
 `;
 
-export const Posters: React.SFC<Poster> = ({movies}) => {
+export const Posters: React.SFC<Poster> = ({movies: {results}}) => {
   return (
     <Container>
       {
-        movies.results.map( (movie, index): ReactNode | void => {
-          if(index < 9) {
-            return <div  key={index}><img src={paths.imgPath500 + movie.backdrop_path} alt="" /></div>;
-          }
+        results.slice(0,9).map( (movie, index): ReactNode | void => {
+          return <div  key={index}><img src={paths.imgPath500 + movie.backdrop_path} alt="" /></div>;
         })
       }
     </Container> 

@@ -14,10 +14,14 @@ export const loadMovies = (action$: any) => action$.pipe (
   ofType(actions.LOAD_MOVIES),
   switchMap(({pageNo}) =>
   service.getMovies(pageNo).pipe(
-    map((res: Movies) => actions.loadMoviesSuccess({ ...res, pageNo}) )
+    map((res: Movies) => actions.loadMoviesSuccess({ ...res, pageNo }) )
   )),
-  tap(({res})=>{
-    history.push(`/movies/${res.pageNo}`)
+  tap(({res})=> {
+    const { pageNo } = res;
+    const redirection = (/^\/home/gi).test(history.location.pathname);
+    if(!redirection) {
+      history.push(`/movies/${+pageNo}`)
+    }
   })
 );
 
@@ -37,7 +41,7 @@ export const loadUserMovies = (action$: any, state$: any) => action$.pipe (
       })
     )
   ),
-  catchError(err => { console.log('errr', err);
+  catchError(err => {
     if(err.status === 401) {
       service.saveState('user', null);
       return of(actions.logoutRequestSuccess());

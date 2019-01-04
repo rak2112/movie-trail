@@ -1,45 +1,34 @@
 import React from 'react';
 import { connect, MapStateToProps } from 'react-redux';
 
-import { addMovie, deleteMovie, loadGenres, loadMovies } from '../../core/actions';
+import { addMovie, deleteMovie } from '../../core/actions';
 import { Genre, User, UserMovie, UserMovieMap } from '../../core/interfaces';
-import { 
-  getFavoriteMovies,
-  getMovieGenres,
-  getUserMoviesMap,
-  getWatchListMovies
-} from '../../core/selectors';
-
+import { State } from '../../core/reducers';
+import { getProfileProps } from '../../core/selectors';
 import { ProfileComponent } from './component';
 
-export interface Profile {
+interface StateProps {
   favorites: UserMovie[];
   genres: Genre[];
   user: User;
   userMovies: UserMovieMap;
   watchlist: UserMovie[];
+};
+
+interface DispatchProps {
   addMovie: (movie: UserMovie) => void;
   deleteMovie: (movie: UserMovie) => void;
 };
+export type Profile = StateProps & DispatchProps;
 
 const Profile = (props: Profile) => <ProfileComponent {...props}/>
 
-const mapStateToProps: MapStateToProps <any, any, any> = (state) => {
-  const { api, user } = state;
-  return {
-    api,
-    user, // :TODO selector for profile
-    favorites: getFavoriteMovies(state),
-    genres: getMovieGenres(state),
-    userMovies: getUserMoviesMap(state),
-    watchlist: getWatchListMovies(state)
-    
-  }
+const mapStateToProps: MapStateToProps <any, any, any> = (state: State) => {
+  const props = getProfileProps(state);
+  return { ...props };
 };
 
-export default connect<Profile>(mapStateToProps, {
+export default connect<StateProps, DispatchProps>(mapStateToProps, {
   addMovie,
   deleteMovie,
-  loadMovies,
-  loadGenres
 }) (Profile);

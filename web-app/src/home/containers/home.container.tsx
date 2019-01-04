@@ -5,7 +5,7 @@ import { HomeComponent } from '../components/home.component';
 
 import { loadGenres, loadMovies } from '../../core/actions';
 import { Movies } from '../../core/interfaces';
-import { getMovieGenres } from '../../core/selectors/movies';
+import { getPosterProps } from '../../core/selectors';
 
 
 
@@ -18,12 +18,8 @@ interface Props {
 const Home = (props: Props) => <HomeComponent {...props}/>
 
 const mapStateToProps: MapStateToProps <any, any, any> = (state) => {
-  const { movies, api } = state;
-  return {
-    api,
-    movies,
-    genres: getMovieGenres(state)
-  }
+  const props = getPosterProps(state)
+  return { ...props };
 };
 
 export default connect( mapStateToProps, {

@@ -15,8 +15,7 @@ export class ProfileComponent extends PureComponent <Profile, any> {
   render() { 
     const { user } = this.props;
     return (
-      <> 
-        
+      <>
         <MovieList>
           {() => (
             <>

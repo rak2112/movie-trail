@@ -1,5 +1,6 @@
-import React, { Component, PureComponent } from 'react';
+import React from 'react';
 import styled from 'react-emotion';
+
 
 const Container = styled('div')`
   display: flex;
@@ -14,7 +15,7 @@ const Container = styled('div')`
   }
 `;
 
-export const MovieList:React.SFC<any> = ({children}) => {
+export const MovieList: React.SFC<any> = ({children}) => {
   return (
     <Container>
       {children()}

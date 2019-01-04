@@ -8,5 +8,9 @@ export const movieDetails = ( state: MovieDetailState =  null, action: actions.M
   if(action.type === actions.LOAD_MOVIE_DETAILS_SUCCESS) {
     return action.res;
   }
+
+  if(action.type === actions.RESET_MOVIE_DETAILS) {
+    return null;
+  }
   return state;
 };

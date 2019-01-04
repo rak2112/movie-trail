@@ -1,6 +1,5 @@
 import React from 'react';
 import { Genre, Language, Movie } from '../core/interfaces';
-import { Container } from './styled';
 
 export const Details = ({
   homepage,
@@ -14,7 +13,6 @@ export const Details = ({
   vote_average
 }: Movie ) => {
   return (
-    <Container>
       <div className="movie-details">
         <h3>{ title }</h3>
         <p>{ overview }</p>
@@ -47,6 +45,5 @@ export const Details = ({
            { homepage && <div><a href={homepage} target="_blank">{title}</a></div> }
         </div>
       </div>
-    </Container>
   );
 }

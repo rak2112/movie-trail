@@ -12,11 +12,7 @@ interface Props {
 
 const LoadPosters = LoadingCompWrapper(Posters);
 
-export class HomeComponent extends PureComponent <Props, {}> {
-
-  componentDidMount(): void {
-    this.props.loadMovies(1);
-  }
+export class HomeComponent extends PureComponent <Props> {
   render() {
     return (
      <LoadPosters {...this.props} />

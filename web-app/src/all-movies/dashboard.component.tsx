@@ -6,12 +6,11 @@ import {
   Toaster 
 } from '../core/components';
 import { Movie } from '../core/interfaces';
-import { Movies } from './dashboard.container';
-
-import { history } from '../core/routes';
+import { MoviesProps } from './dashboard.container';
 
 const defaultProps = { movies: {pageNo:0, totalPages: 0, results: [], totalResults: 0 }};
-export class MoviesComponent extends PureComponent <Movies, any> {
+
+export class MoviesComponent extends PureComponent <MoviesProps> {
 
   static displayName = 'MovieComponent';
   static defaultProps =  defaultProps;
@@ -25,6 +24,7 @@ export class MoviesComponent extends PureComponent <Movies, any> {
       movies: {results, totalPages, pageNo},
       userMovies  
     } = this.props;
+
     return (
       <>
         <MovieList>
@@ -48,4 +48,4 @@ export class MoviesComponent extends PureComponent <Movies, any> {
       </>
     )
   }
-}
+};

@@ -1,6 +1,7 @@
 import { createSelector } from 'reselect';
 import { State } from '../reducers';
 
+import { getApi, getUserMoviesMap } from './movies';
 
 
 export const getMovieDetails = ({ movieDetails }: State) => 
@@ -17,3 +18,21 @@ export const getMovieImages = ({ movieDetails }: State) =>
 
 export const getMovieVideos = ({ movieDetails }: State) =>
   ((movieDetails && movieDetails.videos) ? movieDetails.videos.results: null);
+
+
+export const getMovieDetailProps = createSelector(
+  getApi,
+  getMovieDetails,
+  getMoviePersons,
+  getMovieImages,
+  getMovieVideos,
+  getUserMoviesMap,
+  (api, details, persons, images, videos, userMovies) => ({
+    api,
+    details,
+    persons,
+    images,
+    videos,
+    userMovies
+  })
+);

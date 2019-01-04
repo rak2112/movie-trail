@@ -35,7 +35,7 @@ export const MovieTabs = ({
           <span> {(watchlist.length > 0 )&& `(${watchlist.length})`} </span>
         </NavItem>
       </Nav>
-      <Tab 
+      <Tab
         eventKey={'fav'}
         >
         {
@@ -45,6 +45,7 @@ export const MovieTabs = ({
                 key={getUuid()}
                 movie={movie} 
                 genres={genres}
+                userView={'Favorites'}
                 userMovies={userMovies}
                 addMovie={addMovie} 
                 deleteMovie={deleteMovie}/>)
@@ -59,6 +60,7 @@ export const MovieTabs = ({
                 key={getUuid()}
                 movie={movie} 
                 genres={genres}
+                userView={'Watchlist'}
                 userMovies={userMovies}
                 addMovie={addMovie} 
                 deleteMovie={deleteMovie}/>)

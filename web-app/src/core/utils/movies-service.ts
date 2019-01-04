@@ -47,7 +47,7 @@ export const getGenres = (): Observable<Genre[]> => {
   )
 };
 
-export const addMovieCollection = (movie: Movie): Observable<{}> => { 
+export const addMovieCollection = (movie: Movie): Observable<{id: string}> => {
   return  ajax.post( `/api/movies`, {
     data: JSON.stringify(movie)
   }).pipe(
@@ -55,7 +55,7 @@ export const addMovieCollection = (movie: Movie): Observable<{}> => {
   )
 };
 
-export const deleteMovie = (id: string): Observable<{}> => {
+export const deleteMovie = (id: string): Observable<string> => {
   return  ajax.delete( `/api/movies/${id}`).pipe(
     map(({ response }) => response )
   )

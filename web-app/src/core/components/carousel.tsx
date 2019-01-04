@@ -11,8 +11,8 @@ export const Container = styled('div')`
   img.poster {
     width: 550px;
     height: 400px;
-    border: 4px solid #ff5c00;
-    border-radius: 50px;
+    border: 4px solid #222;
+    border-radius: 12px;
     margin: 40px 78px;
   }
   .thumbnails {
@@ -68,7 +68,7 @@ export class Carousel extends PureComponent <Props, State>{
                 clickHandler={this.handleClick}
                 key={img.file_path}
                 index={index}
-                src={ `${paths.imgPath45}${img.file_path}`}
+                src={`${paths.imgPath45}${img.file_path}`}
               />
             )
           }

@@ -14,10 +14,11 @@ interface Props {
 export const LoadingCompWrapper = (WrappedComponent: ComponentType<any>) : ComponentType <any> =>{
   return class extends PureComponent <any> {
     componentDidMount() { 
-      // console.log('getttin in the mount??????????', this.props)
-      this.props.loadMovies(this.props.match.params.pageNo || 1);
+      const { match: { params: {pageNo} }} = this.props;
+      this.props.loadMovies(pageNo || 1);
       this.props.loadGenres();
     }
+
     public render() { 
       const { api: {isFetching}, movies, ...movieProps } = this.props;
       const props = {...movieProps, movies};

@@ -6,6 +6,7 @@ import { loadState } from '../utils';
 
 const app = '[movieBase]';
 export const LOAD_MOVIES = `${app} load movies`;
+export const LOAD_POSTERS = `${app} load posters`;
 export const LOAD_USER_MOVIES = `${app} load user movies`;
 export const LOAD_GENRES = `${app} load genres`;
 export const LOAD_GENRES_MOVIES = `${app} load genres and movies`;
@@ -20,6 +21,7 @@ export const addMovie = (movie: Movie): AddMovie => ({type: ADD_USER_MOVIE, movi
 export const deleteMovie = (movie: Movie): DeleteMovie => ({type: DELETE_USER_MOVIE, movie});
 
 export const loadMovies = (pageNo: number): LoadMovies => ({ type: LOAD_MOVIES, pageNo });
+
 
 export const loadUserMovies = (): LoadUserMovies  => ({ type: LOAD_USER_MOVIES});
 

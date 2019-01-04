@@ -1,49 +1,51 @@
 import React from 'react';
 import { connect, MapStateToProps } from 'react-redux';
 
-import { addMovie, deleteMovie, loadGenres, loadMovieDetail } from '../core/actions';
+import { addMovie, deleteMovie, loadGenres, loadMovieDetail, resetDetails } from '../core/actions';
+import {State} from '../core/reducers';
 import {
-  getMovieDetails,
-  getMovieImages,
-  getMoviePersons,
-  getMovieVideos, 
-  getUserMoviesMap
+  getMovieDetailProps
 } from '../core/selectors';
 import { MovieDetailsComponent } from './dashboard.component';
 import { LoadingComponent } from './loader.container';
 
-import { Api, Genre, Movie, Movies, User, UserMovieMap,  } from '../core/interfaces';
+import { Api, Genre, Movie, MovieDetail, UserMovieMap,  } from '../core/interfaces';
 
-export interface Props {
+interface StateProps extends MovieDetail{
   api? : Api;
   genres: Genre[];
   userMovies: UserMovieMap;
-  addMovie: (movie: Movie) => void;
+}
+
+interface DispatchProps {
+  addCollection: (movie: Movie) => void;
   deleteMovie: (movie: Movie) => void;
   loadGenres?: () => void;
-  loadUserMovies: () => void;
+  resetDetails: () => void;
   loadMovieDetail: (id: number) => void;
-};
+}
+
+
+export type DetailProps = StateProps & DispatchProps;  
 
 const LoadMovieDetails = LoadingComponent(MovieDetailsComponent);
 
-const Details = (props: Props) => <LoadMovieDetails {...props}/>
+const Details = (props: DetailProps) => <LoadMovieDetails {...props}/>
 
-const mapStateToProps: MapStateToProps <any, any, any> = (state) => {
-  const { api } = state;
-  return {
-    api,
-    details: getMovieDetails(state),
-    persons: getMoviePersons(state),
-    images: getMovieImages(state),
-    videos: getMovieVideos(state),
-    userMovies: getUserMoviesMap(state)
-  }
+const addCollection = (movie: Movie) => {
+  const genres = movie.genres.map(({id}: {id: number}) => id);
+  return addMovie({...movie, genre_ids: genres });
 };
 
-export default connect<Movies>(mapStateToProps, {
-  addMovie,
+const mapStateToProps: MapStateToProps <any, any, any> = (state: State) => {
+  const details = getMovieDetailProps(state);
+  return { ...details };
+};
+
+export default connect<StateProps, DispatchProps>(mapStateToProps, {
+  addCollection,
   deleteMovie,
   loadMovieDetail,
-  loadGenres
+  loadGenres,
+  resetDetails
 }) (Details);

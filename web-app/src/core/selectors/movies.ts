@@ -3,7 +3,9 @@ import { User, UserMovie, UserMovieMap } from '../interfaces';
 import { State } from '../reducers';
 
 
+export const getApi = (state: State) => state.api;
 export const getGenres = (state: State) => state.genres;
+export const getMovies = (state: State) => state.movies;
 export const getUser = (state: State) => state.user;
 export const getUserMovies = (state: State) => state.user && state.user.movies || [];
 
@@ -52,4 +54,45 @@ export const getUserMoviesMap = createSelector(
       watchlist
     };
   }
+);
+
+export const getPosterProps = createSelector (
+  getApi,
+  getGenres,
+  getMovies,
+  (api, genres, movies) => ({
+    api,
+    genres,
+    movies
+  })
+);
+
+export const getMoviesProps = createSelector (
+  getApi,
+  getMovies,
+  getMovieGenres,
+  getUserMoviesMap,
+  (api, movies, genres, userMovies) => ({
+    api,
+    movies,
+    genres,
+    userMovies
+  })
+);
+
+export const getProfileProps = createSelector (
+  getApi,
+  getFavoriteMovies,
+  getMovieGenres,
+  getUser,
+  getUserMoviesMap,
+  getWatchListMovies,
+  (api, favorites, genres, user, userMovies, watchlist) => ({
+    api,
+    favorites,
+    genres,
+    user,
+    userMovies,
+    watchlist
+  })
 );

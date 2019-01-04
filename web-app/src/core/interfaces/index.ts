@@ -19,7 +19,9 @@ type MovieType =
   | 'War'
   | 'Western';
 
-type UserMovieType= 'FAVORITE' | 'WATCHLIST'
+type UserMovieType= 'FAVORITE' | 'WATCHLIST';
+
+export type UserView = 'Favorites' | 'Watchlist';
 
 export interface Api {
   isFetching?: boolean;
@@ -60,6 +62,7 @@ export interface Movies {
   totalPages: number;
   totalResults: number;
   results: Movie[];
+  redirection? : boolean;
 };
 
 export interface MoviesData {

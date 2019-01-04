@@ -33,18 +33,20 @@ const Footer = styled('footer')`
   }
 `;
 
-export class MoviesPagination extends PureComponent <any, any>{
-  render() {
-    return (
-      <Footer>
-        <Pagination
-          activePage={+this.props.pageNo}
-          itemsCountPerPage={20}
-          totalItemsCount={this.props.totalPages}
-          pageRangeDisplayed={5}
-          onChange={this.props.loadMovies}
-        />
-      </Footer>
-    )
-  }
-}
+export interface Pagination {
+  pageNo: number;
+  totalPages: number;
+  loadMovies: (pageNo: number) => void;
+};
+
+export const MoviesPagination: React.SFC<Pagination> = ({pageNo, totalPages, loadMovies}: Pagination) => (
+  <Footer>
+    <Pagination
+      activePage={+pageNo}
+      itemsCountPerPage={20}
+      totalItemsCount={totalPages}
+      pageRangeDisplayed={5}
+      onChange={loadMovies}
+    />
+  </Footer>
+);

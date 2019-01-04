@@ -1,10 +1,15 @@
 import styled from 'react-emotion';
 
 export const Container = styled('div')`
+  float: left;
+  padding: 20px;
+  width: 50%;
+  .user-actions {
+    margin-top: 20px;
+    padding: 10px 0;
+  }
  .movie-details {
-   float: left;
-   padding: 20px;
-   width: 50%;
+   
    a {
      color: #ff5c00;
      font-size: 1.8rem;

@@ -3,38 +3,37 @@ import { connect, MapStateToProps } from 'react-redux';
 
 import { addMovie, deleteMovie, loadGenres, loadMovies } from '../core/actions';
 import { LoadingCompWrapper } from '../core/components';
-import { getMovieGenres, getUserMoviesMap } from '../core/selectors';
+import { Api, Genre, Movie, Movies, UserMovieMap,  } from '../core/interfaces';
+import {State} from '../core/reducers';
+import { getMoviesProps} from '../core/selectors';
 import { MoviesComponent } from './dashboard.component';
 
-import { Api, Genre, Movie, Movies, User, UserMovieMap,  } from '../core/interfaces';
-
-export interface Movies {
+interface StateProps {
   api? : Api;
   genres: Genre[];
   movies: Movies;
-  user: User;
   userMovies: UserMovieMap;
+}
+
+interface DispatchProps {
   addMovie: (movie: Movie) => void;
   deleteMovie: (movie: Movie) => void;
   loadGenres?: () => void;
-  loadMovies?: (pageNo: number) => void;
-};
+  loadMovies: (pageNo: number) => void;
+}
+
+export type MoviesProps = StateProps & DispatchProps;
 
 const LoadMoviesList = LoadingCompWrapper(MoviesComponent);
 
-const Movies = (props: Movies) => <LoadMoviesList {...props}/>
+const Movies = (props: MoviesProps) => <LoadMoviesList {...props}/>
 
-const mapStateToProps: MapStateToProps <any, any, any> = (state) => {
-  const { movies, api } = state;
-  return {
-    api,
-    movies,
-    userMovies: getUserMoviesMap(state),
-    genres: getMovieGenres(state)
-  }
+const mapStateToProps: MapStateToProps<any, any, any> = (state: State) => {
+  const movies = getMoviesProps(state);
+  return { ...movies };
 };
 
-export default connect<Movies>(mapStateToProps, {
+export default connect<StateProps, DispatchProps>(mapStateToProps, {
   addMovie,
   deleteMovie,
   loadMovies,
