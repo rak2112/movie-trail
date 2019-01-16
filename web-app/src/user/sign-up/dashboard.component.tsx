@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 import { Field } from 'redux-form'
-import { formInput, required } from '../../core/components';
+import { FormInput, required } from '../../core/components';
 import { StyledComponent } from '../index';
 
 export const SignUpComponent = (props: any) => {
@@ -19,7 +19,7 @@ export const SignUpComponent = (props: any) => {
             signingUp && <Field 
               name="email" 
               type="text"
-              component={formInput} 
+              component={FormInput} 
               placeholder="email"
               validate={[ required ]}
             />
@@ -29,7 +29,7 @@ export const SignUpComponent = (props: any) => {
             signingUp && <Field 
               name="name" 
               type="text"
-              component={formInput} 
+              component={FormInput} 
               placeholder="name"
               validate={[ required ]}
             />
@@ -39,7 +39,7 @@ export const SignUpComponent = (props: any) => {
             name="password" 
             type="password"
             placeholder="Password"
-            component={formInput}
+            component={FormInput}
             validate={[ required ]}
           />
 
@@ -47,7 +47,7 @@ export const SignUpComponent = (props: any) => {
             name="confirmPassword"
             type="password"
             placeholder="Re type Password"
-            component={formInput}
+            component={FormInput}
             validate={[ required ]}
           />
 

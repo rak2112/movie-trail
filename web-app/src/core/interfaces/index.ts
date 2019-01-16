@@ -19,7 +19,7 @@ type MovieType =
   | 'War'
   | 'Western';
 
-type UserMovieType= 'FAVORITE' | 'WATCHLIST';
+export type UserMovieType= 'FAVORITE' | 'WATCHLIST';
 
 export type UserView = 'Favorites' | 'Watchlist';
 
@@ -81,6 +81,10 @@ export interface Genre {
   name: MovieType;
 };
 
+export interface GenresMap {
+  [id: number]: Genre;
+};
+
 export interface UserMovie extends Movie {
   _id: string;
   movieType: UserMovieType;
@@ -95,8 +99,12 @@ export interface User {
   token?: string;
 }
 
+export interface UserMovies {
+  [id: string]: UserMovie;
+}
 export interface UserMovieMap {
-  [id: string]: UserMovie
+  favorites: UserMovies;
+  watchlist: UserMovies;
 }
 
 export interface Cast {

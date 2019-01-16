@@ -20,6 +20,7 @@ export const LoadingComponent = (WrappedComponent: ComponentType<any>) : Compone
     componentDidMount() { 
       const { match: { params: { id }}} = this.props;
       this.props.loadMovieDetail(id);
+      this.props.loadUserMovies();
     }
 
     public render() { 

@@ -3,7 +3,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { createEpicMiddleware } from 'redux-observable';
 
 import rootReducer from '../reducers';
-import { loadState } from '../utils';
+import { loadState } from '../utils/localStorage';
 
 const persistedState = {
   genres: loadState('genres'),

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toast Component should render 1`] = `
+<div
+  className="css-182pldt"
+>
+  <div
+    className="Toastify"
+  />
+</div>
+`;

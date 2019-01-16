@@ -1,1 +1,1 @@
-export const required = (value:any) => value ? undefined : 'Required'
+export const required = (value:any) => value ? undefined : 'Required';

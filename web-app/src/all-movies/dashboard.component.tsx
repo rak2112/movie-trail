@@ -12,7 +12,7 @@ const defaultProps = { movies: {pageNo:0, totalPages: 0, results: [], totalResul
 
 export class MoviesComponent extends PureComponent <MoviesProps> {
 
-  static displayName = 'MovieComponent';
+  static displayName = 'MoviesComponent';
   static defaultProps =  defaultProps;
 
   render() {

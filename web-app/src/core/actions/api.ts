@@ -6,8 +6,6 @@ export const API_REQUEST = `${app} Pending api request`;
 export const API_RESPONSE = `${app} Completed api request`;
 export const API_ERROR = `${app} Api error`;
 
-// interface ApiRequest { type: typeof API_REQUEST }
-// interface ApiResponse { type: typeof API_RESPONSE }
 
 export class ApiRequest implements Action {
   readonly type = API_REQUEST

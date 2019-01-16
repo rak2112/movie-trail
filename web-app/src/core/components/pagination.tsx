@@ -50,3 +50,5 @@ export const MoviesPagination: React.SFC<Pagination> = ({pageNo, totalPages, loa
     />
   </Footer>
 );
+
+MoviesPagination.displayName = `MoviesPagination`;

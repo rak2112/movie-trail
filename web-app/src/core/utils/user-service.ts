@@ -1,7 +1,7 @@
 import base64 from 'base-64';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { http } from '../../index';
+import { http } from '../../app';
 import { FormValues, User, UserMovie } from '../interfaces';
 
 export const getUser = (formValues: FormValues): Observable<User> => {

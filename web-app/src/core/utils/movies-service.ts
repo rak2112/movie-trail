@@ -2,7 +2,7 @@ import { ajax } from 'rxjs/ajax';
 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { http } from '../../index';
+import { http } from '../../app';
 import { Genre, Movie, MovieDetail, Movies } from '../interfaces';
 import { paths } from '../utils/util-service';
 

@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormInput Component should render input without errors 1`] = `
+<div>
+  <label>
+    Label A
+  </label>
+  <div>
+    <input
+      className="form-control "
+      placeholder="Enter your name"
+      type="text"
+    />
+    <em />
+  </div>
+</div>
+`;
+
+exports[`FormInput Component should render the given input with some error 1`] = `
+<div>
+  <label>
+    Label A
+  </label>
+  <div>
+    <input
+      className="form-control error"
+      placeholder="Enter your name"
+      type="text"
+    />
+    <em>
+      <span>
+        You have some error
+      </span>
+    </em>
+  </div>
+</div>
+`;
+
+exports[`FormInput Component should render the given input with some warning 1`] = `
+<div>
+  <label>
+    Label A
+  </label>
+  <div>
+    <input
+      className="form-control "
+      placeholder="Enter your name"
+      type="text"
+    />
+    <em>
+      <span>
+        You have some warning
+      </span>
+    </em>
+  </div>
+</div>
+`;

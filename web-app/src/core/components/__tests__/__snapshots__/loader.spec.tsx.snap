@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader Component should render 1`] = `
+<div
+  className="alert alert-info"
+  role="alert"
+>
+  <i
+    className="glyphicon glyphicon-repeat gly-spin"
+  />
+  <span>
+    This may take a moment, please wait.
+  </span>
+</div>
+`;

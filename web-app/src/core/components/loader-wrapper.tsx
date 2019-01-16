@@ -12,8 +12,8 @@ interface Props {
 }
 
 export const LoadingCompWrapper = (WrappedComponent: ComponentType<any>) : ComponentType <any> =>{
-  return class extends PureComponent <any> {
-    componentDidMount() { 
+  return class extends PureComponent <any> { 
+    componentDidMount() {
       const { match: { params: {pageNo} }} = this.props;
       this.props.loadMovies(pageNo || 1);
       this.props.loadGenres();

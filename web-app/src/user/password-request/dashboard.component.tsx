@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 import { Field } from 'redux-form'
-import { formInput, required } from '../../core/components';
+import { FormInput, required } from '../../core/components';
 import { StyledComponent } from '../index';
 
 export const ResetPassword = (props: any) => {
@@ -22,7 +22,7 @@ export const ResetPassword = (props: any) => {
             <Field 
               name="email" 
               type="text"
-              component={formInput} 
+              component={FormInput} 
               placeholder="User name / email"
               validate={[ required ]}
             />

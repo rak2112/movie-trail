@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadError Component should render with given inputs 1`] = `
+<div
+  className="alert alert-danger"
+  role="alert"
+  style={
+    Object {
+      "fontSize": "1.8rem",
+      "margin": 0,
+      "textAlign": "center",
+    }
+  }
+>
+  Error, something has gone wrong
+</div>
+`;
+
+exports[`LoadError Component should render with given inputs 2`] = `null`;

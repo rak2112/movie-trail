@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect, MapStateToProps } from 'react-redux';
 
-import { addMovie, deleteMovie, loadGenres, loadMovieDetail, resetDetails } from '../core/actions';
+import { addMovie, deleteMovie, loadGenres, loadMovieDetail, loadUserMovies, resetDetails } from '../core/actions';
 import {State} from '../core/reducers';
 import {
   getMovieDetailProps
@@ -23,6 +23,7 @@ interface DispatchProps {
   loadGenres?: () => void;
   resetDetails: () => void;
   loadMovieDetail: (id: number) => void;
+  loadUserMovies: () => void;
 }
 
 
@@ -46,6 +47,7 @@ export default connect<StateProps, DispatchProps>(mapStateToProps, {
   addCollection,
   deleteMovie,
   loadMovieDetail,
+  loadUserMovies,
   loadGenres,
   resetDetails
 }) (Details);

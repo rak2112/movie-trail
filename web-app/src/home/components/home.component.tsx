@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Posters } from './posters';
 
-import { LoadingCompWrapper } from '../../core/components';
+import { LoadingCompWrapper } from '../../core/components/loader-wrapper';
 import { Movies } from '../../core/interfaces';
 
 

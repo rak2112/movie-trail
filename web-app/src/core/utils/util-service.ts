@@ -1,3 +1,9 @@
+import { v4 } from 'uuid';
+
+export const getUuid = () => {
+  return v4();
+};
+
 export const paths = {
   apiKey: '?api_key=60773f18ef6a7a9ee3d4a640fab964eb',
   apiUrl: 'https://api.themoviedb.org/3',

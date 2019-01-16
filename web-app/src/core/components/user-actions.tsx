@@ -49,12 +49,14 @@ export const UserActions = ({addMovie, deleteMovie, movie, userView, userMovies}
       <span className='rating'>{movie.vote_average}<span className="glyphicon glyphicon-star"/></span>
         { userMovies.favorites[movie.id] &&
           <a title="Remove From Favorites"
+            className="remove-from-favorites"
             onClick={deleteMovie.bind(UserActions, {...movie, id: userMovies.favorites[movie.id]._id})}>
             <span className="glyphicon glyphicon-heart"/>
           </a>
         }  
         { (!userMovies.favorites[movie.id] && userView !== 'Watchlist') &&
           <a title="Add to Favorites"
+            className="add-to-favorites"
             onClick={addMovie.bind(UserActions, {...movie, movieType: 'FAVORITE'})}>
             <span className="glyphicon glyphicon-heart add-to-list"/>
           </a>
@@ -62,12 +64,16 @@ export const UserActions = ({addMovie, deleteMovie, movie, userView, userMovies}
 
         {
           userMovies.watchlist[movie.id] &&
-          <a title="Remove From List" onClick={deleteMovie.bind(UserActions, {...movie, id: userMovies.watchlist[movie.id]._id})}>
+          <a title="Remove From List"
+            className="remove-from-watchlist"
+            onClick={deleteMovie.bind(UserActions, {...movie, id: userMovies.watchlist[movie.id]._id})}>
             <span className="glyphicon glyphicon-bookmark"/>
           </a>
         }
         { (!userMovies.watchlist[movie.id] && userView !== 'Favorites') &&
-          <a title="Add to List" onClick={addMovie.bind(UserActions, {...movie, movieType: 'WATCHLIST'})}>
+          <a title="Add to List"
+            className="add-to-watchlist"
+            onClick={addMovie.bind(UserActions, {...movie, movieType: 'WATCHLIST'})}>
             <span className="glyphicon glyphicon-bookmark add-to-list"/>
           </a>
         }

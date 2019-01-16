@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieComponent should match the snapshot with given inputs 1`] = `
+<div
+  className="css-h5tpbd"
+>
+  <div
+    className="css-bxd89m"
+  >
+    <a
+      href="/movie-details/2"
+      onClick={[Function]}
+    >
+      <img
+        alt=""
+        src="http://image.tmdb.org/t/p/w500path "
+      />
+    </a>
+    <div
+      className="css-1lw9bxc"
+    >
+      <div
+        className="user-actions"
+      >
+        <span
+          className="rating"
+        >
+          vote_avg
+          <span
+            className="glyphicon glyphicon-star"
+          />
+        </span>
+        <a
+          className="add-to-favorites"
+          onClick={[Function]}
+          title="Add to Favorites"
+        >
+          <span
+            className="glyphicon glyphicon-heart add-to-list"
+          />
+        </a>
+        <a
+          className="add-to-watchlist"
+          onClick={[Function]}
+          title="Add to List"
+        >
+          <span
+            className="glyphicon glyphicon-bookmark add-to-list"
+          />
+        </a>
+      </div>
+    </div>
+    <div
+      className="css-1w2z22x"
+    >
+      <h3>
+        title
+      </h3>
+      <span
+        className="genre"
+      >
+        Action
+      </span>
+      <p>
+        <a
+          href="/movie-details/2"
+          onClick={[Function]}
+        >
+          View Details
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,210 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movies Component should match snapshot 1`] = `
+<div
+  className="css-5zmk01"
+>
+  <div
+    className="css-182pldt"
+  >
+    <div
+      className="Toastify"
+    />
+  </div>
+  <div
+    className="css-h5tpbd"
+  >
+    <div
+      className="css-bxd89m"
+    >
+      <a
+        href="/movie-details/2"
+        onClick={[Function]}
+      >
+        <img
+          alt=""
+          src="http://image.tmdb.org/t/p/w500path "
+        />
+      </a>
+      <div
+        className="css-1lw9bxc"
+      >
+        <div
+          className="user-actions"
+        >
+          <span
+            className="rating"
+          >
+            vote_avg
+            <span
+              className="glyphicon glyphicon-star"
+            />
+          </span>
+          <a
+            className="remove-from-favorites"
+            onClick={[Function]}
+            title="Remove From Favorites"
+          >
+            <span
+              className="glyphicon glyphicon-heart"
+            />
+          </a>
+          <a
+            className="add-to-watchlist"
+            onClick={[Function]}
+            title="Add to List"
+          >
+            <span
+              className="glyphicon glyphicon-bookmark add-to-list"
+            />
+          </a>
+        </div>
+      </div>
+      <div
+        className="css-1w2z22x"
+      >
+        <h3>
+          title
+        </h3>
+        <p>
+          <a
+            href="/movie-details/2"
+            onClick={[Function]}
+          >
+            View Details
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    className="css-h5tpbd"
+  >
+    <div
+      className="css-bxd89m"
+    >
+      <a
+        href="/movie-details/3"
+        onClick={[Function]}
+      >
+        <img
+          alt=""
+          src="http://image.tmdb.org/t/p/w500path "
+        />
+      </a>
+      <div
+        className="css-1lw9bxc"
+      >
+        <div
+          className="user-actions"
+        >
+          <span
+            className="rating"
+          >
+            vote_avg
+            <span
+              className="glyphicon glyphicon-star"
+            />
+          </span>
+          <a
+            className="add-to-favorites"
+            onClick={[Function]}
+            title="Add to Favorites"
+          >
+            <span
+              className="glyphicon glyphicon-heart add-to-list"
+            />
+          </a>
+          <a
+            className="add-to-watchlist"
+            onClick={[Function]}
+            title="Add to List"
+          >
+            <span
+              className="glyphicon glyphicon-bookmark add-to-list"
+            />
+          </a>
+        </div>
+      </div>
+      <div
+        className="css-1w2z22x"
+      >
+        <h3>
+          title
+        </h3>
+        <p>
+          <a
+            href="/movie-details/3"
+            onClick={[Function]}
+          >
+            View Details
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <footer
+    className="css-dpqy78"
+  >
+    <ul
+      className="pagination"
+    >
+      <li
+        className="disabled"
+        onClick={[Function]}
+      >
+        <a
+          className=""
+          href="#"
+        >
+          «
+        </a>
+      </li>
+      <li
+        className="disabled"
+        onClick={[Function]}
+      >
+        <a
+          className=""
+          href="#"
+        >
+          ⟨
+        </a>
+      </li>
+      <li
+        className="active"
+        onClick={[Function]}
+      >
+        <a
+          className="undefined"
+          href="#"
+        >
+          1
+        </a>
+      </li>
+      <li
+        className="disabled"
+        onClick={[Function]}
+      >
+        <a
+          className=""
+          href="#"
+        >
+          ⟩
+        </a>
+      </li>
+      <li
+        className="disabled"
+        onClick={[Function]}
+      >
+        <a
+          className=""
+          href="#"
+        >
+          »
+        </a>
+      </li>
+    </ul>
+  </footer>
+</div>
+`;

@@ -3,6 +3,7 @@ import styled from 'react-emotion';
 
 import { ImageLoader } from '../components';
 import { MovieDetail, Poster, Posters } from '../interfaces';
+
 import { paths } from '../utils';
 
 export const Container = styled('div')`
@@ -35,12 +36,13 @@ interface State {
   images: Poster[];
 }
 
-interface Props {
+export interface Props {
   images: Posters;
-}
+};
 
 export class Carousel extends PureComponent <Props, State>{
-  
+
+  static displayName = 'CarouselComponent';
   static getDerivedStateFromProps({ images: { posters } }: MovieDetail) {
     const images = posters.slice(0, 5);
     return { images };
@@ -57,7 +59,7 @@ export class Carousel extends PureComponent <Props, State>{
 
   render() {
     const { active, images }: State = this.state;
-    return(
+    return (
       <Container>
         <img className="poster" src={`${paths.imgPath500}${images[active].file_path}`} alt=""/>
         <div className="thumbnails">
@@ -65,6 +67,7 @@ export class Carousel extends PureComponent <Props, State>{
             images.map((img: Poster, index: number) =>
               <ImageLoader 
                 className={ index === active ? 'active thumbnail movie' : 'thumbnail movie'}
+                alt={`movie thumbnail ${index}`}
                 clickHandler={this.handleClick}
                 key={img.file_path}
                 index={index}
