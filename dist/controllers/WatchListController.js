@@ -14,7 +14,8 @@ class WatchListController {
     getWatchList(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             const { user: { _id: userId } } = req;
-            const results = yield models_1.WatchMovie.find({ users: userId }, { users: 0 }).cache({ key: userId });
+            const results = yield models_1.WatchMovie.find({ users: userId }, { users: 0 });
+            //.cache({key: userId}); :TODO redis hosting service for production
             res.json({ results, total: results.length });
         });
     }

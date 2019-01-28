@@ -28,7 +28,7 @@ export const controllers = {
   },
 
   getAll(model: any, id: number) {
-    return model.find({userId: id}, {userId: 0}).cache({key: id});
+    return model.find({userId: id}, {userId: 0}); //.cache({key: id});
   },
 
   findByParam(model: Movie, id: number) {

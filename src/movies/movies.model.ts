@@ -23,7 +23,6 @@ export interface IMovie extends Document {
  video: boolean,
  vote_average: number,
  vote_count: number,
- cache: ()=>void;
 };
 
 export const movieSchema = new Schema({

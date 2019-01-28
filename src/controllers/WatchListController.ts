@@ -6,7 +6,8 @@ export default class WatchListController {
  constructor() {}
   async getWatchList(req: Request, res: Response, next: NextFunction) {
     const { user: {_id: userId} } = req;
-    const results: IMovie[] = await WatchMovie.find({users: userId}, {users: 0}).cache({key: userId});
+    const results: IMovie[] = await WatchMovie.find({users: userId}, {users: 0}) 
+    //.cache({key: userId}); :TODO redis hosting service for production
     res.json({results, total: results.length});
   }
 
