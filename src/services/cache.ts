@@ -1,14 +1,13 @@
-import mongoose from 'mongoose';
+import mongoose, {Mongoose} from 'mongoose';
 import redis from 'redis';
-import { promisify } from 'util';
+import { promisify, Resolver } from 'bluebird';
 
 const redisUrl = 'redis://127.0.0.1:6379'
 const client = redis.createClient(redisUrl);
 const getHash = promisify(client.hget).bind(client);
 const exec = mongoose.Query.prototype.exec;
 
-
-mongoose.Query.prototype.cache = function(options = {key: ''}) {
+mongoose.Query.prototype.cache = function(options = {key: ''} ) {
   this.useCache = true;
   this.hashKey = JSON.stringify(options.key);
   return this;

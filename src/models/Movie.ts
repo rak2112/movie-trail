@@ -19,14 +19,15 @@ export interface IMovie extends Document {
  release_date: string,
  title: string,
  userId: {
-  type: mongoose.Schema.Types.ObjectId,
+  type: Schema.Types.ObjectId,
   ref: 'User'
  },
  type: string,
  users: IUser[],
  video: boolean,
  vote_average: number,
- vote_count: number
+ vote_count: number,
+ cache: ()=> void
 };
 
 export const movieSchema = new Schema({
@@ -48,5 +49,7 @@ export const movieSchema = new Schema({
  vote_count: Number
 
 }, { timestamps: true });
+
+// export const MovieModel = Model<IMovie>;
 
 export const FavMovie: Model<IMovie> = model<IMovie>('FavMovie', movieSchema);

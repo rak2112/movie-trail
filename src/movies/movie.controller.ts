@@ -1,6 +1,6 @@
 import {generateControllers} from '../services';
-import {Movie} from '../movies';
+import {MovieModel} from '../movies/movies.model';
 
 
-export default generateControllers(Movie)
+export default generateControllers(MovieModel)
 

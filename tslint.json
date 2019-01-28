@@ -1,5 +1,16 @@
 {
   "rulesDirectory": [],
+  "linterOptions": {
+    "exclude": [
+      "config/**/*.js",
+      "node_modules/**/*.ts",
+      "coverage/lcov-report/*.js"
+    ]
+  },
+  "lib": [
+    "es6",
+    "dom"
+  ],
   "env": {
     "jasmine": true
   },

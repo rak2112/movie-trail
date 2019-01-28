@@ -6,7 +6,7 @@ export default class FavMoviesController {
 
   async get(req: Request, res: Response) {
     const { user: {_id: userId} } = req;
-    const results: IMovie[] = await FavMovie.find({users: userId}, {users: 0}).cache({key: userId});
+    const results: IMovie[] = await FavMovie.find({users: userId}, {users: 0})// caching resources error .cache({key: userId});
     console.log('resultsss', results);
     return res.json({results, total: results.length});
   }

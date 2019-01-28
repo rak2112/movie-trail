@@ -22,7 +22,8 @@ export interface IMovie extends Document {
  userId: string,
  video: boolean,
  vote_average: number,
- vote_count: number
+ vote_count: number,
+ cache: ()=>void;
 };
 
 export const movieSchema = new Schema({
@@ -45,4 +46,9 @@ export const movieSchema = new Schema({
 
 }, { timestamps: true });
 
-export const Movie: Model<IMovie> = model<IMovie>('Movie', movieSchema);
+export interface Movie extends Model<IMovie> {
+}
+
+export type MovieDocument = IMovie;
+
+export const MovieModel: Model<IMovie> = model<IMovie>('Movie', movieSchema);
