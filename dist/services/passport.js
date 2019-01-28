@@ -11,6 +11,7 @@ const user_1 = require("../user");
 const passport_google_oauth20_1 = __importDefault(require("passport-google-oauth20"));
 const lodash_1 = __importDefault(require("lodash"));
 const passport_http_1 = __importDefault(require("passport-http"));
+console.log('passportHttpppppp', passport_http_1.default);
 const BasicStrategy = passport_http_1.default.BasicStrategy;
 const LocalStrategy = passport_local_1.default.Strategy;
 const FacebookStrategy = passport_facebook_1.default.Strategy;
