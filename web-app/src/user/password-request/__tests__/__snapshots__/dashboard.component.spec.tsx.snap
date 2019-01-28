@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResetPassword Component render the component, with form 1`] = `
+<div
+  className="css-1k2uugu"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="form-group"
+    >
+      <h3>
+        Reset your password
+      </h3>
+      <div>
+        <label />
+        <div>
+          <input
+            className="form-control "
+            name="email"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onDragStart={[Function]}
+            onDrop={[Function]}
+            onFocus={[Function]}
+            placeholder="User name / email"
+            type="text"
+            value=""
+          />
+          <em />
+        </div>
+      </div>
+    </div>
+    <button
+      className="btn btn-primary"
+      disabled={false}
+      type="submit"
+    >
+      Reset password
+    </button>
+    <a
+      className="btn btn-warning"
+      href="/movies"
+      onClick={[Function]}
+    >
+      Cancel
+    </a>
+  </form>
+</div>
+`;

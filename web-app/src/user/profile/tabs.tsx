@@ -4,12 +4,9 @@ import * as uuid from 'uuid/v4';
 
 import { MovieComponent } from '../../core/components';
 import { UserMovie } from '../../core/interfaces';
+import { getUuid, paths } from '../../core/utils/util-service';
 import { Profile } from './container';
 import { TabContainer } from './tab-styled.component';
-
-const getUuid = () => {
-  return uuid();
-};
 
 export const MovieTabs = ({
     addMovie,
@@ -19,8 +16,9 @@ export const MovieTabs = ({
     userMovies,
     watchlist
   }: Profile) => {
+
   return (
-    <TabContainer>
+  <TabContainer>
     <Tabs defaultActiveKey={(favorites.length) ? 'fav': 'watchlist'} id="movie-tabs">
       <Nav bsStyle="tabs">       
         <NavItem eventKey="fav">
@@ -70,4 +68,6 @@ export const MovieTabs = ({
     </Tabs>
   </TabContainer>
   )
-}
+};
+
+MovieTabs.displayName = 'MovieTabs';

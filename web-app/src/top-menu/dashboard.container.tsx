@@ -2,9 +2,9 @@
 import React, { Component } from 'react';
 import { connect, MapStateToProps } from 'react-redux';
 
-import { logoutRequest } from '../core/actions/';
+import { dummyAction, logoutRequest, searchMovies } from '../core/actions/';
 import { User, UserMovie } from '../core/interfaces';
-import { MenuBar } from './menu-bar.component';
+import { MenuBar } from './dashboard.component';
 
 
 // class TopMenu extends Component {
@@ -28,48 +28,30 @@ import { MenuBar } from './menu-bar.component';
 // }
 
 export interface MenuBarProps {
-  user: User
-  movies?: UserMovie[]
+  user: User;
+  movies?: UserMovie[];
+  searchTerm: string;
+  search: () => void;
   logoutRequest: () => void;
 }
 const TopMenu = (props: MenuBarProps) => <MenuBar {...props}/>
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     dispatch: dispatch,
-//     onFocusOut() {
-//       let { dispatch } = this.props;
-//       this.setState({movieToFind: ''});
-//       dispatch(resetQuickSearch());
-//     },
-//     updateSearch() {
-//       let { dispatch } = this.props;
-//       if(this.state.movieToFind) {
-//         dispatch(searchMovies(this.state.movieToFind));
-//       }
-//       else {
-//         dispatch(resetQuickSearch());
-//       }
-//     },
-//     handleNameChange: function(event) {
-//       event.persist();
-//       this.setState({ movieToFind: event.target.value }, this.props.updateSearch);
-//     }
-//   };
-// }
+
+const search = (movie: string) => {
+  console.log('event to be searched', movie);
+  if(movie) {
+    return searchMovies(movie);
+  }
+  return dummyAction();
+}
 
 const mapStateProps: MapStateToProps <any, any, any> = (state: MenuBarProps) =>{
   const { user } = state;
   return {
     user
   };
-  // const { movies } = state;
-  // return {movies};
-  // const { moviesFound } = searchedMovies;
-  // return {
-  //   moviesFound
-  // };
 }
 
 export default connect<MenuBarProps>(mapStateProps, {
-  logoutRequest
+  logoutRequest,
+  search
 }) (TopMenu);

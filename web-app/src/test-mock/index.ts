@@ -68,7 +68,9 @@ export const defaultState = {
   genres: [{id:2, name: 'Action'} as Genre ],
   movies: null,
   movieDetails: null,
-  user: null
+  searchedMovies: null,
+  user: null,
+  userMovies: {}
 } as State;
 
 export const defaultMovies = {

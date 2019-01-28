@@ -36,3 +36,4 @@ export const ProfileDetails = (user: User) => {
     </Container>
   );
 };
+ProfileDetails.displayName = 'ProfileDetails';

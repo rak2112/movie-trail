@@ -33,12 +33,7 @@ interface Props {
 }
 
 export const MenuItemsComponent = ({user, logoutRequest}: Props) => {
-  // return(
-  //   <nav className="navbar navbar-inverse">
-  //     {props.children()}
-  //   </nav>
-  // );
-
+  
   return(
     <Header>
       <nav className="navbar navbar-inverse">

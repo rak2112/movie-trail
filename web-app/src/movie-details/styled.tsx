@@ -1,6 +1,6 @@
 import styled from 'react-emotion';
 
-export const Container = styled('div')`
+export const ContainerLeft = styled('div')`
   float: left;
   padding: 20px;
   width: 50%;
@@ -50,4 +50,9 @@ export const Container = styled('div')`
     }
   }
 }
+`;
+
+export const ContainerRight = styled('div')`
+  float: right;
+  width: 50%;
 `;

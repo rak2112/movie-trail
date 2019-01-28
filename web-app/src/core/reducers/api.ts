@@ -4,6 +4,7 @@ import { Api } from '../interfaces';
 export type ApiState = Api | null
 
 export const api = ( state: ApiState = {isFetching: false, hasError: false}, action: actions.ApiActionError): ApiState => {
+  
   switch (action.type) {
     case actions.API_REQUEST:
       return { 

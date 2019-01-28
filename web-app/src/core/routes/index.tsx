@@ -4,6 +4,9 @@ import { Route, Router, Switch } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 
 import Movies from '../../all-movies/dashboard.container';
+import Latest from '../../latest/dashboard';
+import UpComing from '../../upComing/dashboard';
+
 import Home from '../../home/containers/home.container';
 import Details from '../../movie-details/dashboard.container';
 import Login from '../../user/login/dashboard.container';
@@ -28,12 +31,14 @@ const Routes = () => (
     <Route exact path="/" component={Home}/>
     <Route path="/home" component={Home}/>
     <Route path="/movies/:pageNo?" component={Movies}/>
+    <Route path="/latest/:pageNo?" component={Latest}/>
+    <Route path="/up-coming/:pageNo?" component={UpComing}/>
     <Route path="/movie-details/:id" component={Details}/>    
     <Route path="/profile" component={Profile}/>   
     <Route path="/login" component={Login}/>   
     <Route path="/register" component={SignUp}/>   
     <Route path="/password-reset" component={PasswordRest}/>   
-    <Route path="/reset/:token" component={SignUp}/>   
+    <Route path="/reset/:token" component={SignUp}/>
   </Switch>
 );
 

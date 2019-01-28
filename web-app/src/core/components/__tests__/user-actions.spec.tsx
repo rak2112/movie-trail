@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import React, { Component } from "react";
+import React from "react";
 import { create } from 'react-test-renderer';
 import { UserMovieType } from 'src/core/interfaces';
 

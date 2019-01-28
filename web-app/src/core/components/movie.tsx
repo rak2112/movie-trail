@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
-import * as uuid from 'uuid/v4';
 
 import { UserActions } from '../components';
 import { GenresMap, Movie, UserMovieMap, UserView } from '../interfaces';
@@ -25,7 +24,7 @@ export class MovieComponent extends PureComponent <Props>{
       addMovie, 
       deleteMovie,
       genres,
-      movie: {id, backdrop_path: moviePoster, genre_ids: movieGenres, title },
+      movie: {id, backdrop_path: moviePoster, genre_ids: movieGenres=[] , title },
       userMovies,
       userView
     } = this.props;

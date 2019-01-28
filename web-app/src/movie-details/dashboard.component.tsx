@@ -1,22 +1,18 @@
 import React, { PureComponent } from 'react';
-
+import styled from 'react-emotion';
 
 import { Carousel, Toaster, UserActions } from '../core/components';
 import { DetailProps } from './dashboard.container';
 import { Details } from './details';
-import { Container } from './styled';
+import { ContainerLeft, ContainerRight } from './styled';
 
+const Actions = styled('div')`
+  width: 50%;
+  float: right;
+`;
 
 export class MovieDetailsComponent extends PureComponent<DetailProps> {
 
-  // static getDerivedStateFromProps(nextProps: any, state: any) {
-  //   return {details: nextProps.details}
-  // }
-
-  // state = {
-  //   details: this.props.details
-  // }
-  
   componentWillUnmount() {
     this.props.resetDetails();
   }
@@ -32,17 +28,20 @@ export class MovieDetailsComponent extends PureComponent<DetailProps> {
 
     return (
       <>
-        <Container>
+        <ContainerLeft>
           <Toaster duration={2000}/>
           <Details {...details} key={details.id}/>
+        </ContainerLeft>
+
+        <ContainerRight>
           <UserActions 
-            addMovie={addCollection} 
-            deleteMovie={deleteMovie}
-            movie={details} 
-            userMovies={userMovies}
-          />
-        </Container>
-        <Carousel images={images} key={details.id}/>
+              addMovie={addCollection} 
+              deleteMovie={deleteMovie}
+              movie={details} 
+              userMovies={userMovies}
+            />
+          <Carousel images={images} key={details.id}/>
+        </ContainerRight>
         
       </>
     )

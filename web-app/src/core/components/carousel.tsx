@@ -7,8 +7,6 @@ import { MovieDetail, Poster, Posters } from '../interfaces';
 import { paths } from '../utils';
 
 export const Container = styled('div')`
-  float: left;
-  width: 50%;
   img.poster {
     width: 550px;
     height: 400px;

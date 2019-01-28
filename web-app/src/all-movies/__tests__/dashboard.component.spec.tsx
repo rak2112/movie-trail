@@ -76,7 +76,7 @@ describe(`Movies Component`, () => {
     // jest.mock('../../core/components/movie', () => 'MovieComponent');
   });
 
-  fit(`should match snapshot`, () => {
+  it(`should match snapshot`, () => {
     const component = create(
       <StaticRouter location="someLocation" context={context}>
         {/* used to wrap Router around the Link */}

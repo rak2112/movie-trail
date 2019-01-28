@@ -1,12 +1,27 @@
-import React, { PureComponent } from 'react';
+import React, { SFC } from 'react';
 import { Link } from 'react-router-dom';
-import { Field } from 'redux-form'
+import { Field, InjectedFormProps } from 'redux-form'
 import { FormInput, required } from '../../core/components';
-import { StyledComponent } from '../index';
+import { StyledComponent } from '../common/style.component';
 
-export const SignUpComponent = (props: any) => {
-  const { handleSubmit, pristine, reset, submitting, location } = props
+interface Location {
+  pathname: string;
+};
+
+export interface Props extends InjectedFormProps{
+  email: string;
+  password: string;
+  confirmPassword: string;
+  submitting: boolean;
+  token: string;
+  location: Location;
+  handleSubmit: ()=> void;
+};
+
+export const SignUpComponent: SFC<Props> = (props: Props) => {
+  const { handleSubmit, submitting, location } = props
   const signingUp = (/^\/register/gi).test(location.pathname);
+  
   return (
     <StyledComponent>
       <form onSubmit={ handleSubmit }>

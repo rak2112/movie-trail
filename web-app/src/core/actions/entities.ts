@@ -3,9 +3,14 @@ import { Action } from 'redux';
 import { Genre, Movie, Movies } from '../interfaces';
 import { loadState } from '../utils';
 
+import { history } from '../routes';
 
 const app = '[movieBase]';
 export const LOAD_MOVIES = `${app} load movies`;
+export const LOAD_ALL_MOVIES = `${app} load all movies`;
+export const LOAD_LATEST_MOVIES = `${app} load latest movies`;
+export const LOAD_UPCOMING_MOVIES = `${app} load upcoming movies`;
+export const LOAD_HITS_MOVIES = `${app} load hits movies`;
 export const LOAD_POSTERS = `${app} load posters`;
 export const LOAD_USER_MOVIES = `${app} load user movies`;
 export const LOAD_GENRES = `${app} load genres`;
@@ -20,8 +25,25 @@ export const DELETE_USER_MOVIE = `${app} delete user movie`;
 export const addMovie = (movie: Movie): AddMovie => ({type: ADD_USER_MOVIE, movie});
 export const deleteMovie = (movie: Movie): DeleteMovie => ({type: DELETE_USER_MOVIE, movie});
 
-export const loadMovies = (pageNo: number): LoadMovies => ({ type: LOAD_MOVIES, pageNo });
+// export const loadMovies = (pageNo: number): LoadMovies => ({ type: LOAD_MOVIES, pageNo });
+const requiredAction = (route: string, pageNo: number) => { console.log('route', route);
+  switch( route ) {
+    case 'movies':
+      return { type: LOAD_ALL_MOVIES, pageNo };
+    case 'latest':
+      return { type: LOAD_LATEST_MOVIES, pageNo };
+    case 'up-coming':
+      return { type: LOAD_UPCOMING_MOVIES, pageNo };
+    default:
+      return { type: LOAD_MOVIES, pageNo };
+  }
+};
 
+export const loadMovies = (pageNo: number): LoadMovies => {
+  const { pathname } = history.location;
+  const route = pathname.split('/');
+  return requiredAction(route[1], pageNo);
+};
 
 export const loadUserMovies = (): LoadUserMovies  => ({ type: LOAD_USER_MOVIES});
 
@@ -30,6 +52,10 @@ export const loadGenres = (): LoadGenres | {}  => {
   if(!genres) {
     return { type: LOAD_GENRES };
   }
+  return { type: 'DUMY'};
+};
+
+export const dummyAction = () => {
   return { type: 'DUMY'};
 };
 

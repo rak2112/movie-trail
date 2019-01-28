@@ -29,10 +29,11 @@ export const toFromDates = () => {
   const dd = d.getDate();
   const mm = d.getMonth()+ 1;
   const yy = d.getFullYear();
-  const fromDate = yy + '-' + mm + '-' + dd;
-  let lastDay = dd - 1;
-  lastDay = (lastDay) ? lastDay : lastDay+1;
-  const toDate = yy + '-' + (mm-1) + '-' + lastDay;
+
+  const fromDate = `${yy}-${mm}-${dd}`;
+  
+  const lastDay = dd - 1;
+  const toDate = `${(mm === 1 ) ? yy-1 : yy}-${(mm === 1 ) ? 12 : mm-1}-${(lastDay) ? lastDay : lastDay+1}`;
   return {fromDate, toDate};
 };
 
@@ -44,22 +45,3 @@ export const appErrors = {
   tokenExpired: `Your token has been expired please request a new token`,
   emailNotFound: `Account with this email address does not exist.`
 };
-
-
-// export const round = (value: string, decimals: number = 1): any => {
-  
-//   return Number(Math.round(`${value}e${decimals}`)+'e-'+decimals);
-// };
-// export default round;
-
-// export const apiUrl = (pageNo) => {
-//   const {toDate, fromDate} = toFromDates();
-//   return {
-//     defaultUrl: `${paths.apiUrl}/discover/movie${paths.apiKey}&page=${pageNo}`
-//     inCinemas: `${paths.apiUrl}/movie/now_playing${paths.apiKey}&language=en-US&page=${pageNo}`,
-//     latest: `${paths.apiUrl}/discover/movie?primary_release_date.gte=${toDate}&primary_release_date.lte=${fromDate}&api_key=60773f18ef6a7a9ee3d4a640fab964eb&page=${pageNo}`,
-//     popular: `${paths.apiUrl}/movie/popular${paths.apiKey}&language=en-US&page=${pageNo}`,
-//     topRated: `${paths.apiUrl}/movie/top_rated${paths.apiKey}&language=en-US&page=${pageNo}`,
-//     upComing: `${paths.apiUrl}/movie/upcoming${paths.apiKey}&page=${pageNo}`,
-//   }
-// };

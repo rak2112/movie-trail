@@ -4,12 +4,13 @@ import styled from 'react-emotion';
 import { Movie, UserMovieMap, UserView } from '../interfaces';
 
 const Container = styled('div')`
-  background: #000;
-  font-size: 22px;
-  opacity: 0.9;
-  text-align: right !important;
+  padding: 3px 1px 5px;
   .user-actions {
     text-align: end;
+    background: #000;
+    font-size: 22px;
+    opacity: 0.9;
+    text-align: right !important;
   }
   a {
     color: #cc3300;

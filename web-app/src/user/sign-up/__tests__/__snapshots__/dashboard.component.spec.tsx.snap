@@ -1,0 +1,173 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUp Component render the component, if form is a registration 1`] = `
+<div
+  className="css-1k2uugu"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="form-group"
+    >
+      <h3>
+        Register
+      </h3>
+      <div>
+        <label />
+        <div>
+          <input
+            className="form-control "
+            name="email"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onDragStart={[Function]}
+            onDrop={[Function]}
+            onFocus={[Function]}
+            placeholder="email"
+            type="text"
+            value=""
+          />
+          <em />
+        </div>
+      </div>
+      <div>
+        <label />
+        <div>
+          <input
+            className="form-control "
+            name="name"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onDragStart={[Function]}
+            onDrop={[Function]}
+            onFocus={[Function]}
+            placeholder="name"
+            type="text"
+            value=""
+          />
+          <em />
+        </div>
+      </div>
+      <div>
+        <label />
+        <div>
+          <input
+            className="form-control "
+            name="password"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onDragStart={[Function]}
+            onDrop={[Function]}
+            onFocus={[Function]}
+            placeholder="Password"
+            type="password"
+            value=""
+          />
+          <em />
+        </div>
+      </div>
+      <div>
+        <label />
+        <div>
+          <input
+            className="form-control "
+            name="confirmPassword"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onDragStart={[Function]}
+            onDrop={[Function]}
+            onFocus={[Function]}
+            placeholder="Re type Password"
+            type="password"
+            value=""
+          />
+          <em />
+        </div>
+      </div>
+    </div>
+    <button
+      className="btn btn-primary"
+      disabled={false}
+      type="submit"
+    >
+      Sign up
+    </button>
+    <a
+      className="btn btn-warning"
+      href="/movies"
+      onClick={[Function]}
+    >
+      Cancel
+    </a>
+  </form>
+</div>
+`;
+
+exports[`SignUp Component render the component, if form is a signup 1`] = `
+<div
+  className="css-1k2uugu"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="form-group"
+    >
+      <h3>
+        Reset your password
+      </h3>
+      <div>
+        <label />
+        <div>
+          <input
+            className="form-control "
+            name="password"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onDragStart={[Function]}
+            onDrop={[Function]}
+            onFocus={[Function]}
+            placeholder="Password"
+            type="password"
+            value=""
+          />
+          <em />
+        </div>
+      </div>
+      <div>
+        <label />
+        <div>
+          <input
+            className="form-control "
+            name="confirmPassword"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onDragStart={[Function]}
+            onDrop={[Function]}
+            onFocus={[Function]}
+            placeholder="Re type Password"
+            type="password"
+            value=""
+          />
+          <em />
+        </div>
+      </div>
+    </div>
+    <button
+      className="btn btn-primary"
+      disabled={false}
+      type="submit"
+    >
+      Change password
+    </button>
+    <a
+      className="btn btn-warning"
+      href="/movies"
+      onClick={[Function]}
+    >
+      Cancel
+    </a>
+  </form>
+</div>
+`;

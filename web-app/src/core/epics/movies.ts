@@ -11,7 +11,7 @@ import { history } from '../routes';
 import * as service from '../utils';
 
 export const loadMovies = (action$: any) => action$.pipe (
-  ofType(actions.LOAD_MOVIES),
+  ofType(actions.LOAD_ALL_MOVIES),
   switchMap(({pageNo}) =>
   service.getMovies(pageNo).pipe(
     map((res: Movies) => actions.loadMoviesSuccess({ ...res, pageNo }) )
@@ -21,6 +21,36 @@ export const loadMovies = (action$: any) => action$.pipe (
     const redirection = (/^\/home/gi).test(history.location.pathname);
     if(!redirection) {
       history.push(`/movies/${+pageNo}`)
+    }
+  })
+);
+
+export const loadLatestMovies = (action$: any) => action$.pipe (
+  ofType(actions.LOAD_LATEST_MOVIES),
+  switchMap(({pageNo}) =>
+  service.getLatestMovies(pageNo).pipe(
+    map((res: Movies) => actions.loadMoviesSuccess({ ...res, pageNo }) )
+  )),
+  tap(({res})=> {
+    const { pageNo } = res;
+    const redirection = (/^\/home/gi).test(history.location.pathname);
+    if(!redirection) {
+      history.push(`/latest/${+pageNo}`)
+    }
+  })
+);
+
+export const loadUpcomingMovies = (action$: any) => action$.pipe (
+  ofType(actions.LOAD_UPCOMING_MOVIES),
+  switchMap(({pageNo}) =>
+  service.getUpcomningMovies(pageNo).pipe(
+    map((res: Movies) => actions.loadMoviesSuccess({ ...res, pageNo }) )
+  )),
+  tap(({res})=> {
+    const { pageNo } = res;
+    const redirection = (/^\/home/gi).test(history.location.pathname);
+    if(!redirection) {
+      history.push(`/up-coming/${+pageNo}`)
     }
   })
 );

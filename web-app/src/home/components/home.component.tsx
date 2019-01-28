@@ -12,10 +12,6 @@ interface Props {
 
 const LoadPosters = LoadingCompWrapper(Posters);
 
-export class HomeComponent extends PureComponent <Props> {
-  render() {
-    return (
-     <LoadPosters {...this.props} />
-    )
-  }
-}
+LoadPosters.displayName = 'Posters';
+
+export const HomeComponent = (props: Props) => <LoadPosters {...props} />

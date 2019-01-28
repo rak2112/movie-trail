@@ -6,6 +6,7 @@ import { api, ApiState } from './api';
 import { genres, GenresState } from './genres';
 import { movieDetails, MovieDetailState } from './movie-details';
 import { movies, MoviesState } from './movies';
+import { searchedMovies, SerachMoviesState } from './search-movies';
 import { user, UserState } from './user';
 
 
@@ -14,6 +15,7 @@ export interface State {
   readonly genres: GenresState
   readonly movieDetails: MovieDetailState;
   readonly movies: MoviesState;
+  readonly searchedMovies: SerachMoviesState;
   readonly user: UserState;
 }
 
@@ -24,6 +26,7 @@ const rootReducer = combineReducers({
   movieDetails,
   movies,
   routing: routerReducer,
+  searchedMovies,
   user
 });
 

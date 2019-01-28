@@ -1,17 +1,12 @@
-import React from 'react';
-// import { connect, MapStateToProps } from 'react-redux';
-import { Field, reduxForm } from 'redux-form'
-import { getMovieGenres } from 'src/core/selectors/movies';
+import { reduxForm } from 'redux-form'
 import { loginRequest } from '../../core/actions';
 import { FormValues } from '../../core/interfaces';
-import { LoginComponent } from './dashboard.component';
+import { LoginComponent, LoginProps } from './dashboard.component';
 
 
-const onSubmit = (values: FormValues, dispatch: any) => {
-  return dispatch(loginRequest(values))
-};
+const onSubmit = (values: FormValues, dispatch: (fn: any) => void) => dispatch(loginRequest(values));
 
-export default reduxForm<any>({
+export default reduxForm<LoginProps>({
   form: 'loginFormValidation',
   onSubmit
 }) (LoginComponent);

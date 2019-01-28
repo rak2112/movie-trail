@@ -1,0 +1,248 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile Container should render with data provided 1`] = `
+<div
+  className="css-5zmk01"
+>
+  <div
+    className="css-12ztpbw"
+  >
+    <div
+      className="container"
+    >
+      <div
+        className="logo"
+      >
+        <span>
+          K
+        </span>
+      </div>
+      <h3>
+        :displayName
+      </h3>
+    </div>
+  </div>
+  <div
+    className="css-182pldt"
+  >
+    <div
+      className="Toastify"
+    />
+  </div>
+  <div
+    className="css-n1acfl"
+  >
+    <div
+      className={undefined}
+      id="movie-tabs"
+      style={undefined}
+    >
+      <ul
+        className="nav nav-tabs"
+        role="tablist"
+      />
+      <div
+        className="tab-content"
+      >
+        <ul
+          className="nav nav-tabs"
+          role="tablist"
+        >
+          <li
+            className="active"
+            role="presentation"
+            style={undefined}
+          >
+            <a
+              aria-controls="movie-tabs-pane-fav"
+              aria-selected={true}
+              href="#"
+              id="movie-tabs-tab-fav"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="tab"
+              tabIndex={undefined}
+            >
+              <span
+                className="glyphicon glyphicon-heart"
+              />
+              Favorites
+              <span>
+                 
+                (1)
+                 
+              </span>
+            </a>
+          </li>
+          <li
+            className=""
+            role="presentation"
+            style={undefined}
+          >
+            <a
+              aria-controls="movie-tabs-pane-watchlist"
+              aria-selected={false}
+              href="#"
+              id="movie-tabs-tab-watchlist"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="tab"
+              tabIndex={-1}
+            >
+              <span
+                className="glyphicon glyphicon-bookmark"
+              />
+              Watchlist
+              <span>
+                 
+                (1)
+                 
+              </span>
+            </a>
+          </li>
+        </ul>
+        <div
+          aria-hidden={false}
+          aria-labelledby="movie-tabs-tab-fav"
+          className="fade tab-pane active in"
+          id="movie-tabs-pane-fav"
+          role="tabpanel"
+        >
+          <div
+            className="css-h5tpbd"
+          >
+            <div
+              className="css-bxd89m"
+            >
+              <a
+                href="/movie-details/2"
+                onClick={[Function]}
+              >
+                <img
+                  alt=""
+                  src="http://image.tmdb.org/t/p/w500path "
+                />
+              </a>
+              <div
+                className="css-1lw9bxc"
+              >
+                <div
+                  className="user-actions"
+                >
+                  <span
+                    className="rating"
+                  >
+                    8
+                    <span
+                      className="glyphicon glyphicon-star"
+                    />
+                  </span>
+                  <a
+                    className="remove-from-favorites"
+                    onClick={[Function]}
+                    title="Remove From Favorites"
+                  >
+                    <span
+                      className="glyphicon glyphicon-heart"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div
+                className="css-1w2z22x"
+              >
+                <h3>
+                  title
+                </h3>
+                <span
+                  className="genre"
+                >
+                  Action
+                </span>
+                <p>
+                  <a
+                    href="/movie-details/2"
+                    onClick={[Function]}
+                  >
+                    View Details
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden={true}
+          aria-labelledby="movie-tabs-tab-watchlist"
+          className="fade tab-pane"
+          id="movie-tabs-pane-watchlist"
+          role="tabpanel"
+        >
+          <div
+            className="css-h5tpbd"
+          >
+            <div
+              className="css-bxd89m"
+            >
+              <a
+                href="/movie-details/3"
+                onClick={[Function]}
+              >
+                <img
+                  alt=""
+                  src="http://image.tmdb.org/t/p/w500path "
+                />
+              </a>
+              <div
+                className="css-1lw9bxc"
+              >
+                <div
+                  className="user-actions"
+                >
+                  <span
+                    className="rating"
+                  >
+                    8
+                    <span
+                      className="glyphicon glyphicon-star"
+                    />
+                  </span>
+                  <a
+                    className="remove-from-watchlist"
+                    onClick={[Function]}
+                    title="Remove From List"
+                  >
+                    <span
+                      className="glyphicon glyphicon-bookmark"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div
+                className="css-1w2z22x"
+              >
+                <h3>
+                  title
+                </h3>
+                <span
+                  className="genre"
+                >
+                  Action
+                </span>
+                <p>
+                  <a
+                    href="/movie-details/3"
+                    onClick={[Function]}
+                  >
+                    View Details
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

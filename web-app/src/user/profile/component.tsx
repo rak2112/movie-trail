@@ -11,7 +11,7 @@ import { ProfileDetails } from './user-details.component';
 
 
 export class ProfileComponent extends PureComponent <Profile, any> {
-  static displayName = 'MovieComponent';
+  static displayName = 'ProfileComponent';
   render() { 
     const { user } = this.props;
     return (
