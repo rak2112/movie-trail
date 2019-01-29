@@ -6,6 +6,7 @@ import {createToken, sendConfirmationEmail, sendPasswordRequestEmail} from '../s
 
 
 import {User, IUserModel} from '../user';
+import { Db } from 'mongodb';
 
 export const loginUser = async (options: any) => {
   const { req, user } = options;
@@ -33,16 +34,23 @@ export const authenticateUser = async (req: Request, res: Response, next: NextFu
 export const login = (req: Request, res: Response, next: NextFunction) => authenticateUser(req, res, next);
 
 export const signUp = async (req: Request, res: Response, next: NextFunction) => {
-  const { body: { email, displayName }, body: data} = req; console.log('dataaa', data);
-    const userExists: IUserModel = await User.findOne({email});
-    if (userExists) {
-      res.sendStatus(409);
-    } 
-    else {
-      const user = (!displayName) ? {...data, displayName: email} : data;
-      await new User(user).save();
-      authenticateUser(req, res, next, 'local');
+  const { body: { email, displayName }, body: data} = req;
+  const userExists: IUserModel = await User.findOne({email});
+
+  if (userExists) {
+    res.sendStatus(409);
+  }
+  else {
+    const user = (!displayName) ? {...data, displayName: email} : data;
+
+    try {
+      await User.create(user);
     }
+    catch(err) {
+      console.log('errr in saving user', err);
+    }
+    authenticateUser(req, res, next, 'local');
+  }
 }
 
 export const logOut = (req: Request, res: Response) => {

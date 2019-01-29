@@ -43,14 +43,18 @@ exports.authenticateUser = (req, res, next, strategy = 'basic') => __awaiter(thi
 exports.login = (req, res, next) => exports.authenticateUser(req, res, next);
 exports.signUp = (req, res, next) => __awaiter(this, void 0, void 0, function* () {
     const { body: { email, displayName }, body: data } = req;
-    console.log('dataaa', data);
     const userExists = yield user_1.User.findOne({ email });
     if (userExists) {
         res.sendStatus(409);
     }
     else {
         const user = (!displayName) ? Object.assign({}, data, { displayName: email }) : data;
-        yield new user_1.User(user).save();
+        try {
+            yield user_1.User.create(user);
+        }
+        catch (err) {
+            console.log('errr in saving user', err);
+        }
         exports.authenticateUser(req, res, next, 'local');
     }
 });

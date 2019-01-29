@@ -10,24 +10,23 @@ import path from 'path';
 import passport from 'passport';
 import session from 'express-session';
 import { MONGODB_URI, SESSION_SECRET } from './util/secrets';
-
-
 import {restRouter} from './restRouter';
 
 const MongoStore = mongo(session);
-
-
-
 const app = express();
-
 const mongoUrl = MONGODB_URI;
+
 (<any>mongoose).Promise = global.Promise;
-mongoose.connect(mongoUrl, {useMongoClient: true}).then(
-  () => { console.log('connected to mongodb', mongoUrl); },
-).catch(err => {
-  console.log('MongoDB connection error. Please make sure MongoDB is running. ' + err);
-  // process.exit();
-});
+
+ ( async function() {
+  try {
+    await mongoose.connect(mongoUrl, {useMongoClient: true});
+    console.log('connected to mongodb', __dirname);
+  }
+  catch(err) {
+    console.log('MongoDB connection error. Please make sure MongoDB is running. ', err);
+  }
+ })();
 
 app.set('port', process.env.PORT || 5000);
 app.set('views', path.join(__dirname, '../views'));

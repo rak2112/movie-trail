@@ -61,4 +61,6 @@ userSchema.methods.gravatar = function (size) {
     const md5 = crypto_1.default.createHash('md5').update(this.email).digest('hex');
     return `https://gravatar.com/avatar/${md5}?s=${size}&d=retro`;
 };
+// https://github.com/Automattic/mongoose/issues/2471
+userSchema.set('autoIndex', false);
 exports.User = mongoose_1.model('User', userSchema);

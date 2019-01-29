@@ -1,4 +1,12 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -20,10 +28,17 @@ const MongoStore = connect_mongo_1.default(express_session_1.default);
 const app = express_1.default();
 const mongoUrl = secrets_1.MONGODB_URI;
 mongoose_1.default.Promise = global.Promise;
-mongoose_1.default.connect(mongoUrl, { useMongoClient: true }).then(() => { console.log('connected to mongodb', mongoUrl); }).catch(err => {
-    console.log('MongoDB connection error. Please make sure MongoDB is running. ' + err);
-    // process.exit();
-});
+(function () {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            yield mongoose_1.default.connect(mongoUrl, { useMongoClient: true });
+            console.log('connected to mongodb', __dirname);
+        }
+        catch (err) {
+            console.log('MongoDB connection error. Please make sure MongoDB is running. ', err);
+        }
+    });
+})();
 app.set('port', process.env.PORT || 5000);
 app.set('views', path_1.default.join(__dirname, '../views'));
 app.set('view engine', 'pug');
