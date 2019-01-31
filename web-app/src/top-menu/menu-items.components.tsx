@@ -41,7 +41,7 @@ export const MenuItemsComponent = ({user, logoutRequest}: Props) => {
           <li><NavLink to='/home'>Home</NavLink></li>
           <li><NavLink to='/movies'>All Movies</NavLink></li>
           <li><NavLink to='/latest'>Latest</NavLink></li>
-          <li><NavLink to='/popular'>Hits</NavLink></li>
+          <li><NavLink to='/hits'>Hits</NavLink></li>
           <li><NavLink to='/up-coming'>Coming Soon</NavLink></li>
           { !user && <li className="float-right"><NavLink to='/login'>Sign in</NavLink></li> }
           { user && user.loggedIn &&

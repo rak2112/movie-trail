@@ -11,10 +11,10 @@ export const Container = styled('div')`
     width: 550px;
     height: 400px;
     border: 4px solid #222;
-    border-radius: 12px;
-    margin: 40px 78px;
+    margin: 0 30px;
   }
   .thumbnails {
+    padding-top: 20px;
     text-align: center;
     .movie {
       display: inline-block;

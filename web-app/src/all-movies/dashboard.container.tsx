@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect, MapStateToProps } from 'react-redux';
 
-import { addMovie, deleteMovie, loadGenres, loadMovies } from '../core/actions';
+import { addMovie, deleteMovie, loadGenres, loadMovies, reset, searchMovies } from '../core/actions';
 import { LoadingCompWrapper } from '../core/components/loader-wrapper';
 import { Api, GenresMap, Movie, Movies, UserMovieMap } from '../core/interfaces';
 import { State } from '../core/reducers';
@@ -17,6 +17,7 @@ export interface StateProps {
 
 interface DispatchProps {
   addMovie: (movie: Movie) => void;
+  search: (movie: string) => void;
   deleteMovie: (movie: Movie) => void;
   loadGenres?: () => void;
   loadMovies: (pageNo: number) => void;
@@ -33,9 +34,17 @@ const mapStateToProps: MapStateToProps<any, any, any> = (state: State) => {
   return { ...movies };
 };
 
+const search = (movie: string) => {
+  if(movie) {
+    return searchMovies(movie);
+  }
+  return reset();
+}
+
 export default connect<StateProps, DispatchProps>(mapStateToProps, {
   addMovie,
   deleteMovie,
   loadMovies,
-  loadGenres
+  loadGenres,
+  search
 }) (MoviesPage);

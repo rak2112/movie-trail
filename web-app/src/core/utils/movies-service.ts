@@ -19,7 +19,7 @@ export const getMovies = (pageNo: number): Observable<Movies> => {
 
 export const getLatestMovies = (pageNo: number): Observable<Movies> => {
   const { toDate, fromDate } = toFromDates();
-  return  http.getJSON(`${paths.apiUrl}/discover/movie?primary_release_date.gte=${toDate}&primary_release_date.lte=${fromDate}&api_key=60773f18ef6a7a9ee3d4a640fab964eb&page=${pageNo}`).pipe(
+  return  http.getJSON(`${paths.apiUrl}/discover/movie?primary_release_date.gte=${toDate}&primary_release_date.lte=${fromDate}${paths.appKey}&page=${pageNo}`).pipe(
     map(res => ({
       pageNo: res.pageNo,
       results: res.results,
@@ -28,6 +28,19 @@ export const getLatestMovies = (pageNo: number): Observable<Movies> => {
     }))
   );
 };
+
+export const getHits = (pageNo: number): Observable<Movies> => {
+  return  http.getJSON(`${paths.apiUrl}/discover/movie?sort_by=vote_average.desc${paths.appKey}&page=${pageNo}`).pipe(
+    map(res => ({
+      pageNo: res.pageNo,
+      results: res.results,
+      totalResults: res.total_results,
+      totalPages: res.total_pages,
+    }))
+  );
+};
+
+
 
 export const getUpcomningMovies = (pageNo: number): Observable<Movies> => {
   return  http.getJSON(`${paths.apiUrl}/movie/upcoming${paths.apiKey}&page=${pageNo}`).pipe(
@@ -41,10 +54,9 @@ export const getUpcomningMovies = (pageNo: number): Observable<Movies> => {
 };
 
 export const getMovieDetails = (id: number): Observable<any> => {
-  console.log('aalsdfklas', id);
   return  http.getJSON(`${paths.apiUrl}/movie/${id}${paths.apiKey}`)
   .pipe(
-    map(res => {console.log('resss', res); return (res)})
+    map(res => res )
   );
 };
 
@@ -87,7 +99,13 @@ export const deleteMovie = (id: string): Observable<string> => {
 };
 
 export const searchMovies = (movie: string): Observable<any> => {
-  return  http.getJSON(`${paths.apiUrl}/search/multi${paths.apiKey}&language=en-US&query=${movie}`).pipe(
-    map((res => { console.log('ress', res); return res})))
+  return  http.getJSON(`${paths.apiUrl}/search/multi${paths.apiKey}&language=en-US&type=moive&query=${movie}`).pipe(
+    map(res => ({
+      pageNo: res.page,
+      results: res.results,
+      totalResults: res.total_results,
+      totalPages: res.total_pages,
+    }))
+  );  
   
 };

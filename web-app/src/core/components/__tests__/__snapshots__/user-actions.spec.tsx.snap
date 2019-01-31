@@ -2,7 +2,7 @@
 
 exports[`Carousel Component should render when movie is already in user favorite list 1`] = `
 <div
-  className="css-1lw9bxc"
+  className="css-1nkcf6k"
 >
   <div
     className="user-actions"
@@ -14,6 +14,14 @@ exports[`Carousel Component should render when movie is already in user favorite
       <span
         className="glyphicon glyphicon-star"
       />
+    </span>
+    <span
+      className="year"
+    >
+      <span
+        className="glyphicon glyphicon-calendar"
+      />
+      2019
     </span>
     <a
       className="remove-from-favorites"
@@ -39,7 +47,7 @@ exports[`Carousel Component should render when movie is already in user favorite
 
 exports[`Carousel Component should render when movie is not in user list 1`] = `
 <div
-  className="css-1lw9bxc"
+  className="css-1nkcf6k"
 >
   <div
     className="user-actions"
@@ -51,6 +59,14 @@ exports[`Carousel Component should render when movie is not in user list 1`] = `
       <span
         className="glyphicon glyphicon-star"
       />
+    </span>
+    <span
+      className="year"
+    >
+      <span
+        className="glyphicon glyphicon-calendar"
+      />
+      2019
     </span>
     <a
       className="add-to-favorites"

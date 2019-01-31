@@ -1,6 +1,6 @@
 import { combineEpics } from 'redux-observable';
 import { loadMovieDetails } from './movie-details';
-import { addMovie, deleteMovie, loadGenres, 
+import { addMovie, deleteMovie, loadGenres, loadHitMovies,
   loadLatestMovies, loadMovies, loadUpcomingMovies, loadUserMovies } from './movies';
 import { searchMovies } from './searchMovies';
 import { resetPassword, sendPasswordRequest, userLogin, userLogOut, userSignUp } from './user';
@@ -11,6 +11,7 @@ export const rootEpic = combineEpics(
   addMovie,
   deleteMovie,
   loadGenres,
+  loadHitMovies,
   loadLatestMovies,
   loadMovieDetails,
   loadMovies,

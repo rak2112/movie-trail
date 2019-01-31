@@ -1,7 +1,8 @@
 import React, { SFC } from 'react';
 import { Link } from 'react-router-dom';
 import { Field, InjectedFormProps } from 'redux-form'
-import { FormInput, required } from '../../core/components';
+import { FormInput } from '../../core/components/form-input';
+import { required } from '../../core/components/form-validation';
 import { StyledComponent } from '../common/style.component';
 
 export interface LoginProps extends InjectedFormProps{

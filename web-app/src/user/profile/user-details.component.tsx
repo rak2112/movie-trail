@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'react-emotion';
 
 import { User } from '../../core/interfaces';
+import { initialsUpperCase } from '../../core/utils/util-service';
 
 const Container = styled('div')`
   .container div {
@@ -29,7 +30,7 @@ export const ProfileDetails = (user: User) => {
     <Container>
       <div className="container">
         <div className="logo">
-          <span>K</span>
+          <span>{initialsUpperCase(user.displayName)}</span>
         </div>
         <h3>{user.displayName}</h3>
       </div>

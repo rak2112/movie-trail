@@ -33,9 +33,7 @@ export const MovieTabs = ({
           <span> {(watchlist.length > 0 )&& `(${watchlist.length})`} </span>
         </NavItem>
       </Nav>
-      <Tab
-        eventKey={'fav'}
-        >
+      <Tab eventKey={'fav'}>
         {
           (favorites.length) ? 
             favorites.map((movie: UserMovie) => 
@@ -50,7 +48,7 @@ export const MovieTabs = ({
           : (<h3 className='no-records'>You have not added any movies yet.</h3>)
         }
       </Tab>
-      <Tab eventKey={'watchlist'} >
+      <Tab eventKey={'watchlist'}>
         { 
           (watchlist.length) ? 
             watchlist.map((movie: UserMovie) => 

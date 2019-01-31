@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import styled from 'react-emotion';
 
 import { Carousel, Toaster, UserActions } from '../core/components';
+import { TabDetatils } from './common/tabs';
 import { DetailProps } from './dashboard.container';
 import { Details } from './details';
 import { ContainerLeft, ContainerRight } from './styled';
@@ -30,7 +31,8 @@ export class MovieDetailsComponent extends PureComponent<DetailProps> {
       <>
         <ContainerLeft>
           <Toaster duration={2000}/>
-          <Details {...details} key={details.id}/>
+          <TabDetatils {...this.props}/>
+          {/* <Details {...details} key={details.id}/> */}
         </ContainerLeft>
 
         <ContainerRight>

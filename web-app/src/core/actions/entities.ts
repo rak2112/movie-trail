@@ -9,6 +9,7 @@ const app = '[movieBase]';
 export const LOAD_MOVIES = `${app} load movies`;
 export const LOAD_ALL_MOVIES = `${app} load all movies`;
 export const LOAD_LATEST_MOVIES = `${app} load latest movies`;
+export const LOAD_HIT_MOVIES = `${app} load hit movies`;
 export const LOAD_UPCOMING_MOVIES = `${app} load upcoming movies`;
 export const LOAD_HITS_MOVIES = `${app} load hits movies`;
 export const LOAD_POSTERS = `${app} load posters`;
@@ -26,7 +27,7 @@ export const addMovie = (movie: Movie): AddMovie => ({type: ADD_USER_MOVIE, movi
 export const deleteMovie = (movie: Movie): DeleteMovie => ({type: DELETE_USER_MOVIE, movie});
 
 // export const loadMovies = (pageNo: number): LoadMovies => ({ type: LOAD_MOVIES, pageNo });
-const requiredAction = (route: string, pageNo: number) => { console.log('route', route);
+const requiredAction = (route: string, pageNo: number) => {
   switch( route ) {
     case 'movies':
       return { type: LOAD_ALL_MOVIES, pageNo };
@@ -34,8 +35,10 @@ const requiredAction = (route: string, pageNo: number) => { console.log('route',
       return { type: LOAD_LATEST_MOVIES, pageNo };
     case 'up-coming':
       return { type: LOAD_UPCOMING_MOVIES, pageNo };
+    case 'hits':
+      return { type: LOAD_HIT_MOVIES, pageNo };
     default:
-      return { type: LOAD_MOVIES, pageNo };
+      return { type: LOAD_ALL_MOVIES, pageNo };
   }
 };
 
@@ -55,7 +58,7 @@ export const loadGenres = (): LoadGenres | {}  => {
   return { type: 'DUMY'};
 };
 
-export const dummyAction = () => {
+export const reset = () => {
   return { type: 'DUMY'};
 };
 

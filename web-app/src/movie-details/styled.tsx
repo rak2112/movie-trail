@@ -3,13 +3,13 @@ import styled from 'react-emotion';
 export const ContainerLeft = styled('div')`
   float: left;
   padding: 20px;
-  width: 50%;
+  width: 56%;
   .user-actions {
     margin-top: 20px;
     padding: 10px 0;
   }
  .movie-details {
-   
+   padding: 15px;
    a {
      color: #ff5c00;
      font-size: 1.8rem;
@@ -54,5 +54,12 @@ export const ContainerLeft = styled('div')`
 
 export const ContainerRight = styled('div')`
   float: right;
-  width: 50%;
+  margin-top: 20px;
+  width: 44%;
+  .user-actions {
+    margin-left: 30px;
+    width: 550px;
+    height: 45px;
+    padding-top: 8px;
+  }
 `;

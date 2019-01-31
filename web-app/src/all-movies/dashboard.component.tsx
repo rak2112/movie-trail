@@ -6,6 +6,7 @@ import {
   Toaster 
 } from '../core/components';
 import { Movie } from '../core/interfaces';
+import { SearchBar } from '../top-menu/searchBar.component';
 import { MoviesProps } from './dashboard.container';
 
 const defaultProps = { movies: {pageNo:0, totalPages: 0, results: [], totalResults: 0 }};
@@ -27,6 +28,7 @@ export class MoviesComponent extends PureComponent <MoviesProps> {
 
     return (
       <>
+      <SearchBar searchMovies={this.props.search}/>
         <MovieList>
           {() => (
             <> 

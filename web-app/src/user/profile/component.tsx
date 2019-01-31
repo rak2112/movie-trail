@@ -1,6 +1,4 @@
 import React, { PureComponent } from 'react';
-import { Nav, NavItem, Tab, Tabs } from 'react-bootstrap';
-import styled from 'react-emotion';
 import {
   MovieList,
   Toaster 

@@ -55,6 +55,21 @@ export const loadUpcomingMovies = (action$: any) => action$.pipe (
   })
 );
 
+export const loadHitMovies = (action$: any) => action$.pipe (
+  ofType(actions.LOAD_HIT_MOVIES),
+  switchMap(({pageNo}) =>
+  service.getHits(pageNo).pipe(
+    map((res: Movies) => actions.loadMoviesSuccess({ ...res, pageNo }) )
+  )),
+  tap(({res})=> {
+    const { pageNo } = res;
+    const redirection = (/^\/home/gi).test(history.location.pathname);
+    if(!redirection) {
+      history.push(`/hits/${+pageNo}`)
+    }
+  })
+);
+
 export const loadUserMovies = (action$: any, state$: any) => action$.pipe (
   ofType(actions.LOAD_USER_MOVIES),
   withLatestFrom(state$),

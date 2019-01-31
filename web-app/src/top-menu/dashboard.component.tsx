@@ -10,7 +10,7 @@ export class MenuBar extends PureComponent <MenuBarProps> {
     return (
       <>
         <MenuItemsComponent {...this.props}/>
-        <SearchBar searchMovies={this.props.search}/>
+        {/* <SearchBar searchMovies={this.props.search}/> */}
       </>
     )
   }

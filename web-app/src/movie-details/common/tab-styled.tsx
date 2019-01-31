@@ -1,10 +1,11 @@
 import styled from 'react-emotion';
 
 export const TabContainer = styled('div')`
+  border: 4px solid;
   clear: both;
   width: 100%;
   ul.nav-tabs {
-    background: #cc0;
+    background: #000;
     border: none;
   }
   .nav>li>a:focus, .nav>li>a:hover {
@@ -16,7 +17,6 @@ export const TabContainer = styled('div')`
     background: #333;
     border: none;
     color: #cc0;
-    margin-left: 4px;
   }
   .nav-tabs > li {
     a {

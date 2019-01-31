@@ -7,13 +7,14 @@ export const getUuid = () => {
 export const paths = {
   apiKey: '?api_key=60773f18ef6a7a9ee3d4a640fab964eb',
   apiUrl: 'https://api.themoviedb.org/3',
-  imgPath45: 'http://image.tmdb.org/t/p/w45',
-  imgPath92: 'http://image.tmdb.org/t/p/w92',
-  imgPath154: 'http://image.tmdb.org/t/p/w154',
-  imgPath185: 'http://image.tmdb.org/t/p/w185',
-  imgPath500: 'http://image.tmdb.org/t/p/w500',
+  imgPath45: 'https://image.tmdb.org/t/p/w45',
+  imgPath92: 'https://image.tmdb.org/t/p/w92',
+  imgPath154: 'https://image.tmdb.org/t/p/w154',
+  imgPath185: 'https://image.tmdb.org/t/p/w185',
+  imgPath500: 'https://image.tmdb.org/t/p/w500',
   localhost: 'http://localhost:5000',
-  posterPath780: 'http://image.tmdb.org/t/p/w780',
+  posterPath780: 'https://image.tmdb.org/t/p/w780',
+  appKey: '&api_key=60773f18ef6a7a9ee3d4a640fab964eb',
 };
 
 export const menuData = [
@@ -36,6 +37,8 @@ export const toFromDates = () => {
   const toDate = `${(mm === 1 ) ? yy-1 : yy}-${(mm === 1 ) ? 12 : mm-1}-${(lastDay) ? lastDay : lastDay+1}`;
   return {fromDate, toDate};
 };
+
+export const initialsUpperCase = (name: string = '') => name.split(' ').map((str) => str.charAt(0)).join('').toUpperCase();
 
 export const appErrors = {
   apiError: `Something has gone wrong with your request. Please try again later.`,

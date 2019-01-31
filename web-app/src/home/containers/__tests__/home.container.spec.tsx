@@ -30,7 +30,7 @@ describe(`Home Container`, () => {
     expect(loadGenres()).toEqual({ type: '[movieBase] load genres'});
 
     const loadMovies: (pageNo: number)=>void = component.prop('loadMovies');
-    expect(loadMovies(2)).toEqual({ pageNo: 2, type: '[movieBase] load movies'});
+    expect(loadMovies(2)).toEqual({ pageNo: 2, type: '[movieBase] load all movies'});
   });
 
 });

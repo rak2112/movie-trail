@@ -14,11 +14,11 @@ exports[`Profile Container should render with data provided 1`] = `
         className="logo"
       >
         <span>
-          K
+          DN
         </span>
       </div>
       <h3>
-        :displayName
+        display Name
       </h3>
     </div>
   </div>
@@ -30,7 +30,7 @@ exports[`Profile Container should render with data provided 1`] = `
     />
   </div>
   <div
-    className="css-n1acfl"
+    className="css-1qdlnni"
   >
     <div
       className={undefined}
@@ -120,11 +120,11 @@ exports[`Profile Container should render with data provided 1`] = `
               >
                 <img
                   alt=""
-                  src="http://image.tmdb.org/t/p/w500path "
+                  src="https://image.tmdb.org/t/p/w500path "
                 />
               </a>
               <div
-                className="css-1lw9bxc"
+                className="css-1nkcf6k"
               >
                 <div
                   className="user-actions"
@@ -136,6 +136,14 @@ exports[`Profile Container should render with data provided 1`] = `
                     <span
                       className="glyphicon glyphicon-star"
                     />
+                  </span>
+                  <span
+                    className="year"
+                  >
+                    <span
+                      className="glyphicon glyphicon-calendar"
+                    />
+                    2019
                   </span>
                   <a
                     className="remove-from-favorites"
@@ -190,11 +198,11 @@ exports[`Profile Container should render with data provided 1`] = `
               >
                 <img
                   alt=""
-                  src="http://image.tmdb.org/t/p/w500path "
+                  src="https://image.tmdb.org/t/p/w500path "
                 />
               </a>
               <div
-                className="css-1lw9bxc"
+                className="css-1nkcf6k"
               >
                 <div
                   className="user-actions"
@@ -206,6 +214,14 @@ exports[`Profile Container should render with data provided 1`] = `
                     <span
                       className="glyphicon glyphicon-star"
                     />
+                  </span>
+                  <span
+                    className="year"
+                  >
+                    <span
+                      className="glyphicon glyphicon-calendar"
+                    />
+                    2019
                   </span>
                   <a
                     className="remove-from-watchlist"

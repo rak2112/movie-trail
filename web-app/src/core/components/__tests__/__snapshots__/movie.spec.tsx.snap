@@ -13,11 +13,11 @@ exports[`MovieComponent should match the snapshot with given inputs 1`] = `
     >
       <img
         alt=""
-        src="http://image.tmdb.org/t/p/w500path "
+        src="https://image.tmdb.org/t/p/w500path "
       />
     </a>
     <div
-      className="css-1lw9bxc"
+      className="css-1nkcf6k"
     >
       <div
         className="user-actions"
@@ -29,6 +29,14 @@ exports[`MovieComponent should match the snapshot with given inputs 1`] = `
           <span
             className="glyphicon glyphicon-star"
           />
+        </span>
+        <span
+          className="year"
+        >
+          <span
+            className="glyphicon glyphicon-calendar"
+          />
+          2019
         </span>
         <a
           className="add-to-favorites"

@@ -20,7 +20,7 @@ describe(`Profile Container`, () => {
       ...defaultState,
       user: {
         email: ':userEmail',
-        displayName: ':displayName',
+        displayName: 'display Name',
         movies: [{
           id: 2,
           backdrop_path: 'path',

@@ -1,31 +1,11 @@
 
-import React, { Component } from 'react';
+import React from 'react';
 import { connect, MapStateToProps } from 'react-redux';
 
-import { dummyAction, logoutRequest, searchMovies } from '../core/actions/';
+import { logoutRequest, reset, searchMovies } from '../core/actions/';
 import { User, UserMovie } from '../core/interfaces';
 import { MenuBar } from './dashboard.component';
 
-
-// class TopMenu extends Component {
-//   constructor (props) {
-//     super(props);
-//     this.state = {menuData: menuData, movieToFind: ''};
-//   }
-//   render() {
-//     return (
-//     <div>
-//       <MenuBar
-//         data={this.state.menuData}
-//         movieToFind={this.state.movieToFind}
-//         moviesFound={this.props.moviesFound}
-//         onFocusOut={this.props.onFocusOut.bind(this)}
-//         clickHandler={this.props.handleNameChange.bind(this)}/>
-//        {this.props.children}
-//     </div>
-//   );
-//  }
-// }
 
 export interface MenuBarProps {
   user: User;
@@ -37,11 +17,10 @@ export interface MenuBarProps {
 const TopMenu = (props: MenuBarProps) => <MenuBar {...props}/>
 
 const search = (movie: string) => {
-  console.log('event to be searched', movie);
   if(movie) {
     return searchMovies(movie);
   }
-  return dummyAction();
+  return reset();
 }
 
 const mapStateProps: MapStateToProps <any, any, any> = (state: MenuBarProps) =>{

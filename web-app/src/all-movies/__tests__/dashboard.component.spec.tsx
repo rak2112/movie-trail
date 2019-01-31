@@ -11,6 +11,7 @@ describe(`Movies Component`, () => {
   const getUuid = jest.fn();
   const props = {
     addMovie: jest.fn(),
+    search: jest.fn(),
     deleteMovie: jest.fn(),
     genres:[
       {id:2, name: "Action"} as Genre
@@ -97,7 +98,7 @@ describe(`Movies Component`, () => {
     
     expect(wrapper.find('MovieComponent').children().length).toEqual(2);
     expect(wrapper.find('footer').children().length).toEqual(1);
-    expect(wrapper.find('.user-actions').children().length).toEqual(6);
+    expect(wrapper.find('.user-actions').children().length).toEqual(8);
   });
 
 });

@@ -81,7 +81,7 @@ describe('MovieService', () => {
   
     });
   
-    fit(`should fetch getMovieCast`, () => {
+    it(`should fetch getMovieCast`, () => {
       const response = {
         title: ':title'
       };
