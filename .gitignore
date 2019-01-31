@@ -5,6 +5,7 @@ nohup.out
 .DS_Store
 sendgrid.env
 .env
+.env.variables
 env.variables
 client
 coverage
