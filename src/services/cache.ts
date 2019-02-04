@@ -1,11 +1,24 @@
 import mongoose from 'mongoose';
 import redis from 'redis';
 import { promisify } from 'bluebird';
-import { redisUrl } from '../util/secrets';
+import { redisUrl, ENVIRONMENT } from '../util/secrets';
+
 
 const client = redis.createClient(redisUrl);
 const getHash = promisify(client.hget).bind(client);
 const exec = mongoose.Query.prototype.exec;
+
+if(ENVIRONMENT === 'production') {
+  client.auth(process.env.REDIS_PASSWORD, function() {
+    console.log('Authenticated to Redis');
+  });
+} 
+else {
+  client.on('connect', ()=> {
+    console.log('Connected to Redis');
+  });
+}
+
 
 mongoose.Query.prototype.cache = function(options = {key: ''} ) {
   this.useCache = true;

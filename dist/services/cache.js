@@ -18,6 +18,16 @@ const secrets_1 = require("../util/secrets");
 const client = redis_1.default.createClient(secrets_1.redisUrl);
 const getHash = bluebird_1.promisify(client.hget).bind(client);
 const exec = mongoose_1.default.Query.prototype.exec;
+if (secrets_1.ENVIRONMENT === 'production') {
+    client.auth(process.env.REDIS_PASSWORD, function () {
+        console.log('Authenticated to Redis');
+    });
+}
+else {
+    client.on('connect', () => {
+        console.log('Connected to Redis');
+    });
+}
 mongoose_1.default.Query.prototype.cache = function (options = { key: '' }) {
     this.useCache = true;
     this.hashKey = JSON.stringify(options.key);
