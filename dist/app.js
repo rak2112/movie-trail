@@ -32,7 +32,7 @@ mongoose_1.default.Promise = global.Promise;
     return __awaiter(this, void 0, void 0, function* () {
         try {
             yield mongoose_1.default.connect(mongoUrl, { useMongoClient: true });
-            console.log('connected to mongodb', __dirname);
+            console.log('connected to mongodb');
         }
         catch (err) {
             console.log('MongoDB connection error. Please make sure MongoDB is running. ', err);
