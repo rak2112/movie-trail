@@ -6,19 +6,24 @@ export default class FavMoviesController {
 
   async get(req: Request, res: Response) {
     const { user: {_id: userId} } = req;
-    const results: IMovie[] = await FavMovie.find({users: userId}, {users: 0})// caching resources error .cache({key: userId});
-    console.log('resultsss', results);
+    const results: IMovie[] = await FavMovie.find({users: userId}, {users: 0}); // caching resources error .cache({key: userId});
     return res.json({results, total: results.length});
   }
 
   async post(req: Request, res: Response) {
     const { body: data, body: { id }, user: {_id: userId} } = req;
-    await FavMovie.findOneAndUpdate(
-      {id},
-      {  $set: {...data}, $addToSet: {users: userId} },
-      { upsert: true})
-      .catch(err => console.log('error adding user favorite movie', err));
-    res.sendStatus(201);
+    try {
+      await FavMovie.findOneAndUpdate(
+        {id},
+        {  $set: {...data}, $addToSet: {users: userId} },
+        { upsert: true})
+      res.sendStatus(201);
+    }
+    catch(err) {
+      console.log('error adding user favorite movie', err);
+      res.end();
+    }
+    
   }
 
   async delete(req: Request, res: Response) {

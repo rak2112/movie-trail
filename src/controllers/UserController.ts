@@ -6,8 +6,6 @@ import {isAuthenticated} from '../services/passport';
 import {createToken, sendConfirmationEmail, sendPasswordRequestEmail} from '../services/sgMail';
 
 
-console.log('signUpUser', isAuthenticated);
-
 export default class UserController {
   constructor() {}
   
@@ -18,15 +16,18 @@ export default class UserController {
       res.send({status: 409, res: `Account with that email address already exists.`});
     } 
     else {
-      await new User(data).save()
-        .catch((err) => console.log('error in saving user', err));
-      res.send(displayName);
+      try {
+        await new User(data).save();
+        res.send(displayName);
+      }
+      catch(err) {
+        res.end();
+      }
     }
   }
 
-  async login(req: Request, res: Response, next: NextFunction) { console.log('request', req)
+  async login(req: Request, res: Response, next: NextFunction) {
     passport.authenticate('local', (err: Error, user: IUserModel, info: IVerifyOptions) => {
-      console.log('errrrr', err);
       if (err) { return res.statusCode = 401; }
       if (!user) { return res.statusCode = 401; }
 
@@ -45,7 +46,7 @@ export default class UserController {
 
   async requestResetToken (req: Request, res: Response, next: NextFunction) {
     const { body: { email }, headers: { host } } = req;
-    const user: IUserModel = await User.findOne({email});
+    const user: IUserModel = await User.findOne({email}).exec();
     const token = JSON.stringify(await createToken());
     if(!user) {
       return res.send({message: 'Account with that email address does not exist.'});

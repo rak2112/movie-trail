@@ -13,9 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const passport_1 = __importDefault(require("passport"));
 const user_1 = require("../user");
-const passport_2 = require("../services/passport");
 const sgMail_1 = require("../services/sgMail");
-console.log('signUpUser', passport_2.isAuthenticated);
 class UserController {
     constructor() { }
     signUp(req, res, next) {
@@ -26,17 +24,19 @@ class UserController {
                 res.send({ status: 409, res: `Account with that email address already exists.` });
             }
             else {
-                yield new user_1.User(data).save()
-                    .catch((err) => console.log('error in saving user', err));
-                res.send(displayName);
+                try {
+                    yield new user_1.User(data).save();
+                    res.send(displayName);
+                }
+                catch (err) {
+                    res.end();
+                }
             }
         });
     }
     login(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log('request', req);
             passport_1.default.authenticate('local', (err, user, info) => {
-                console.log('errrrr', err);
                 if (err) {
                     return res.statusCode = 401;
                 }
@@ -63,7 +63,7 @@ class UserController {
     requestResetToken(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             const { body: { email }, headers: { host } } = req;
-            const user = yield user_1.User.findOne({ email });
+            const user = yield user_1.User.findOne({ email }).exec();
             const token = JSON.stringify(yield sgMail_1.createToken());
             if (!user) {
                 return res.send({ message: 'Account with that email address does not exist.' });

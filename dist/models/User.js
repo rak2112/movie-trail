@@ -46,7 +46,6 @@ userSchema.pre('save', function save(next) {
     });
 });
 userSchema.methods.comparePassword = function (candidatePassword, cb) {
-    console.log('crypttooooo', this);
     bcrypt_nodejs_1.default.compare(candidatePassword, this.password, (err, isMatch) => {
         cb(err, isMatch);
     });

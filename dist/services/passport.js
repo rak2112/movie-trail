@@ -17,13 +17,11 @@ const LocalStrategy = passport_local_1.default.Strategy;
 const FacebookStrategy = passport_facebook_1.default.Strategy;
 const GoogleStrategy = passport_google_oauth20_1.default.Strategy;
 passport_1.default.serializeUser((user, done) => {
-    console.log('serializing userrrr', user);
     if (user) {
         done(undefined, user.id);
     }
 });
 passport_1.default.deserializeUser((id, done) => {
-    console.log('Deserializing userrrr', id);
     if (id) {
         user_1.User.findById(id, (err, user) => {
             done(err, user);
@@ -53,7 +51,6 @@ passport_1.default.use(new BasicStrategy(function (email, password, done) {
     });
 }));
 passport_1.default.use('local', new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
-    console.log('in passport service', email);
     user_1.User.findOne({ email: email.toLowerCase() }, (err, user) => {
         if (err) {
             return done(err);
@@ -88,7 +85,6 @@ passport_1.default.use(new FacebookStrategy({
     profileFields: ['name', 'email', 'link', 'locale', 'timezone'],
     passReqToCallback: true
 }, (req, accessToken, refreshToken, profile, done) => {
-    console.log('faaaccceeboook userrrrrr', req);
     if (req.user) {
         user_1.User.findOne({ facebook: profile.id }, (err, existingUser) => {
             if (err) {
@@ -143,7 +139,6 @@ passport_1.default.use(new FacebookStrategy({
                     user.profile.picture = `https://graph.facebook.com/${profile.id}/picture?type=large`;
                     user.profile.location = (profile._json.location) ? profile._json.location.name : '';
                     user.save((err) => {
-                        console.log('errrr in savinggg', err);
                         done(err, user);
                     });
                 }
@@ -152,14 +147,12 @@ passport_1.default.use(new FacebookStrategy({
     }
 }));
 exports.isAuthenticated = (req, res, next) => {
-    console.log('req in isAuthenticated.....', req.get('authorization'), 'is sier', req.user);
     if (req.isAuthenticated()) {
         return next();
     }
     return res.send({ status: 403, msg: 'user not authorized' });
 };
 exports.isAuthorized = (req, res, next) => {
-    console.log('reeeeqq in fb', req.user);
     const provider = req.path.split('/').slice(-1)[0];
     if (lodash_1.default.find(req.user.tokens, { kind: provider })) {
         next();

@@ -1,4 +1,5 @@
 
+
 // import keys from '../config/keys';
 import passport from 'passport';
 import passportLocal from 'passport-local';
@@ -18,13 +19,13 @@ const FacebookStrategy = passportFacebook.Strategy;
 const GoogleStrategy = passportGoogle.Strategy;
 
 
-passport.serializeUser<any, any>((user, done) => { console.log('serializing userrrr', user);
+passport.serializeUser<any, any>((user, done) => {
   if(user) {
     done(undefined, user.id);
   }
 });
 
-passport.deserializeUser((id, done) => { console.log('Deserializing userrrr', id);
+passport.deserializeUser((id, done) => {
   if(id) {
     User.findById(id, (err, user) => {
       done(err, user);
@@ -51,7 +52,6 @@ passport.use(new BasicStrategy(
 ));
 
 passport.use('local', new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
-  console.log('in passport service', email);
   
   User.findOne({ email: email.toLowerCase() }, (err, user: any) => {
     if (err) { return done(err); }
@@ -86,7 +86,7 @@ passport.use(new FacebookStrategy({
   callbackURL: '/auth/facebook/callback',
   profileFields: ['name', 'email', 'link', 'locale', 'timezone'],
   passReqToCallback: true
-}, (req: any, accessToken, refreshToken, profile, done) => { console.log('faaaccceeboook userrrrrr', req);
+}, (req: any, accessToken, refreshToken, profile, done) => {
   if (req.user) {
     User.findOne({ facebook: profile.id }, (err, existingUser) => {
       if (err) { return done(err); }
@@ -129,7 +129,7 @@ passport.use(new FacebookStrategy({
           user.profile.gender = profile._json.gender;
           user.profile.picture = `https://graph.facebook.com/${profile.id}/picture?type=large`;
           user.profile.location = (profile._json.location) ? profile._json.location.name : '';
-          user.save((err: Error) => { console.log('errrr in savinggg', err);
+          user.save((err: Error) => {
             done(err, user);
           });
         }
@@ -139,7 +139,6 @@ passport.use(new FacebookStrategy({
 }));
 
 export let isAuthenticated = (req: Request, res: Response, next: NextFunction) => {
-  console.log('req in isAuthenticated.....', req.get('authorization'), 'is sier', req.user);
   if (req.isAuthenticated()) {
     return next();
   }
@@ -147,7 +146,7 @@ export let isAuthenticated = (req: Request, res: Response, next: NextFunction) =
 };
 
 
-export let isAuthorized = (req: Request, res: Response, next: NextFunction) => { console.log('reeeeqq in fb', req.user);
+export let isAuthorized = (req: Request, res: Response, next: NextFunction) => {
   const provider = req.path.split('/').slice(-1)[0];
 
   if (_.find(req.user.tokens, { kind: provider })) {

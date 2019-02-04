@@ -15,16 +15,20 @@ class FavMoviesController {
         return __awaiter(this, void 0, void 0, function* () {
             const { user: { _id: userId } } = req;
             const results = yield models_1.FavMovie.find({ users: userId }, { users: 0 }); // caching resources error .cache({key: userId});
-            console.log('resultsss', results);
             return res.json({ results, total: results.length });
         });
     }
     post(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { body: data, body: { id }, user: { _id: userId } } = req;
-            yield models_1.FavMovie.findOneAndUpdate({ id }, { $set: Object.assign({}, data), $addToSet: { users: userId } }, { upsert: true })
-                .catch(err => console.log('error adding user favorite movie', err));
-            res.sendStatus(201);
+            try {
+                yield models_1.FavMovie.findOneAndUpdate({ id }, { $set: Object.assign({}, data), $addToSet: { users: userId } }, { upsert: true });
+                res.sendStatus(201);
+            }
+            catch (err) {
+                console.log('error adding user favorite movie', err);
+                res.end();
+            }
         });
     }
     delete(req, res) {

@@ -51,13 +51,13 @@ export const sendPasswordRequestEmail = async (email: string, token: any, host: 
 // export const findUserProfile = async (token: any, profile: any) {
 //   const { id } = profile;
 //   const currentUser = await User.findOne({googleId: profile.id}); console.log('currentUser', currentUser);
-//   if (!currentUser) { console.log('user doesnot existssss');
+//   if (!currentUser) {
 //       const tokens: any = [];
 //     const data = {googleId: profile.id, tokens: tokens.concat({ kind: 'google', token }), profile: {name: profile.displayName, gender: profile.gender}};
 //     return await new User(data).save()
 //     .catch((err: any) => console.log('error updating record', err));
 //   }
-//   else { console.log('overrrr ghereee', currentUser);
+//   else {
 //     return await new User(currentUser).save();
 //   }
 // };
