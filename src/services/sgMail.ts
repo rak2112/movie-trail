@@ -1,7 +1,7 @@
 import crypto from 'crypto';
-// import sgMail from '@sendgrid/mail';
+import { promisify } from 'bluebird';
+
 const sgMail = require('@sendgrid/mail');
-import { promisify, Resolver } from 'bluebird';
 
 sgMail.send = promisify(sgMail.send);
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);

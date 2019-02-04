@@ -1,8 +1,8 @@
-import mongoose, {Mongoose} from 'mongoose';
+import mongoose from 'mongoose';
 import redis from 'redis';
-import { promisify, Resolver } from 'bluebird';
+import { promisify } from 'bluebird';
+import { redisUrl } from '../util/secrets';
 
-const redisUrl = 'redis://127.0.0.1:6379';
 const client = redis.createClient(redisUrl);
 const getHash = promisify(client.hget).bind(client);
 const exec = mongoose.Query.prototype.exec;

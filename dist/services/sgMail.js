@@ -12,9 +12,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const crypto_1 = __importDefault(require("crypto"));
-// import sgMail from '@sendgrid/mail';
-const sgMail = require('@sendgrid/mail');
 const bluebird_1 = require("bluebird");
+const sgMail = require('@sendgrid/mail');
 sgMail.send = bluebird_1.promisify(sgMail.send);
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 exports.createToken = () => {

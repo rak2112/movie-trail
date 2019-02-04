@@ -14,8 +14,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const redis_1 = __importDefault(require("redis"));
 const bluebird_1 = require("bluebird");
-const redisUrl = 'redis://127.0.0.1:6379';
-const client = redis_1.default.createClient(redisUrl);
+const secrets_1 = require("../util/secrets");
+const client = redis_1.default.createClient(secrets_1.redisUrl);
 const getHash = bluebird_1.promisify(client.hget).bind(client);
 const exec = mongoose_1.default.Query.prototype.exec;
 mongoose_1.default.Query.prototype.cache = function (options = { key: '' }) {

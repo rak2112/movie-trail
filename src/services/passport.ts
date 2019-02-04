@@ -9,9 +9,6 @@ import { User } from '../user';
 import passportGoogle from 'passport-google-oauth20';
 import _ from 'lodash';
 import passportHttp from 'passport-http';
-import { Callback } from 'redis';
-
-// console.log('passportHttpppppp', passportHttp);
 
 const BasicStrategy = passportHttp.BasicStrategy;
 const LocalStrategy = passportLocal.Strategy;

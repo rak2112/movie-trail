@@ -22,7 +22,7 @@ exports.controllers = {
         return Promise.resolve(docToGet);
     },
     getAll(model, id) {
-        return model.find({ userId: id }, { userId: 0 }); //.cache({key: id});
+        return model.find({ userId: id }, { userId: 0 }).cache({ key: id });
     },
     findByParam(model, id) {
         return model.findOne({ _id: id });
