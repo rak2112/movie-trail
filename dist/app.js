@@ -65,7 +65,7 @@ app.use((req, res, next) => {
 });
 app.use('/api', restRouter_1.restRouter);
 dotenv_1.default.config({ path: '.env.variables' });
-if (['production'].includes(process.env.NODE_ENV)) {
+if (['production', 'ci'].includes(process.env.NODE_ENV)) {
     app.use(express_1.default.static('web-app/build'));
     const path = require('path');
     app.get('*', (req, res) => {
