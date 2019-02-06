@@ -1,14 +1,13 @@
-
-
 // import keys from '../config/keys';
 import passport from 'passport';
 import passportLocal from 'passport-local';
 import { Request, Response, NextFunction } from 'express';
 import passportFacebook from 'passport-facebook';
-import { User } from '../user';
 import passportGoogle from 'passport-google-oauth20';
 import _ from 'lodash';
 import passportHttp from 'passport-http';
+
+import { User } from '../user';
 
 const BasicStrategy = passportHttp.BasicStrategy;
 const LocalStrategy = passportLocal.Strategy;

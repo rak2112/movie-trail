@@ -28,7 +28,9 @@ else {
         console.log('Connected to Redis');
     });
 }
-mongoose_1.default.Query.prototype.cache = function (options = { key: '' }) {
+let redisCaache = mongoose_1.default.Query.prototype; // :TODO typed error workaround, needs to be fixed!
+// mongoose.Query.prototype.cache = fn();
+redisCaache.cache = function (options = { key: '' }) {
     this.useCache = true;
     this.hashKey = JSON.stringify(options.key);
     return this;

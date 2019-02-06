@@ -1,8 +1,7 @@
-import mongoose from 'mongoose';
+import mongoose, { Mongoose } from 'mongoose';
 import redis from 'redis';
 import { promisify } from 'bluebird';
 import { redisUrl, ENVIRONMENT } from '../util/secrets';
-
 
 const client = redis.createClient(redisUrl);
 const getHash = promisify(client.hget).bind(client);
@@ -19,8 +18,10 @@ else {
   });
 }
 
+let redisCaache: any = mongoose.Query.prototype; // :TODO typed error workaround, needs to be fixed!
 
-mongoose.Query.prototype.cache = function(options = {key: ''} ) {
+// mongoose.Query.prototype.cache = fn();
+redisCaache.cache = function(options = {key: ''} ) {
   this.useCache = true;
   this.hashKey = JSON.stringify(options.key);
   return this;
