@@ -98,7 +98,7 @@ describe(`Movies Component`, () => {
     
     expect(wrapper.find('MovieComponent').children().length).toEqual(1);
     expect(wrapper.find('footer').children().length).toEqual(1);
-    expect(wrapper.find('.user-actions').children().length).toEqual(8);
+    expect(wrapper.find('.user-actions').children().length).toEqual(6);
   });
 
 });
