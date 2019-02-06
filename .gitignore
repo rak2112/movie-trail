@@ -1,6 +1,5 @@
 node_modules
 /node_modules
-config
 nohup.out
 .DS_Store
 sendgrid.env
