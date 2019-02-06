@@ -96,7 +96,7 @@ describe(`Movies Component`, () => {
       </StaticRouter>
     );
     
-    expect(wrapper.find('MovieComponent').children().length).toEqual(2);
+    expect(wrapper.find('MovieComponent').children().length).toEqual(1);
     expect(wrapper.find('footer').children().length).toEqual(1);
     expect(wrapper.find('.user-actions').children().length).toEqual(8);
   });
