@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { awaitHandlerFactory } from '../util/awaithandler';
+import { awaitHandlerFactory } from './../util/awaithandler';
 import WatchListController from '../controllers/WatchListController';
 import requireLogin from '../middlewares/requireLogin';
 import clearCache from '../middlewares/clearCache';
