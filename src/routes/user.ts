@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import awaitHandlerFactory from '../util/awaithandler';
+import { awaitHandlerFactory } from '../util/awaithandler';
 import UserController from '../controllers/UserController';
 
 export const userRouter = Router();

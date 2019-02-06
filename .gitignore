@@ -10,3 +10,4 @@ env.variables
 client
 coverage
 debug.log
+dist

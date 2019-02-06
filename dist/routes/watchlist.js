@@ -4,12 +4,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const awaithandler_1 = __importDefault(require("../util/awaithandler"));
+const awaithandler_1 = require("../util/awaithandler");
 const WatchListController_1 = __importDefault(require("../controllers/WatchListController"));
 const requireLogin_1 = __importDefault(require("../middlewares/requireLogin"));
 const clearCache_1 = __importDefault(require("../middlewares/clearCache"));
 exports.watchListRouter = express_1.Router();
 const movies = new WatchListController_1.default();
-exports.watchListRouter.get('/', requireLogin_1.default, awaithandler_1.default(movies.getWatchList));
-exports.watchListRouter.post('/', requireLogin_1.default, clearCache_1.default, awaithandler_1.default(movies.addMovie));
-exports.watchListRouter.delete('/:id', requireLogin_1.default, clearCache_1.default, awaithandler_1.default(movies.deleteMovie));
+exports.watchListRouter.get('/', requireLogin_1.default, awaithandler_1.awaitHandlerFactory(movies.getWatchList));
+exports.watchListRouter.post('/', requireLogin_1.default, clearCache_1.default, awaithandler_1.awaitHandlerFactory(movies.addMovie));
+exports.watchListRouter.delete('/:id', requireLogin_1.default, clearCache_1.default, awaithandler_1.awaitHandlerFactory(movies.deleteMovie));
