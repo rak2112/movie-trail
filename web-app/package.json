@@ -142,7 +142,7 @@
     ],
     "globals": {
       "ts-jest": {
-        "tsConfigFile": "/Users/hash/coding/node-movieBase/web-app/tsconfig.test.json"
+        "tsConfigFile": "./tsconfig.test.json"
       }
     }
   },
