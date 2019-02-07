@@ -14,8 +14,8 @@ cache:
 install:
   - npm install
   - npm run build
-before_script: cd web-app  
 script:
   - nohup npm run start &
   - sleep 3
+  - cd web-app
   - npm run test
