@@ -11,7 +11,7 @@ const persistedState = {
 };
 
 
-console.log('persistedState', persistedState);
+// console.log('persistedState', persistedState);
 export const epicMiddleware = createEpicMiddleware();
 export default function configureStore() {
   const store = createStore(rootReducer, persistedState, composeWithDevTools( applyMiddleware(epicMiddleware)));
