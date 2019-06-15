@@ -1,6 +1,6 @@
 import { Genre, Movie, Movies, UserMovieMap } from '../core/interfaces';
 
-import { State } from '../core/reducers';
+// import { State } from '../core/reducers';
 
 export const defaultMoviesState = {
   addMovie: jest.fn(),
@@ -71,7 +71,7 @@ export const defaultState = {
   searchedMovies: null,
   user: null,
   userMovies: {}
-} as State;
+} as any;
 
 export const defaultMovies = {
   totalPages: 1, pageNo: 1, totalResults: 3, 

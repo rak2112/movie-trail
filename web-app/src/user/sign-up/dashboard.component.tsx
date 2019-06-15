@@ -19,8 +19,10 @@ export interface Props extends InjectedFormProps{
   handleSubmit: ()=> void;
 };
 
-export const SignUpComponent: SFC<Props> = (props: Props) => {
-  const { handleSubmit, submitting, location } = props
+export type SignUpProps = {} & InjectedFormProps<Props>
+
+export const SignUpComponent: SFC<any> = (props: any) => {
+  const { handleSubmit, submitting, location } = props;
   const signingUp = (/^\/register/gi).test(location.pathname);
   
   return (

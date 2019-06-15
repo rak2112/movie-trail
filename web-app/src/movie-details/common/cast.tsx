@@ -26,6 +26,8 @@ const Container = styled('div')`
     }
     .cast-detail {
       display: inline-block;
+      height: 160px;
+      width: 180px;
       img {
         border-radius: 40px;
         border: 3px solid #eaeaea;

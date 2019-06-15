@@ -3,7 +3,7 @@ import { connect, MapStateToProps } from 'react-redux';
 
 import { addMovie, deleteMovie } from '../../core/actions';
 import { Genre, User, UserMovie, UserMovieMap } from '../../core/interfaces';
-import { State } from '../../core/reducers';
+import { State } from '../../core/reducers/index';
 import { getProfileProps } from '../../core/selectors';
 import { ProfileComponent } from './component';
 

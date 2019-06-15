@@ -23,12 +23,12 @@ export const userLogin = (action$: any, state$: any) => action$.pipe (
       //   return actions.loginRequestSuccess({...res, loggedIn: true});
       // })
     )),
-  switchMap(res => {
+  switchMap((res:User) => {
     console.log('second ', res);
     // return of(true);
     return service.getUserMovies().pipe(
-      map(userMovies => {
-        const userState = {...res, loggedIn: true, movies: userMovies};
+      map((userMovies: UserMovie[]) => {
+        const userState: User = {...res, loggedIn: true, movies: userMovies};
         service.saveState('user', userState);
         return actions.loginRequestSuccess(userState)
       })

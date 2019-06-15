@@ -6,10 +6,10 @@ import { create } from 'react-test-renderer';
 import { combineReducers, createStore, Store } from 'redux'
 import { reducer as form, reduxForm  } from 'redux-form'
 
-import { LoginComponent, LoginProps } from '../dashboard.component';
+import { FormProps, LoginComponent, LoginProps } from '../dashboard.component';
 
-let store: Store;
-let props: LoginProps;
+let store: any;
+let props: any;
 
 describe(`Login Component`, () => {
   beforeEach(() => {
@@ -20,6 +20,8 @@ describe(`Login Component`, () => {
 
     props = {
       ...props,
+      email: '',
+      password: '',
       submitting: false,
       handleSubmit: jest.fn()
     };

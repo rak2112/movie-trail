@@ -1,16 +1,12 @@
 import React, { PureComponent } from 'react';
 import styled from 'react-emotion';
 
-import { Carousel, Toaster, UserActions } from '../core/components';
+import { Carousel, Toaster } from '../core/components';
+import UserActions from '../core/containers/user-actions';
 import { TabDetatils } from './common/tabs';
 import { DetailProps } from './dashboard.container';
-import { Details } from './details';
 import { ContainerLeft, ContainerRight } from './styled';
 
-const Actions = styled('div')`
-  width: 50%;
-  float: right;
-`;
 
 export class MovieDetailsComponent extends PureComponent<DetailProps> {
 
@@ -20,11 +16,8 @@ export class MovieDetailsComponent extends PureComponent<DetailProps> {
 
   render() {
     const {
-      addCollection,
-      deleteMovie,
       details,
       images,
-      userMovies
     } = this.props;
 
     return (
@@ -32,19 +25,14 @@ export class MovieDetailsComponent extends PureComponent<DetailProps> {
         <ContainerLeft>
           <Toaster duration={2000}/>
           <TabDetatils {...this.props}/>
-          {/* <Details {...details} key={details.id}/> */}
         </ContainerLeft>
 
         <ContainerRight>
           <UserActions 
-              addMovie={addCollection} 
-              deleteMovie={deleteMovie}
-              movie={details} 
-              userMovies={userMovies}
-            />
+            movie={details}
+          />
           <Carousel images={images} key={details.id}/>
         </ContainerRight>
-        
       </>
     )
   }

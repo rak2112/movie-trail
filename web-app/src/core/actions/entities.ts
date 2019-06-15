@@ -1,12 +1,13 @@
 // tslint:disable:max-classes-per-file
 import { Action } from 'redux';
-import { Genre, Movie, Movies } from '../interfaces';
+import { Genre, Movie, Movies, UserMovie } from '../interfaces';
 import { loadState } from '../utils';
 
 import { history } from '../routes';
 
 const app = '[movieBase]';
 export const LOAD_MOVIES = `${app} load movies`;
+export const RESET_MOVIES = `${app} reset movies`;
 export const LOAD_ALL_MOVIES = `${app} load all movies`;
 export const LOAD_LATEST_MOVIES = `${app} load latest movies`;
 export const LOAD_HIT_MOVIES = `${app} load hit movies`;
@@ -23,8 +24,8 @@ export const LOAD_USER_MOVIES_SUCESS = `${LOAD_USER_MOVIES} success`;
 export const ADD_USER_MOVIE = `${app} add user movie`;
 export const DELETE_USER_MOVIE = `${app} delete user movie`;
 
-export const addMovie = (movie: Movie): AddMovie => ({type: ADD_USER_MOVIE, movie});
-export const deleteMovie = (movie: Movie): DeleteMovie => ({type: DELETE_USER_MOVIE, movie});
+export const addMovie = (movie: UserMovie): AddMovie => ({type: ADD_USER_MOVIE, movie});
+export const deleteMovie = (movie: UserMovie): DeleteMovie => ({type: DELETE_USER_MOVIE, movie});
 
 // export const loadMovies = (pageNo: number): LoadMovies => ({ type: LOAD_MOVIES, pageNo });
 const requiredAction = (route: string, pageNo: number) => {
@@ -43,6 +44,7 @@ const requiredAction = (route: string, pageNo: number) => {
 };
 
 export const loadMovies = (pageNo: number): LoadMovies => {
+  console.log('heree')
   const { pathname } = history.location;
   const route = pathname.split('/');
   return requiredAction(route[1], pageNo);
@@ -73,20 +75,28 @@ export const loadMoviesSuccess = (res: Movies): LoadMoviesSuccess => ({
   type: LOAD_MOVIES_SUCESS
 });
 
+export const resetMovies = (): ResetMovies => ({
+  type: RESET_MOVIES
+});
+
 
 export class AddMovie implements Action {
   readonly type= ADD_USER_MOVIE;
-  constructor(public readonly movie: Movie) {}
+  constructor(public readonly movie: UserMovie) {}
 }
 
 export class DeleteMovie implements Action {
   readonly type= DELETE_USER_MOVIE;
-  constructor(public readonly movie: Movie) {}
+  constructor(public readonly movie: UserMovie) {}
 }
 
 export class LoadMovies implements Action {
   readonly type = LOAD_MOVIES;
   constructor(public readonly pageNo: number) {}
+}
+
+export class ResetMovies implements Action {
+  readonly type = RESET_MOVIES;
 }
 
 export class LoadUserMovies implements Action {

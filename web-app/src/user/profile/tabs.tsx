@@ -9,11 +9,8 @@ import { Profile } from './container';
 import { TabContainer } from './tab-styled.component';
 
 export const MovieTabs = ({
-    addMovie,
-    deleteMovie,
     favorites,
     genres,
-    userMovies,
     watchlist
   }: Profile) => {
 
@@ -41,10 +38,10 @@ export const MovieTabs = ({
                 key={getUuid()}
                 movie={movie} 
                 genres={genres}
+                profileView={true}
                 userView={'Favorites'}
-                userMovies={userMovies}
-                addMovie={addMovie} 
-                deleteMovie={deleteMovie}/>)
+              />
+            )
           : (<h3 className='no-records'>You have not added any movies yet.</h3>)
         }
       </Tab>
@@ -57,9 +54,9 @@ export const MovieTabs = ({
                 movie={movie} 
                 genres={genres}
                 userView={'Watchlist'}
-                userMovies={userMovies}
-                addMovie={addMovie} 
-                deleteMovie={deleteMovie}/>)
+                profileView={true}
+              />
+            )
           : (<h3 className='no-records'>You have not added any movies yet.</h3>)      
         }
       </Tab>

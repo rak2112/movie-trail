@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import {  Store } from 'redux'
 import configureMockStore from 'redux-mock-store';
 
-import { State } from '../../../core/reducers';
+import { State } from '../../../core/reducers/index';
 import { defaultState } from '../../../test-mock';
 import ConnectedContainer from '../dashboard.container';
 

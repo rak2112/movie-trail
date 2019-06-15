@@ -2,7 +2,7 @@ import React from 'react';
 import { connect, MapStateToProps } from 'react-redux';
 
 import { addMovie, deleteMovie, loadGenres, loadMovieDetail, loadUserMovies, resetDetails } from '../core/actions';
-import {State} from '../core/reducers';
+import {State} from '../core/reducers/index';
 import {
   getMovieDetailProps
 } from '../core/selectors';

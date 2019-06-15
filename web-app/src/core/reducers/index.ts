@@ -9,6 +9,16 @@ import { movies, MoviesState } from './movies';
 import { searchedMovies, SerachMoviesState } from './search-movies';
 import { user, UserState } from './user';
 
+export const initialState = {
+  api: {isFetching: true},
+  form: {},
+  genres: null,
+  movieDetails: null,
+  movies: null,
+  searchedMovies: null,
+  routing: { location: null },
+  user: null
+};
 
 export interface State {
   readonly api: ApiState;

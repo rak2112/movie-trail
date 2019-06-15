@@ -6,10 +6,10 @@ import { create } from 'react-test-renderer';
 import { combineReducers, createStore, Store } from 'redux'
 import { reducer as form, reduxForm  } from 'redux-form'
 
-import { Props, SignUpComponent } from '../dashboard.component';
+import { Props, SignUpComponent, SignUpProps } from '../dashboard.component';
 
 let store: Store;
-let props: Props;
+let props: any;
 
 describe(`SignUp Component`, () => {
   beforeEach(() => {

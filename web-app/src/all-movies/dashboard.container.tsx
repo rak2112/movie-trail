@@ -1,10 +1,10 @@
 import React from 'react';
-import { connect, MapStateToProps } from 'react-redux';
+import { connect, MapStateToProps, useSelector } from 'react-redux';
 
 import { addMovie, deleteMovie, loadGenres, loadMovies, reset, searchMovies } from '../core/actions';
 import { LoadingCompWrapper } from '../core/components/loader-wrapper';
 import { Api, GenresMap, Movie, Movies, UserMovieMap } from '../core/interfaces';
-import { State } from '../core/reducers';
+import { State } from '../core/reducers/index';
 import { getMoviesProps } from '../core/selectors';
 import { MoviesComponent } from './dashboard.component';
 
@@ -27,7 +27,9 @@ export type MoviesProps = StateProps & DispatchProps;
 
 const LoadMoviesList = LoadingCompWrapper(MoviesComponent);
 
+
 export const MoviesPage = (props: MoviesProps) => <LoadMoviesList {...props}/>
+
 
 const mapStateToProps: MapStateToProps<any, any, any> = (state: State) => {
   const movies = getMoviesProps(state);

@@ -21,7 +21,7 @@ const onSubmit = (values: FormValues, dispatch: (fn: any)=>void, { match: { para
   
 };
 
-export default reduxForm<Props>({
+export default reduxForm<any>({
   form: 'loginFormValidation',
   onSubmit
 }) (SignUpComponent);

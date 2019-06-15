@@ -5,7 +5,7 @@ import { create } from 'react-test-renderer';
 import {  Store } from 'redux'
 import configureMockStore from 'redux-mock-store';
 
-import { State } from '../../../core/reducers';
+import { State } from '../../../core/reducers/index';
 import { defaultState } from '../../../test-mock';
 import ConnectedContainer from '../home.container';
 

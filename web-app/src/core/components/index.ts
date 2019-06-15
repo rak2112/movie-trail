@@ -1,3 +1,6 @@
+export * from './apiQuery';
+export * from './addRemoveFavs';
+export * from './addRemoveWatchList';
 export * from './carousel';
 export * from './form-input';
 export * from './form-validation';

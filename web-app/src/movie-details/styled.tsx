@@ -8,12 +8,34 @@ export const ContainerLeft = styled('div')`
     margin-top: 20px;
     padding: 10px 0;
   }
+  .main-img {
+    img {
+      width: 100%;
+    }
+     position: relative;
+     width: 100%;
+     z-index: 1;
+   }
  .movie-details {
-   padding: 15px;
+   border: 2px solid #ccc;
+   margin: 0 22px;
+   opacity:0.6;
+   width: 710px;
+   position: absolute;
+   top: 170px;
+   z-index: 5;
+   background-color: #000;
+
    a {
      color: #ff5c00;
      font-size: 1.8rem;
      text-decoration: underline;
+   }
+   .overview {
+     padding: 50px;
+     p {
+       color: #ccc;
+     }
    }
   .btn-warning {
     color: $orange;
@@ -27,6 +49,11 @@ export const ContainerLeft = styled('div')`
       width: 50%;
       padding-bottom: 10px;
     }
+  }
+  .glyphicon {
+    color: #ccc;
+    font-size: 18px;
+    padding-right: 5px;
   }
   h3 {
     color: #ff5c00;;
@@ -44,9 +71,16 @@ export const ContainerLeft = styled('div')`
     font-size: 1.6rem;
   }
   .genres {
-    margin-bottom: 20px;
+    color: #ff5c00;
+    height: 45px;
+    background: #fff;
+    font-size: 18px;
+    padding: 9px;
     span {
       margin: 0 1px;
+    }
+    .glyphicon {
+      color: #ff5c00;
     }
   }
 }

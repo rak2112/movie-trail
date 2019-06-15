@@ -4,6 +4,7 @@ import { MovieDetail } from '../interfaces';
 
 const app = '[movieBase]';
 export const LOAD_MOVIE_DETAILS = `${app} load movie details`;
+export const LOAD_MOVIE_DETAILS_FAILURE = `${app} load movie details failure`;
 export const LOAD_MOVIE_DETAILS_SUCCESS = `${app} load movie details success`;
 export const RESET_MOVIE_DETAILS = `${app} reset movie details`;
 

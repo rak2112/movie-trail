@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react';
+import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 
-import { UserActions } from '../components';
-import { GenresMap, Movie, UserMovieMap, UserView } from '../interfaces';
+import UserActions from '../containers/user-actions';
+import { Genre, GenresMap, Movie, UserMovieMap, UserView } from '../interfaces';
 import { getUuid, paths } from '../utils/util-service';
 import { Container, Detail, MovieContainer, NoPoster } from './styles/movie.style';
 
@@ -10,54 +10,50 @@ import { Container, Detail, MovieContainer, NoPoster } from './styles/movie.styl
 interface Props {
   genres: GenresMap;
   movie: Movie;
+  id?: number;
+  profileView?: boolean;
   userView?: UserView;
-  userMovies: UserMovieMap;
-  addMovie: (movie: Movie) => void;
-  deleteMovie: (movie: Movie) => void;
+  userMovies?: UserMovieMap;
+  addMovie?: (movie: Movie) => void;
+  deleteMovie?: (movie: Movie) => void;
 }
 
-
-export class MovieComponent extends PureComponent <Props>{
-  
-  render() {
-    const { 
-      addMovie, 
-      deleteMovie,
-      genres,
-      movie: {id, backdrop_path: moviePoster, genre_ids: movieGenres=[] , title },
-      userMovies,
-      userView
-    } = this.props;
-    return (
-      <Container>
-        <MovieContainer>
-          {
-            moviePoster ?
-              <Link to={{pathname: '/movie-details/' + id }}>
-                <img src={`${paths.imgPath500}${moviePoster} `} alt="" />
-              </Link>
-              : <NoPoster>No Image Available</NoPoster>
+export const MovieComponent = memo(({
+  genres,
+  movie,
+  profileView,
+  userView
+}: Props) => { console.log('movieeee');
+  const { backdrop_path, id, genre_ids, genres: detailGrenres, title } = movie;
+  return (
+    <Container>
+      <MovieContainer>
+        {
+          backdrop_path ?
+            <Link to={{pathname: '/movie-details/' + id }}>
+              <img src={`${paths.imgPath500}${backdrop_path} `} alt="main image" />
+            </Link>
+            : <NoPoster>No Image Available</NoPoster>
+        }
+        <UserActions
+          movie={movie}
+          userView={userView}
+          profileView={profileView}
+        />
+        <Detail>
+          <h3>{title}</h3>
+          { (genre_ids) ? 
+            genre_ids.map((genre: number) => ( genres && genres[genre] && <span className="genre" key={getUuid()}>{ genres[genre].name }</span>))
+            : 
+            detailGrenres.map((genre: Genre) =>  <span className="genre" key={getUuid()}>{ genre.name }</span> )
           }
-          <UserActions 
-            addMovie={addMovie} 
-            deleteMovie={deleteMovie}
-            movie={this.props.movie} 
-            userMovies={userMovies}
-            userView={userView}
-          />
-          <Detail>
-            <h3>{title}</h3>
-            {
-              movieGenres.map((genre: number, index: number) => ( genres && genres[genre] && <span className="genre" key={getUuid()}>{ genres[genre].name }</span>))
-            }
-            <p>
-            <Link to={{pathname: '/movie-details/'+ id }}>View Details</Link>
-            </p>
-          </Detail>
-        </MovieContainer>
-      </Container>
-    );
-    
-  }
-};
+          <p>
+          <Link to={{pathname: '/movie-details/'+ id }}>View Details</Link>
+          </p>
+        </Detail>
+      </MovieContainer>
+    </Container>
+  );
+});
+
 

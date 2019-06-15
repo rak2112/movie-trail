@@ -49,11 +49,13 @@ export interface Movie {
   genres: Genre[];
   homepage: string;
   overview: string;
+  poster_path?: string;
   runtime: string;
   release_date: string;
   spoken_languages: Language[];
   status: string;
   title: string;
+  type?: string;
   vote_average: string;
 };
 
@@ -86,8 +88,8 @@ export interface GenresMap {
 };
 
 export interface UserMovie extends Movie {
-  _id: string;
-  movieType: UserMovieType;
+  _id?: string;
+  movieType?: UserMovieType;
 }
 
 export interface User {
@@ -147,6 +149,8 @@ export interface Videos {
 }
 
 export interface MovieDetail {
+  isFetching?: boolean;
+  hasError?: boolean;
   details: Movie;
   images: Posters;
   persons: Persons;

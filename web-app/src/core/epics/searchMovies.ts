@@ -11,6 +11,12 @@ export const searchMovies = (action$: any) => action$.pipe (
   distinctUntilChanged(),
   switchMap(({movie}) =>
   service.searchMovies(movie).pipe(
-    map((res: Movies) => actions.loadMoviesSuccess(res))
+    map((res: any) => {
+      // return actions.loadMoviesSuccess(res);
+      return actions.loadMoviesSuccess({
+        ...res,
+        results: res.results.filter((searchedMovie: any) => searchedMovie.media_type === 'movie')
+      })
+    })
   ))
 );

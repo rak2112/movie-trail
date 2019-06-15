@@ -19,6 +19,7 @@ export const TabContainer = styled('div')`
     color: #cc0;
   }
   .nav-tabs > li {
+    margin-bottom: 0;
     a {
       border-radius: 0;
       border: none;

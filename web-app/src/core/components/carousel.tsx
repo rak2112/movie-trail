@@ -48,7 +48,7 @@ export class Carousel extends PureComponent <Props, State>{
 
   state = {
     images: [],
-    active: 0
+    active: 1
   };
 
   handleClick = (event: any) => {

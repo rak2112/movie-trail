@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 // import { Link } from 'react-router-dom';
 
 const styles = {
@@ -44,6 +44,7 @@ const styles = {
 export const SearchBar = ({ onSearch }: any) => {
   const [searchTerm, setSearchTerm] = useState('');
 
+  // let searchRef = useRef('');
   const handleChange = (evt: any): void => { console.log('evttt', evt.target.value);
     evt.preventDefault();
     setSearchTerm(evt.target.value);

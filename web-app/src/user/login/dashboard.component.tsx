@@ -12,7 +12,9 @@ export interface LoginProps extends InjectedFormProps{
   handleSubmit: ()=> void;
 };
 
-export const LoginComponent: SFC<LoginProps> = (props: LoginProps) => {
+export type FormProps = {} & InjectedFormProps<LoginProps>
+
+export const LoginComponent: SFC<any> = (props: any) => {
   const { handleSubmit, submitting } = props
   return (
     <StyledComponent>
