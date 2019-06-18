@@ -18,7 +18,6 @@ exports.loginUser = (options) => __awaiter(this, void 0, void 0, function* () {
     const { req, user } = options;
     return new Promise((resolve, reject) => {
         req.logIn(user, (err) => {
-            console.log('has user loggged in????????', user, 'errror', err);
             if (err) {
                 return reject(err);
             }
@@ -29,7 +28,6 @@ exports.loginUser = (options) => __awaiter(this, void 0, void 0, function* () {
 });
 exports.authenticateUser = (req, res, next, strategy = 'basic') => __awaiter(this, void 0, void 0, function* () {
     passport_1.default.authenticate(strategy, (err, user, info) => __awaiter(this, void 0, void 0, function* () {
-        console.log('userrr', user);
         if (err) {
             return res.sendStatus(401);
         }

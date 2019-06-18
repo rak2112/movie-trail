@@ -20,7 +20,6 @@ const getHash = bluebird_1.promisify(client.hget).bind(client);
 const exec = mongoose_1.default.Query.prototype.exec;
 if (secrets_1.ENVIRONMENT === 'production') {
     client.auth(process.env.REDIS_PASSWORD, function () {
-        console.log('Authenticated to Redis');
     });
 }
 else {
@@ -43,11 +42,9 @@ mongoose_1.default.Query.prototype.exec = function () {
         const key = JSON.stringify(Object.assign({}, this.getQuery(), { collection: this.mongooseCollection.name }));
         const cacheValue = yield getHash(this.hashKey, key);
         if (cacheValue) {
-            console.log('cacheed Value...', cacheValue);
             return JSON.parse(cacheValue);
         }
         const results = yield exec.apply(this, arguments);
-        console.log('query resultsss', results);
         client.hset(this.hashKey, key, JSON.stringify(results));
         client.expire(this.hashKey, 100);
         return results;
