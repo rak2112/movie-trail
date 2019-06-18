@@ -58,7 +58,7 @@ const Container = styled('div')`
 `;
 
 export const Crew = ({ crew }: any) => {
-  console.log('propss cast', crew);
+
   return (
     <Container>
     <div className="cast clearfix">

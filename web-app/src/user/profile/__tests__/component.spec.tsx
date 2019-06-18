@@ -1,11 +1,15 @@
 import { mount } from 'enzyme';
 import React from "react";
-import { StaticRouter } from 'react-router'
+import { Provider } from 'react-redux';
+import { StaticRouter } from 'react-router-dom';
 
-import { Genre, Movies, UserMovie, UserMovieMap, } from '../../../core/interfaces';
+import { Genre, Movies, UserMovie, UserMovieMap, UserMovieType } from '../../../core/interfaces';
 import { ProfileComponent } from '../component';
 
+import configureMockStore from 'redux-mock-store';
+import { defaultState } from '../../../test-mock';
 const context = {};
+
 describe(`Profile Component`, () => {
   const getUuid = jest.fn();
   const props = {
@@ -90,12 +94,59 @@ describe(`Profile Component`, () => {
       watchlist: {}
     } as UserMovieMap
   };
+  let store: any;
+  let inititalState: any;
+  beforeEach(() => {
+    inititalState = {
+      ...defaultState,
+      user: {
+        email: ':userEmail',
+        displayName: 'display Name',
+        movies: [{
+          id: 2,
+          backdrop_path: 'path',
+          genre_ids: [1, 2],
+          genres: [],
+          homepage: 'homepage',
+          overview: 'overview',
+          runtime: '107',
+          release_date: '2-04-19',
+          spoken_languages: [{id: '2', name: 'English'}],
+          status: 'status',
+          title: 'title',
+          vote_average: '8',
+          _id: ':Id', 
+          movieType: 'FAVORITE' as UserMovieType
+        },
+        {
+          id: 3,
+          backdrop_path: 'path',
+          genre_ids: [1, 2],
+          genres: [],
+          homepage: 'homepage',
+          overview: 'overview',
+          runtime: '107',
+          release_date: '2-04-19',
+          spoken_languages: [{id: '2', name: 'English'}],
+          status: 'status',
+          title: 'title',
+          vote_average: '8',
+          _id: ':Id3', 
+          movieType: 'WATCHLIST' as UserMovieType
+        }]
+      }
+    }
+  });
   
   it(`should have children`, () => {
+    store = configureMockStore()(inititalState);
     const wrapper = mount(
-      <StaticRouter location="someLocation" context={context}>
-        <ProfileComponent {...props}/>
-      </StaticRouter>
+      <Provider store={store}>
+        <StaticRouter location="someLocation" context={context}>
+          <ProfileComponent {...props}/>
+        </StaticRouter>
+      </Provider>
+      
     );
     const component = wrapper.find('ProfileComponent');
     expect(component.children().find('ToastContainer').length).toBe(1);

@@ -5,7 +5,7 @@ import {
 } from '../components';
 
 export const ApiQuery = ({children, ...props}: any) => {
-  console.log('dataaaaa', props);
+
   const { api: {isFetching, hasError }, ...data } = props;
 
   if(isFetching) {

@@ -1,6 +1,6 @@
 import React, { ComponentClass } from 'react';
 import { Provider } from 'react-redux';
-import { StaticRouter } from 'react-router';
+import { StaticRouter } from 'react-router-dom';
 import { create } from 'react-test-renderer';
 import { Store } from 'redux';
 import configureMockStore from 'redux-mock-store';
@@ -60,10 +60,11 @@ describe(`Profile Container`, () => {
   it(`should render with data provided`, () => {
     store = configureMockStore()(initialState);
     const component = create(
+      
       <Provider store={store}>
+        {/* <ConnectedMoviesContainer/> */}
         <StaticRouter location="someLocation" context={context}>
-        {/* used to wrap Router around the Link */}
-        <ConnectedMoviesContainer/>
+          <ConnectedMoviesContainer/>
         </StaticRouter>
       </Provider>
     ).toJSON();

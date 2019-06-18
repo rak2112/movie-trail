@@ -31,7 +31,7 @@ describe(`API Reducer`, () => {
   it(`should set the state with api erorr`, () => {
     const action = { type: '[movieBase] Api error', error: 'Unknown error' } as ApiActionError;
     expect(ApiReducer.api(undefined, action)).toEqual({
-      isFetching: false,
+      isFetching: true,
       hasError: true,
       errorMessage: 'Unknown error'
     });

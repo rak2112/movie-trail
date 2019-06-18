@@ -40,9 +40,9 @@ describe(`Carousel Component`, () => {
     );
     const instance = wrapper.instance() as Carousel;
     
-    expect(instance.state.active).toBe(0);
+    expect(instance.state.active).toBe(1);
     expect(instance.state.images.length).toBe(3);
-    expect(wrapper.find('.poster').prop('src')).toContain('/path/1');
+    expect(wrapper.find('.poster').prop('src')).toContain('/path/2');
     expect(wrapper.find('.thumbnails').children().length).toEqual(3);
 
     instance.handleClick({ target: { dataset: { index: 2 }}});

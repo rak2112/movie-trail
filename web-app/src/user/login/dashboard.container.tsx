@@ -1,6 +1,6 @@
 import { reduxForm } from 'redux-form'
-import { loginRequest } from '../../core/actions';
-import { FormValues } from '../../core/interfaces';
+import { loginRequest } from '../../core/actions/user';
+import { FormValues } from '../../core/interfaces/index';
 import { FormProps, LoginComponent, LoginProps } from './dashboard.component';
 
 

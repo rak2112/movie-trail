@@ -11,6 +11,7 @@ export * from './loader-wrapper';
 export * from './movie';
 export * from './movie-list';
 export * from './pagination';
+export * from './posters';
 export * from './toast';
 export * from './user-actions';
 

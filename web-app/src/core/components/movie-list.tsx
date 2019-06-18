@@ -22,3 +22,5 @@ export const MovieList: React.SFC<any> = ({children}) => {
     </Container>
   )
 };
+
+MovieList.displayName = 'MovieList';

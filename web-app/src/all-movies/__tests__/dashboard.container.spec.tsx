@@ -1,6 +1,6 @@
 import React, { ComponentClass } from 'react';
 import { Provider } from 'react-redux';
-import { MemoryRouter, Route } from 'react-router';
+import { MemoryRouter, Route } from 'react-router-dom';
 import { create } from 'react-test-renderer';
 import { Store } from 'redux';
 import configureMockStore from 'redux-mock-store';

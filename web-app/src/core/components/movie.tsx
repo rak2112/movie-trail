@@ -23,7 +23,7 @@ export const MovieComponent = memo(({
   movie,
   profileView,
   userView
-}: Props) => { console.log('movieeee');
+}: Props) => {
   const { backdrop_path, id, genre_ids, genres: detailGrenres, title } = movie;
   return (
     <Container>

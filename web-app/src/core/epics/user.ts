@@ -16,15 +16,8 @@ import { push } from 'react-router-redux';
 export const userLogin = (action$: any, state$: any) => action$.pipe (
   ofType(actions.LOG_IN_REQUEST),
   withLatestFrom(state$),
-  switchMap(([{formValues}, state]) =>
-    service.getUser(formValues).pipe(
-      // map((res) => { console.log('map here resss', res);
-      //   service.saveState('user', {...res, loggedIn: true});
-      //   return actions.loginRequestSuccess({...res, loggedIn: true});
-      // })
-    )),
+  switchMap(([{formValues}, state]) => service.getUser(formValues)),
   switchMap((res:User) => {
-    console.log('second ', res);
     // return of(true);
     return service.getUserMovies().pipe(
       map((userMovies: UserMovie[]) => {
@@ -34,9 +27,6 @@ export const userLogin = (action$: any, state$: any) => action$.pipe (
       })
     )
   }),
-    // switchMap(() => [history.push('/movies')]),
-
-  // mapTo( push({url: '/movies'}) ),
   tap(()=>  history.push('/movies')),
   catchError(err => of(actions.apiError(service.appErrors.loginError))
   )
@@ -80,9 +70,9 @@ export const userSignUp = (action$: any) => action$.pipe (
   ofType(actions.SIGN_UP_REQUEST),
   switchMap(({formValues}) =>
     service.signUpUser(formValues).pipe(
-      switchMap((res: any) => { console.log('ress from server', res);
+      switchMap((res: any) => {
         return service.getUserMovies().pipe(
-          switchMap((movies: UserMovie[]) => { console.log('usserrrr movies if loging', movies)
+          switchMap((movies: UserMovie[]) => {
             const newState = { ...res, movies, loggedIn: true };
             service.saveState('user', newState);
             return [actions.loginRequestSuccess(newState)];
@@ -90,7 +80,7 @@ export const userSignUp = (action$: any) => action$.pipe (
         )
       }),
       tap(() => history.push('/movies')),
-      catchError(err => { console.log('errr', err);
+      catchError(err => {
         if(err.status === 409) {
           return of(actions.apiError(service.appErrors.userExist));
         }
@@ -105,9 +95,9 @@ export const resetPassword = (action$: any, state$: any) => action$.pipe (
   withLatestFrom(state$),
   switchMap(([{formValues}, state ]) =>
     service.resetUserPassword(formValues).pipe(
-      switchMap((res: any) => { console.log('ress from server', res);
+      switchMap((res: any) => {
         return service.getUserMovies().pipe(
-          switchMap((movies: UserMovie[]) => { console.log('usserrrr movies if loging', movies)
+          switchMap((movies: UserMovie[]) => {
           const newState = { ...res, movies, loggedIn: true };
             service.saveState('user', newState);
             return [actions.loginRequestSuccess(newState)];
@@ -115,7 +105,7 @@ export const resetPassword = (action$: any, state$: any) => action$.pipe (
         )
       }),
       tap(()=> history.push('/movies')),
-      catchError(err => { console.log('errr', err);
+      catchError(err => {
         if(err.status === 401) {
           return of(actions.apiError(service.appErrors.tokenExpired));
         }
@@ -129,11 +119,11 @@ export const sendPasswordRequest = (action$: any) => action$.pipe (
   ofType(actions.PASSWORD_RESET_REQUEST),
   switchMap(({ formValues }) =>
   service.sendResetRequest(formValues).pipe(
-    switchMap(({ message }: {message: string}) => { console.log('ress from server', message);
+    switchMap(({ message }: {message: string}) => {
       // :TODO, gett the user state and pass the user in the action.
       return [actions.resetPasswordRequestSuccess({ resetMessage: message })];
     }),
-    catchError(err => { console.log('errr', err);
+    catchError(err => {
       if(err.status === 401) {
         return of(actions.apiError(service.appErrors.emailNotFound));
       }

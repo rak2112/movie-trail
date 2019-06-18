@@ -26,13 +26,15 @@ export const UpComing = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    service.getUpcomningMovies(page).subscribe(
+    const observer = service.getUpcomningMovies(page).subscribe(
       (res: Movies) => {
         dispatch(actions.loadMoviesSuccess({ ...res, pageNo: page }));
     },
     (error) => {
       dispatch(actions.apiError(error));
     });
+
+    return ()=> observer.unsubscribe();
   }, [dispatch, page]);
 
   const handlePageChange = (pageToCall: number) => {

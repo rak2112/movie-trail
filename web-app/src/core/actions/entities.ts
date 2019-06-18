@@ -1,7 +1,7 @@
 // tslint:disable:max-classes-per-file
 import { Action } from 'redux';
 import { Genre, Movie, Movies, UserMovie } from '../interfaces';
-import { loadState } from '../utils';
+import { loadState } from '../utils/localStorage';
 
 import { history } from '../routes';
 
@@ -44,7 +44,7 @@ const requiredAction = (route: string, pageNo: number) => {
 };
 
 export const loadMovies = (pageNo: number): LoadMovies => {
-  console.log('heree')
+  
   const { pathname } = history.location;
   const route = pathname.split('/');
   return requiredAction(route[1], pageNo);

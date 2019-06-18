@@ -12,9 +12,9 @@ export const SearchMovies = () => {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState('');
 
-  useEffect(() => { console.log('efffect called for search', searchTerm);
+  // useEffect(() => {
 
-  }, [dispatch, searchTerm]);
+  // }, [dispatch, searchTerm]);
 
   const onSearch = useCallback( (input: string) => {
     setSearchTerm(input);

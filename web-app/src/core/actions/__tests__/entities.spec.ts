@@ -1,4 +1,4 @@
-import * as Actions from '..';
+import * as Actions from '../entities';
 
 
 jest.mock('../../utils/localStorage'); 

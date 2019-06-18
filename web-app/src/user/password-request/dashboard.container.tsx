@@ -2,7 +2,7 @@ import { connect, MapStateToProps } from 'react-redux';
 import { reduxForm } from 'redux-form'
 import * as actions from '../../core/actions';
 import { FormValues } from '../../core/interfaces';
-import { State } from '../../core/reducers';
+import { State } from '../../core/reducers/index';
 import { Props, ResetPassword } from './dashboard.component';
 
 

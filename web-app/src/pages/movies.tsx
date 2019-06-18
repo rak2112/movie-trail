@@ -26,13 +26,15 @@ export const AllMovies = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    service.getMovies(page).subscribe(
+    const observer = service.getMovies(page).subscribe(
       (res: Movies) => {
         dispatch(actions.loadMoviesSuccess({ ...res, pageNo: page }));
     },
     (error) => {
       dispatch(actions.apiError(error));
     });
+
+    return ()=> observer.unsubscribe();
   }, [dispatch, page]);
 
   const handlePageChange = (pageToCall: number) => {

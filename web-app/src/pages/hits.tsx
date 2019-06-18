@@ -25,13 +25,15 @@ export const Hits = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    service.getHits(page).subscribe(
+    const observer = service.getHits(page).subscribe(
       (res: Movies) => {
         dispatch(actions.loadMoviesSuccess({ ...res, pageNo: page }));
     },
     (error) => {
       dispatch(actions.apiError(error));
     });
+
+    return ()=> observer.unsubscribe();
   }, [dispatch, page]);
 
   const handlePageChange = (pageToCall: number) => {

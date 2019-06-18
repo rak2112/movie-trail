@@ -3,7 +3,7 @@ import React from "react";
 import { create } from 'react-test-renderer';
 import { UserMovieType } from 'src/core/interfaces';
 
-import { UserAction, UserActions } from '..';
+import { UserAction, UserActions } from '../user-actions';
 
 
 describe(`Carousel Component`, () => {

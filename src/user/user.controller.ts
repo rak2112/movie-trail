@@ -11,7 +11,7 @@ import { Db } from 'mongodb';
 export const loginUser = async (options: any) => {
   const { req, user } = options;
   return new Promise((resolve, reject) => {
-    req.logIn(user, (err: Error) => { console.log('has user loggged in????????', user, 'errror', err);
+    req.logIn(user, (err: Error) => {
       if (err) { return reject(err); }
       const { displayName } = user;
       resolve({ displayName });
@@ -21,7 +21,7 @@ export const loginUser = async (options: any) => {
 
 export const authenticateUser = async (req: Request, res: Response, next: NextFunction, strategy = 'basic') => {
   passport.authenticate(strategy, async (err: Error, user: IUserModel, info: IVerifyOptions) => {
-    console.log('userrr', user);
+    
     if (err) { return res.sendStatus(401)}
     if (!user) { return res.sendStatus(401)}
 

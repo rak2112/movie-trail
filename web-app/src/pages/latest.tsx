@@ -31,13 +31,15 @@ export const Latest = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    service.getLatestMovies(page).subscribe(
+    const observer = service.getLatestMovies(page).subscribe(
       (res: Movies) => {
         dispatch(actions.loadMoviesSuccess({ ...res, pageNo: page }));
     },
     (error) => {
       dispatch(actions.apiError(error));
     });
+
+    return ()=> observer.unsubscribe();
   }, [dispatch, page]);
 
   const handlePageChange = (pageToCall: number) => {

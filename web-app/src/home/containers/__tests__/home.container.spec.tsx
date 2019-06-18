@@ -5,7 +5,6 @@ import { create } from 'react-test-renderer';
 import {  Store } from 'redux'
 import configureMockStore from 'redux-mock-store';
 
-import { State } from '../../../core/reducers/index';
 import { defaultState } from '../../../test-mock';
 import ConnectedContainer from '../home.container';
 
@@ -22,14 +21,15 @@ describe(`Home Container`, () => {
       </Provider>
     ).dive();
 
+    const home = component.dive().find('Home');
 
-    expect(component.prop('api')).toEqual({isFetching: true, hasError: false});
-    expect(component.prop('genres')).toEqual([{ id: 2, name: 'Action' }]);
+    expect(home.prop('api')).toEqual({isFetching: true, hasError: false});
+    expect(home.prop('genres')).toEqual([{ id: 2, name: 'Action' }]);
 
-    const loadGenres: ()=>void = component.prop('loadGenres');
+    const loadGenres: ()=>void = home.prop('loadGenres');
     expect(loadGenres()).toEqual({ type: '[movieBase] load genres'});
 
-    const loadMovies: (pageNo: number)=>void = component.prop('loadMovies');
+    const loadMovies: (pageNo: number)=>void = home.prop('loadMovies');
     expect(loadMovies(2)).toEqual({ pageNo: 2, type: '[movieBase] load all movies'});
   });
 

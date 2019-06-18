@@ -44,7 +44,7 @@ const styles = {
 export const SearchBar = ({ onSearch }: any) => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const handleChange = (evt: any): void => { console.log('evttt', evt.target.value);
+  const handleChange = (evt: any): void => {
     evt.preventDefault();
     setSearchTerm(evt.target.value);
     onSearch(evt.target.value);
@@ -66,3 +66,5 @@ export const SearchBar = ({ onSearch }: any) => {
       onMouseLeave={handleFocus}/>
   )
 }
+
+SearchBar.displayName = 'SearchBar';

@@ -1,10 +1,15 @@
 import React from "react";
-import { StaticRouter } from 'react-router'
+import { Provider } from 'react-redux';
+import configureMockStore from 'redux-mock-store';
+
+import { StaticRouter } from 'react-router-dom'
 import { create } from 'react-test-renderer';
 
 import { GenresMap, Movie, UserMovieMap } from '../../interfaces';
 import { MovieComponent } from '../movie';
 
+
+import { defaultState } from '../../../test-mock';
 
 // jest.mock('../../utils/util-service');
 // const util = require('../../utils/util-service');
@@ -34,19 +39,25 @@ const props = {
   } as UserMovieMap
 };
 
+let initialState;
+let store: any;
 describe(`MovieComponent`, () => {
   
 
   beforeEach(() => {
-    // util.getUuid.mockReturnValue('uId');
+    initialState = defaultState;
+    store = configureMockStore()(initialState);
   });
 
   it(`should match the snapshot with given inputs`, () => {
     const context = {};
     const component = create(
-      <StaticRouter location="someLocation" context={context}>
-        <MovieComponent {...props}/>
-      </StaticRouter>
+      <Provider store={store}>
+        <StaticRouter location="someLocation" context={context}>
+          <MovieComponent {...props}/>
+        </StaticRouter>
+      </Provider>
+      
     ).toJSON();
 
     expect(component).toMatchSnapshot();

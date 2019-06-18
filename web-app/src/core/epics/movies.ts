@@ -117,7 +117,7 @@ export const addMovie = (actions$: any, state$: any) => actions$.pipe (
   withLatestFrom(state$),
   switchMap(([{ movie }, { user }]) => {
     return service.addMovieCollection(movie).pipe(
-      map(( {id}: {id: string}) => { console.log('movie added!!!!!!!!!!', id)
+      map(( {id}: {id: string}) => {
         const newUserState = JSON.parse(JSON.stringify(user));
         newUserState.movies.push({...movie, _id: id});
         service.saveState('user', newUserState);

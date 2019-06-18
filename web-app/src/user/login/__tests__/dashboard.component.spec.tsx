@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 import { Provider } from 'react-redux';
-import { MemoryRouter, Route } from 'react-router';
+import { MemoryRouter, Route } from 'react-router-dom';
 import { create } from 'react-test-renderer';
 import { combineReducers, createStore, Store } from 'redux'
 import { reducer as form, reduxForm  } from 'redux-form'

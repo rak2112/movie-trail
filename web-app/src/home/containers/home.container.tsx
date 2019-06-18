@@ -18,7 +18,7 @@ interface Props {
 const Home = (props: Props) => <HomeComponent {...props}/>
 
 const mapStateToProps: MapStateToProps <any, any, any> = (state) => {
-  const props = getPosterProps(state)
+  const props = getPosterProps(state);
   return { ...props };
 };
 

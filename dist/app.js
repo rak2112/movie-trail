@@ -27,6 +27,7 @@ const restRouter_1 = require("./restRouter");
 const MongoStore = connect_mongo_1.default(express_session_1.default);
 const app = express_1.default();
 const mongoUrl = secrets_1.MONGODB_URI;
+console.log('mongourl', mongoUrl);
 mongoose_1.default.Promise = global.Promise;
 (function () {
     return __awaiter(this, void 0, void 0, function* () {
@@ -66,6 +67,7 @@ app.use((req, res, next) => {
 app.use('/api', restRouter_1.restRouter);
 dotenv_1.default.config({ path: '.env.variables' });
 if (['production', 'CI'].includes(process.env.NODE_ENV)) {
+    console.log('where aam  i');
     app.use(express_1.default.static('web-app/build'));
     const path = require('path');
     app.get('*', (req, res) => {

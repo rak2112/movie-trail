@@ -119,7 +119,7 @@ exports[`Profile Container should render with data provided 1`] = `
                 onClick={[Function]}
               >
                 <img
-                  alt=""
+                  alt="main image"
                   src="https://image.tmdb.org/t/p/w500path "
                 />
               </a>
@@ -148,10 +148,10 @@ exports[`Profile Container should render with data provided 1`] = `
                   <a
                     className="remove-from-favorites"
                     onClick={[Function]}
-                    title="Remove From Favorites"
+                    title="Add remove From Favorites"
                   >
                     <span
-                      className="glyphicon glyphicon-heart"
+                      className="glyphicon glyphicon-heart  "
                     />
                   </a>
                 </div>
@@ -197,7 +197,7 @@ exports[`Profile Container should render with data provided 1`] = `
                 onClick={[Function]}
               >
                 <img
-                  alt=""
+                  alt="main image"
                   src="https://image.tmdb.org/t/p/w500path "
                 />
               </a>
@@ -226,10 +226,10 @@ exports[`Profile Container should render with data provided 1`] = `
                   <a
                     className="remove-from-watchlist"
                     onClick={[Function]}
-                    title="Remove From List"
+                    title="Add remove From watch list"
                   >
                     <span
-                      className="glyphicon glyphicon-bookmark"
+                      className="glyphicon glyphicon-bookmark  "
                     />
                   </a>
                 </div>

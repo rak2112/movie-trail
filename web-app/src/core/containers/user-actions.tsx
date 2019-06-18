@@ -4,9 +4,10 @@ import { connect, MapStateToProps } from 'react-redux';
 
 import { find } from 'lodash';
 import { addMovie, deleteMovie } from '../../core/actions';
-import { AddRemoveFavorite, AddRemoveWatchList } from '../../core/components';
+import { AddRemoveFavorite } from '../../core/components/addRemoveFavs';
+import { AddRemoveWatchList } from '../../core/components/addRemoveWatchList';
 import { State } from '../../core/reducers/index';
-import { getUserActionProps } from '../../core/selectors';
+import { getUserActionProps } from '../../core/selectors/index';
 import { GenresMap, Movie, User, UserMovie, UserMovieMap,  } from '../interfaces';
 
 const Container = styled('div')`
@@ -74,7 +75,7 @@ export const UserActions = ({profileView, user, userView, movie, favorites, watc
 
   const addRemoveFavorites = useCallback(() => {
     setFavorite((fav: boolean) => !fav);
-    console.log('favsssssss nwwww', favorite)
+    
     if (!favorite) {
       props.addMovie({...movie, movieType: 'FAVORITE'});
     }

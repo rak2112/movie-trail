@@ -4,18 +4,19 @@ import { Redirect, Route, Router, Switch } from 'react-router-dom';
 
 import { createBrowserHistory } from 'history'
 
-import Home from '../../home/containers/home.container';
+// import Home from '../../home/containers/home.container';
 import Details from '../../movie-details/dashboard.container';
 import Login from '../../user/login/dashboard.container';
 import PasswordRest from '../../user/password-request/dashboard.container';
 import Profile from '../../user/profile/container';
 import SignUp from '../../user/sign-up/dashboard.container';
 
-
-import { AllMovies, Hits, Latest, MovieDetails, UpComing } from '../../pages';
-
-import { MoviesComponent } from '../../core/containers/movies';
-
+import { MovieDetails } from '../../pages/details';
+import { Hits } from '../../pages/hits';
+import { Home } from '../../pages/home';
+import { Latest } from '../../pages/latest';
+import { AllMovies } from '../../pages/movies';
+import { UpComing } from '../../pages/upComing';
 
 
 export const history = createBrowserHistory()

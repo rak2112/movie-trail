@@ -52,7 +52,7 @@ Array [
                 onClick={[Function]}
             >
                 <img
-                    alt=""
+                    alt="main image"
                     src="https://image.tmdb.org/t/p/w500path "
                 />
             </a>
@@ -78,24 +78,6 @@ Array [
                         />
                         2019
                     </span>
-                    <a
-                        className="add-to-favorites"
-                        onClick={[Function]}
-                        title="Add to Favorites"
-                    >
-                        <span
-                            className="glyphicon glyphicon-heart add-to-list"
-                        />
-                    </a>
-                    <a
-                        className="add-to-watchlist"
-                        onClick={[Function]}
-                        title="Add to List"
-                    >
-                        <span
-                            className="glyphicon glyphicon-bookmark add-to-list"
-                        />
-                    </a>
                 </div>
             </div>
             <div
@@ -131,7 +113,7 @@ Array [
                 onClick={[Function]}
             >
                 <img
-                    alt=""
+                    alt="main image"
                     src="https://image.tmdb.org/t/p/w500path "
                 />
             </a>
@@ -157,24 +139,6 @@ Array [
                         />
                         2019
                     </span>
-                    <a
-                        className="add-to-favorites"
-                        onClick={[Function]}
-                        title="Add to Favorites"
-                    >
-                        <span
-                            className="glyphicon glyphicon-heart add-to-list"
-                        />
-                    </a>
-                    <a
-                        className="add-to-watchlist"
-                        onClick={[Function]}
-                        title="Add to List"
-                    >
-                        <span
-                            className="glyphicon glyphicon-bookmark add-to-list"
-                        />
-                    </a>
                 </div>
             </div>
             <div

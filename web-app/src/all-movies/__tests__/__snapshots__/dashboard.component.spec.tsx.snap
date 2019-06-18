@@ -38,7 +38,7 @@ Array [
                 onClick={[Function]}
             >
                 <img
-                    alt=""
+                    alt="main image"
                     src="https://image.tmdb.org/t/p/w500path "
                 />
             </a>
@@ -67,19 +67,19 @@ Array [
                     <a
                         className="remove-from-favorites"
                         onClick={[Function]}
-                        title="Remove From Favorites"
+                        title="Add remove From Favorites"
                     >
                         <span
-                            className="glyphicon glyphicon-heart"
+                            className="glyphicon glyphicon-heart  "
                         />
                     </a>
                     <a
-                        className="add-to-watchlist"
+                        className="remove-from-watchlist"
                         onClick={[Function]}
-                        title="Add to List"
+                        title="Add remove From watch list"
                     >
                         <span
-                            className="glyphicon glyphicon-bookmark add-to-list"
+                            className="glyphicon glyphicon-bookmark add-to-list "
                         />
                     </a>
                 </div>
@@ -112,7 +112,7 @@ Array [
                 onClick={[Function]}
             >
                 <img
-                    alt=""
+                    alt="main image"
                     src="https://image.tmdb.org/t/p/w500path "
                 />
             </a>
@@ -139,21 +139,21 @@ Array [
                         2019
                     </span>
                     <a
-                        className="add-to-favorites"
+                        className="remove-from-favorites"
                         onClick={[Function]}
-                        title="Add to Favorites"
+                        title="Add remove From Favorites"
                     >
                         <span
-                            className="glyphicon glyphicon-heart add-to-list"
+                            className="glyphicon glyphicon-heart add-to-list "
                         />
                     </a>
                     <a
-                        className="add-to-watchlist"
+                        className="remove-from-watchlist"
                         onClick={[Function]}
-                        title="Add to List"
+                        title="Add remove From watch list"
                     >
                         <span
-                            className="glyphicon glyphicon-bookmark add-to-list"
+                            className="glyphicon glyphicon-bookmark add-to-list "
                         />
                     </a>
                 </div>

@@ -1,7 +1,7 @@
 import { reduxForm } from 'redux-form'
 import * as actions from '../../core/actions';
-import { FormValues } from '../../core/interfaces';
-import * as service from '../../core/utils';
+import { FormValues } from '../../core/interfaces/index';
+import * as service from '../../core/utils/util-service';
 import { Props, SignUpComponent } from './dashboard.component';
 
 
