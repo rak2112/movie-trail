@@ -20,7 +20,7 @@ else {
 let redisCaache: any = mongoose.Query.prototype; // :TODO typed error workaround, needs to be fixed!
 
 // mongoose.Query.prototype.cache = fn();
-redisCaache.cache = function(options = {key: ''} ) {
+redisCaache.cache = function(options: any = {key: ''} ) {
   this.useCache = true;
   this.hashKey = JSON.stringify(options.key);
   return this;
