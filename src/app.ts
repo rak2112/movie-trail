@@ -21,7 +21,6 @@ const mongoUrl = MONGODB_URI;
  ( async function() {
   try {
     await mongoose.connect(mongoUrl, {useMongoClient: true});
-    console.log('connected to mongodb');
   }
   catch(err) {
     console.log('MongoDB connection error. Please make sure MongoDB is running. ', err);
