@@ -15,25 +15,19 @@ exports[`Carousel Component should match snapshot 1`] = `
     <img
       alt="movie thumbnail 0"
       className="thumbnail movie"
-      data-index={0}
-      onClick={[Function]}
-      src="https://image.tmdb.org/t/p/w45/path/1"
+      src="loader.gif"
       style={undefined}
     />
     <img
       alt="movie thumbnail 1"
       className="active thumbnail movie"
-      data-index={1}
-      onClick={[Function]}
-      src="https://image.tmdb.org/t/p/w45/path/2"
+      src="loader.gif"
       style={undefined}
     />
     <img
       alt="movie thumbnail 2"
       className="thumbnail movie"
-      data-index={2}
-      onClick={[Function]}
-      src="https://image.tmdb.org/t/p/w45/path/3"
+      src="loader.gif"
       style={undefined}
     />
   </div>

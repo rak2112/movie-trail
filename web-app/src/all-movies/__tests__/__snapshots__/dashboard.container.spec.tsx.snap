@@ -22,210 +22,210 @@ Array [
     onMouseLeave={[Function]}
     placeholder="Search Movies"
     style={
-        Object {
-            "background": "#fff",
-            "borderRaidus": 0,
-            "height": "45px",
-          }
+      Object {
+        "background": "#fff",
+        "borderRaidus": 0,
+        "height": "45px",
+      }
     }
     type="text"
     value=""
-/>,
+  />,
   <div
     className="css-5zmk01"
->
+  >
     <div
-        className="css-182pldt"
+      className="css-182pldt"
     >
-        <div
-            className="Toastify"
-        />
+      <div
+        className="Toastify"
+      />
     </div>
     <div
-        className="css-h5tpbd"
+      className="css-h5tpbd"
     >
-        <div
-            className="css-bxd89m"
+      <div
+        className="css-bxd89m"
+      >
+        <a
+          href="/movie-details/2"
+          onClick={[Function]}
         >
-            <a
-                href="/movie-details/2"
-                onClick={[Function]}
+          <img
+            alt="main image"
+            src="https://image.tmdb.org/t/p/w500path "
+          />
+        </a>
+        <div
+          className="css-1nkcf6k"
+        >
+          <div
+            className="user-actions"
+          >
+            <span
+              className="rating"
             >
-                <img
-                    alt="main image"
-                    src="https://image.tmdb.org/t/p/w500path "
-                />
-            </a>
-            <div
-                className="css-1nkcf6k"
+              vote_avg
+              <span
+                className="glyphicon glyphicon-star"
+              />
+            </span>
+            <span
+              className="year"
             >
-                <div
-                    className="user-actions"
-                >
-                    <span
-                        className="rating"
-                    >
-                        vote_avg
-                        <span
-                            className="glyphicon glyphicon-star"
-                        />
-                    </span>
-                    <span
-                        className="year"
-                    >
-                        <span
-                            className="glyphicon glyphicon-calendar"
-                        />
-                        2019
-                    </span>
-                </div>
-            </div>
-            <div
-                className="css-1w2z22x"
-            >
-                <h3>
-                    title
-                </h3>
-                <span
-                    className="genre"
-                >
-                    Action
-                </span>
-                <p>
-                    <a
-                        href="/movie-details/2"
-                        onClick={[Function]}
-                    >
-                        View Details
-                    </a>
-                </p>
-            </div>
+              <span
+                className="glyphicon glyphicon-calendar"
+              />
+              2019
+            </span>
+          </div>
         </div>
+        <div
+          className="css-1w2z22x"
+        >
+          <h3>
+            title
+          </h3>
+          <span
+            className="genre"
+          >
+            Action
+          </span>
+          <p>
+            <a
+              href="/movie-details/2"
+              onClick={[Function]}
+            >
+              View Details
+            </a>
+          </p>
+        </div>
+      </div>
     </div>
     <div
-        className="css-h5tpbd"
+      className="css-h5tpbd"
     >
-        <div
-            className="css-bxd89m"
+      <div
+        className="css-bxd89m"
+      >
+        <a
+          href="/movie-details/3"
+          onClick={[Function]}
         >
-            <a
-                href="/movie-details/3"
-                onClick={[Function]}
+          <img
+            alt="main image"
+            src="https://image.tmdb.org/t/p/w500path "
+          />
+        </a>
+        <div
+          className="css-1nkcf6k"
+        >
+          <div
+            className="user-actions"
+          >
+            <span
+              className="rating"
             >
-                <img
-                    alt="main image"
-                    src="https://image.tmdb.org/t/p/w500path "
-                />
-            </a>
-            <div
-                className="css-1nkcf6k"
+              vote_avg
+              <span
+                className="glyphicon glyphicon-star"
+              />
+            </span>
+            <span
+              className="year"
             >
-                <div
-                    className="user-actions"
-                >
-                    <span
-                        className="rating"
-                    >
-                        vote_avg
-                        <span
-                            className="glyphicon glyphicon-star"
-                        />
-                    </span>
-                    <span
-                        className="year"
-                    >
-                        <span
-                            className="glyphicon glyphicon-calendar"
-                        />
-                        2019
-                    </span>
-                </div>
-            </div>
-            <div
-                className="css-1w2z22x"
-            >
-                <h3>
-                    title
-                </h3>
-                <span
-                    className="genre"
-                >
-                    Action
-                </span>
-                <p>
-                    <a
-                        href="/movie-details/3"
-                        onClick={[Function]}
-                    >
-                        View Details
-                    </a>
-                </p>
-            </div>
+              <span
+                className="glyphicon glyphicon-calendar"
+              />
+              2019
+            </span>
+          </div>
         </div>
+        <div
+          className="css-1w2z22x"
+        >
+          <h3>
+            title
+          </h3>
+          <span
+            className="genre"
+          >
+            Action
+          </span>
+          <p>
+            <a
+              href="/movie-details/3"
+              onClick={[Function]}
+            >
+              View Details
+            </a>
+          </p>
+        </div>
+      </div>
     </div>
     <footer
-        className="css-dpqy78"
+      className="css-dpqy78"
     >
-        <ul
-            className="pagination"
+      <ul
+        className="pagination"
+      >
+        <li
+          className="disabled"
+          onClick={[Function]}
         >
-            <li
-                className="disabled"
-                onClick={[Function]}
-            >
-                <a
-                    className=""
-                    href="#"
-                >
-                    «
-                </a>
-            </li>
-            <li
-                className="disabled"
-                onClick={[Function]}
-            >
-                <a
-                    className=""
-                    href="#"
-                >
-                    ⟨
-                </a>
-            </li>
-            <li
-                className="active"
-                onClick={[Function]}
-            >
-                <a
-                    className="undefined"
-                    href="#"
-                >
-                    1
-                </a>
-            </li>
-            <li
-                className="disabled"
-                onClick={[Function]}
-            >
-                <a
-                    className=""
-                    href="#"
-                >
-                    ⟩
-                </a>
-            </li>
-            <li
-                className="disabled"
-                onClick={[Function]}
-            >
-                <a
-                    className=""
-                    href="#"
-                >
-                    »
-                </a>
-            </li>
-        </ul>
+          <a
+            className=""
+            href="#"
+          >
+            «
+          </a>
+        </li>
+        <li
+          className="disabled"
+          onClick={[Function]}
+        >
+          <a
+            className=""
+            href="#"
+          >
+            ⟨
+          </a>
+        </li>
+        <li
+          className="active"
+          onClick={[Function]}
+        >
+          <a
+            className="undefined"
+            href="#"
+          >
+            1
+          </a>
+        </li>
+        <li
+          className="disabled"
+          onClick={[Function]}
+        >
+          <a
+            className=""
+            href="#"
+          >
+            ⟩
+          </a>
+        </li>
+        <li
+          className="disabled"
+          onClick={[Function]}
+        >
+          <a
+            className=""
+            href="#"
+          >
+            »
+          </a>
+        </li>
+      </ul>
     </footer>
-</div>,
+  </div>,
 ]
 `;
