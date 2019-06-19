@@ -26,7 +26,6 @@ class FavMoviesController {
                 res.sendStatus(201);
             }
             catch (err) {
-                console.log('error adding user favorite movie', err);
                 res.end();
             }
         });
