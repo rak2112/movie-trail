@@ -31,7 +31,7 @@
     "@types/jasmine": "^2.8.11",
     "@types/passport-facebook": "^2.1.9",
     "@types/redis": "^2.8.6",
-    "async": "^2.6.0",
+    "async": "^3.2.2",
     "atob": "^2.1.2",
     "aws-sdk": "^2.188.0",
     "bcrypt-nodejs": "^0.0.3",
